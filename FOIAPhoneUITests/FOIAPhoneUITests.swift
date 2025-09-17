@@ -6,6 +6,7 @@
 //
 
 import XCTest
+ 
 
 final class FOIAPhoneUITests: XCTestCase {
 
@@ -23,12 +24,24 @@ final class FOIAPhoneUITests: XCTestCase {
     }
 
     @MainActor
-    func testExample() throws {
+    func testSplashScreenText() throws {
         // UI tests must launch the application that they test.
         let app = XCUIApplication()
         app.launch()
+   
+        XCTAssertTrue(app.staticTexts["\nFOIA\nPhone"].exists)
+
 
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+    }
+    
+    @MainActor
+    func testSplashScreenImage() throws {
+        let app = XCUIApplication()
+        app.launch()
+        XCTAssertTrue(app.images["app-logo"].exists)
+
+        
     }
 
     @MainActor

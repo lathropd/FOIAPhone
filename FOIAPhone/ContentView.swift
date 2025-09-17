@@ -8,12 +8,18 @@
 import SwiftUI
 
 struct ContentView: View {
+    var appDisplayName = Text("\nFOIA\nPhone")
+        .font(.largeTitle)
+    
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image("app-logo")
+                .resizable()
+                .scaledToFit()
+                .rotationEffect(Angle(degrees: -30))
+            Text("\nFOIA\nPhone")
+                .font(.largeTitle)
         }
         .padding()
     }
