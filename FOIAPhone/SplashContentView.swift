@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct SplashContentView: View {
     var appDisplayName = Text("\nFOIA\nPhone")
         .font(.largeTitle)
     
@@ -18,6 +18,7 @@ struct ContentView: View {
                 .resizable()
                 .scaledToFit()
                 .rotationEffect(Angle(degrees: -30))
+                .padding()
             Text("\nFOIA\nPhone")
                 .font(.largeTitle)
         }
@@ -26,5 +27,5 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    SplashContentView()
 }
