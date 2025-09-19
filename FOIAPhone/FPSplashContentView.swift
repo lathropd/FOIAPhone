@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct SplashContentView: View {
+struct FPSplashContentView: View {
     var appDisplayName = Text("\nFOIA\nPhone")
         .font(.largeTitle)
     
@@ -18,14 +18,23 @@ struct SplashContentView: View {
                 .resizable()
                 .scaledToFit()
                 .rotationEffect(Angle(degrees: -30))
-                .padding()
+
             Text("\nFOIA\nPhone")
                 .font(.largeTitle)
+                .scaleEffect(1.6)
+            
+            ProgressView(value: 0.5)
+                .progressViewStyle(.circular)
+                .padding(EdgeInsets(top: 30, leading: 60,bottom: 10, trailing: 60))
+                .scaleEffect(4.0 )
+                .accessibilityIdentifier("Loading")
+            
+            
         }
         .padding()
     }
 }
 
 #Preview {
-    SplashContentView()
+    FPSplashContentView()
 }
