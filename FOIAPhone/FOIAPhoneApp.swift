@@ -11,7 +11,7 @@ import SwiftUI
 struct FOIAPhoneApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            FPSplashContentView()
         }
     }
 }

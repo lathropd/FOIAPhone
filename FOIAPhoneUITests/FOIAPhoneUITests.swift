@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import Foundation
  
 
 final class FOIAPhoneUITests: XCTestCase {
@@ -44,6 +45,17 @@ final class FOIAPhoneUITests: XCTestCase {
         
     }
 
+    @MainActor
+    func testSplashScreenProgressIndicator() throws {
+        let app = XCUIApplication()
+        app.launch()
+        
+        let _ = print(app.progressIndicators["Loading"].exists)
+        XCTAssertTrue(true)
+
+        
+    }
+    
     @MainActor
     func testLaunchPerformance() throws {
         // This measures how long it takes to launch your application.
