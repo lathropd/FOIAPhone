@@ -1,0 +1,37 @@
+{
+  "configurations" : [
+    {
+      "id" : "C2C31A80-9686-4523-8B63-6726F065CA26",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FOIAPhone.xcodeproj",
+      "identifier" : "8CD5692B2E7B3B1C00E17A7B",
+      "name" : "FOIAPhone"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FOIAPhone.xcodeproj",
+        "identifier" : "8CD569382E7B3B1E00E17A7B",
+        "name" : "FOIAPhoneTests"
+      }
+    },
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FOIAPhone.xcodeproj",
+        "identifier" : "8CD569422E7B3B1E00E17A7B",
+        "name" : "FOIAPhoneUITests"
+      }
+    }
+  ],
+  "version" : 1
+}
