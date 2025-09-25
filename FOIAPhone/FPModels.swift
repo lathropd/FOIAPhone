@@ -38,8 +38,8 @@ private func slugify(_ text: String) -> String {
 //generateSharingCode()
 //Generate a new sharing code. This method would also typically save to a database.
 private func generateSharingCode() -> String {
-    var letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    var sharingCode = String((0..<12).map { _ in letters.randomElement()! })
+    let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+    let sharingCode = String((0..<12).map { _ in letters.randomElement()! })
     return sharingCode
 }
 
@@ -74,7 +74,7 @@ enum FPRequestStatus: String, CaseIterable, Codable {
 //// it's not terrible and it gives us the ability to serialize/deserialize
 //// fro, JSON
 ////
-protocol FPModel {
+protocol FPModel: Identifiable {
     var id: UUID { get }                // UUIDs instead of integers.
     
 }
@@ -286,7 +286,7 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
         
         self.dateCreated = dateCreated ?? Date()
         self.status = .started
-        self.slug = slug ?? slugify(self.title)
+        self.slug = slug ?? slugify(title)
         self.sharingCode = sharingCode ?? generateSharingCode()
 
     }
@@ -300,10 +300,8 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
         self.agency = FPAgency(id: UUID())
         self.dateCreated = Date()
         self.status = .started
-        self.slug = slugify(self.title)
         self.sharingCode = generateSharingCode()
-        
-        
+        self.slug = ""
         
     }
     
