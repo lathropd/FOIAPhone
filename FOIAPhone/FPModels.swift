@@ -104,13 +104,13 @@ class FPUser: FPModel {
         self.profile = profile ?? FPUserProfile()
     }
     
-    init(id: UUID) {
-        self.id = UUID()
-        self.lastName = "lastName"
-        self.firstName = "firstName"
-        self.userName = "userName"
-        self.profile = FPUserProfile()
-    }
+//    init(id: UUID) {
+//        self.id = UUID()
+//        self.lastName = "lastName"
+//        self.firstName = "firstName"
+//        self.userName = "userName"
+//        self.profile = FPUserProfile()
+//    }
 
 }
 
@@ -123,9 +123,9 @@ class FPUserProfile: FPModel {
         self.id = UUID()
     }
     
-    init(id: UUID) {
-        self.id = id
-    }
+//    init(id: UUID) {
+//        self.id = id
+//    }
 }
 
 
@@ -146,13 +146,13 @@ class FPJurisdiction: FPModel {
         self.parent = parent
     }
     
-    init(id: UUID) {
-        self.id = id
-        self.name = "Generic Juridiction"
-        self.days = 30
-        self.parent = nil
-    }
-    
+//    init(id: UUID) {
+//        self.id = id
+//        self.name = "Generic Juridiction"
+//        self.days = 30
+//        self.parent = nil
+//    }
+//    
 
     
 }
@@ -170,11 +170,11 @@ class FPAgency: FPModel {
         self.jurisdiction = jurisdiction
     }
     
-    init(id: UUID) {
-        self.id = id
-        self.name = "Generic Agency"
-        self.jurisdiction = FPJurisdiction(id: UUID())
-    }
+//    init(id: UUID) {
+//        self.id = id
+//        self.name = "Generic Agency"
+//        self.jurisdiction = FPJurisdiction(id: UUID())
+//    }
 }
 
 /// A FOIA Machine Communication stores information about an exchange between a user and an agency.
@@ -202,16 +202,16 @@ class FPCommunication: FPModel {
         self.received = received
     }
     
-    init(id: UUID) {
-        self.id = id
-        self.sender = ["me@mydomain.tld", "somebody@somedomain.tld"].randomElement()!
-        self.receiver = ["foia-officer@fictional.gov", "pio@some-city.ia.us",
-                         "spox@someagency.org"].randomElement()!
-        self.subject = "Re: Records please"
-        self.message = "Generic record request message"
-        self.date = Date()
-        self.received = [true, false].randomElement()!
-    }
+//    init(id: UUID) {
+//        self.id = id
+//        self.sender = ["me@mydomain.tld", "somebody@somedomain.tld"].randomElement()!
+//        self.receiver = ["foia-officer@fictional.gov", "pio@some-city.ia.us",
+//                         "spox@someagency.org"].randomElement()!
+//        self.subject = "Re: Records please"
+//        self.message = "Generic record request message"
+//        self.date = Date()
+//        self.received = [true, false].randomElement()!
+//    }
 }
 
 /// A FOIA Machine File stores files that are created in the course of fulfilling a request.
@@ -235,14 +235,14 @@ class FPFile: FPModel {
         self.dateAdded = Date()
     }
     
-    init(id: UUID) {
-        self.id = id
-        self.fileURL = URL(fileURLWithPath: "https://file-url.org/some/filename")
-        self.name = "filename.pdf"
-        self.comment = "Some comment"
-        self.dateAdded = Date()
-    }
-    
+//    init(id: UUID) {
+//        self.id = id
+//        self.fileURL = URL(fileURLWithPath: "https://file-url.org/some/filename")
+//        self.name = "filename.pdf"
+//        self.comment = "Some comment"
+//        self.dateAdded = Date()
+//    }
+//    
     
 }
 
@@ -276,13 +276,13 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
     // MARK: - Initializer
     
     /// Designated initializer for a new FOIA request.
-    init(id: UUID?, user: FPUser, title: String, requestLanguage: String?, jurisdiction: FPJurisdiction?, agency: FPAgency?, dateCreated: Date?, status: FPRequestStatus?, sharingCode: String?, slug: String?) {
+    init(id: UUID?, user: FPUser, title: String, requestLanguage: String?, jurisdiction: FPJurisdiction, agency: FPAgency, dateCreated: Date?, status: FPRequestStatus?, sharingCode: String?, slug: String?) {
         self.id = id ?? UUID()
         self.user = user
         self.title = title
         self.requestLanguage = requestLanguage ?? "English"
-        self.jurisdiction = jurisdiction ?? FPJurisdiction(id: UUID())
-        self.agency = agency ?? FPAgency(id: UUID())
+        self.jurisdiction = jurisdiction
+        self.agency = agency
         
         self.dateCreated = dateCreated ?? Date()
         self.status = .started
@@ -291,20 +291,20 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
 
     }
     
-    init(id: UUID) {
-        self.id = id
-        self.user = FPUser(id: UUID())
-        self.title = "Generic Request"
-        self.requestLanguage = "English"
-        self.jurisdiction = FPJurisdiction(id: UUID())
-        self.agency = FPAgency(id: UUID())
-        self.dateCreated = Date()
-        self.status = .started
-        self.sharingCode = generateSharingCode()
-        self.slug = ""
-        
-    }
-    
+//    init(id: UUID) {
+//        self.id = id
+//        self.user = FPUser(id: UUID())
+//        self.title = "Generic Request"
+//        self.requestLanguage = "English"
+//        self.jurisdiction = FPJurisdiction(id: UUID())
+//        self.agency = FPAgency(id: UUID())
+//        self.dateCreated = Date()
+//        self.status = .started
+//        self.sharingCode = generateSharingCode()
+//        self.slug = ""
+//        
+//    }
+//    
 
 
     // MARK: - Methods
