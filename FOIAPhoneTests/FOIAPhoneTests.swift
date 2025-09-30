@@ -6,12 +6,40 @@
 //
 
 import Testing
+import Foundation
 @testable import FOIAPhone
 
 struct FOIAPhoneTests {
-
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    
+    
+    @Test("Check slugify() results")
+    func testSlugifyString() {
+        
+        
+        #expect(false) // need to write this test
     }
-
+    
+    
+    @Test("Check generateSharingCode() results")
+    func testGenerateSharingCode() {
+        
+        #expect(false) // need to write this test
+        
+    }
+    
+    
+    @Test("Check sampleData validity")
+    func testSampleDataValidity() {
+        
+        #expect(false) // need to write this test
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
 }

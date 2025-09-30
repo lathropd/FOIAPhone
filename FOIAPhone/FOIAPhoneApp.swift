@@ -7,11 +7,25 @@
 
 import SwiftUI
 
+enum AppView {
+    case loading
+    case nav
+    case settings
+}
+
 @main
 struct FOIAPhoneApp: App {
+    @State var activeView: AppView = .nav
+    
+    
     var body: some Scene {
         WindowGroup {
             FPSplashContentView()
+            
+            
         }
     }
 }
+
+
+

@@ -9,45 +9,58 @@ import SwiftUI
 import SwiftData
 
 struct FPMainNavView: View {
-    @Query private var items: [FPRecordRequest] // Fetch SwiftData objects
+    @Query(sort: \FPRecordRequest.dateCreated, order: .reverse) private var items: [FPRecordRequest] // Fetch SwiftData objects
     @State private var selectedItem: FPRecordRequest? // Track selected item
-
-
-
+    
+    
     var body: some View {
-                NavigationSplitView {
-                    List(selection: $selectedItem) { // Sidebar list
-                        ForEach(items) { item in
-                            NavigationLink(value: item) {
-                                Text(item.title)
-                            }
+        
+        VStack {
+            NavigationSplitView {
+                List(items, selection: $selectedItem)
+                {item in
+                    NavigationLink(value: item) {
+                        VStack(alignment: .leading){
+                            Text(item.dateCreated.ISO8601Format())
+                            
+                            Text("Status: \(item.status)" )
+                            Text(item.title)
+                            
+                            
                         }
                     }
-                    .navigationTitle("Records Requests")
-                } detail: {
-                        FPRecordDetailView(selectedItem: selectedItem)
+                    
+                    
+                    
                 }
+                
+                .navigationTitle("Records Requests")
+                .listStyle(.plain)
+            } detail: {
+                //                    Text(selectedItem?.title ?? "Error")
+                FPRecordDetailView(selectedItem: selectedItem)
+                
             }
-    
-    }
+            HStack(alignment: .center) {
+                Text("FOIAPhone")
+                    .padding()
+                Spacer()
+                Button {
+                    print("New Button was tapped")
+                } label: {
+                    Label("New request", systemImage: "plus")
 
+                }
+                .padding()
+            }
+            .padding()
+        }
+        
+    }
+}
 
 #Preview {
     FPMainNavView()
         .modelContainer(FPSampleData.shared.modelContainer)
 }
-
-
-struct FPRecordDetailView: View {
-    @State var selectedItem: FPRecordRequest? // Track selected item
-
-    var body: some View {
-        if let selectedItem { // Detail view for selected item
-            Text(selectedItem.title)
-        } else {
-            ContentUnavailableView("Select an Item", systemImage: "list.bullet.rectangle.portrait")
-        }    }
-    
-}
-
 

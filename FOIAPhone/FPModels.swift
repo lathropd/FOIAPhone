@@ -96,7 +96,7 @@ class FPUser: FPModel {
                                 // FOIAMachine backend. It's only that way
                                 // because of the Django authorization library.
     
-    init(id: UUID?, lastName: String, firstName: String, userName: String, profile: FPUserProfile?) {
+    init(id: UUID? = nil, lastName: String, firstName: String, userName: String, profile: FPUserProfile?) {
         self.id = id ?? UUID()
         self.lastName = lastName
         self.firstName = firstName
@@ -119,8 +119,8 @@ class FPUserProfile: FPModel {
     var id: UUID
     // nothing here for now
     
-    init() {
-        self.id = UUID()
+    init(id: UUID? = nil) {
+        self.id = id ?? UUID()
     }
     
 //    init(id: UUID) {
@@ -135,11 +135,11 @@ class FPUserProfile: FPModel {
 class FPJurisdiction: FPModel {
     var id: UUID
     var name: String
-    var parent: UUID?
+    var parent: FPJurisdiction?
 //    var muckRockID: String? // optional MuckRock id since muckrock uses integers
     var days: Int? // Optional number of days for response.
     
-    init(id: UUID?, name: String, days: Int?, parent: UUID? = nil) {
+    init(id: UUID? = nil, name: String, days: Int? = nil, parent: FPJurisdiction? = nil) {
         self.id = id ?? UUID()
         self.name = name
         self.days = days
@@ -164,7 +164,7 @@ class FPAgency: FPModel {
     var name: String
     var jurisdiction: FPJurisdiction
     
-    init(id: UUID?, name: String, jurisdiction: FPJurisdiction) {
+    init(id: UUID? = nil, name: String, jurisdiction: FPJurisdiction) {
         self.id = id ?? UUID()
         self.name = name
         self.jurisdiction = jurisdiction
@@ -192,7 +192,7 @@ class FPCommunication: FPModel {
     // For this example, we'll make it optional.
     weak var request: FPRecordRequest?
     
-    init(id: UUID?, sender: String, receiver: String, subject: String?, message: String, date: Date, received: Bool) {
+    init(id: UUID?  = nil, sender: String, receiver: String, subject: String?, message: String, date: Date, received: Bool) {
         self.id = id ?? UUID()
         self.sender = sender
         self.receiver = receiver
@@ -227,7 +227,7 @@ class FPFile: FPModel {
     // For this example, we'll make it optional.
     weak var communication: FPCommunication?
     
-    init(id: UUID?, fileURL: URL, name: String, comment: String?) {
+    init(id: UUID? = nil, fileURL: URL, name: String, comment: String? = nil) {
         self.id = id ?? UUID()
         self.fileURL = fileURL
         self.name = name
@@ -276,16 +276,15 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
     // MARK: - Initializer
     
     /// Designated initializer for a new FOIA request.
-    init(id: UUID?, user: FPUser, title: String, requestLanguage: String?, jurisdiction: FPJurisdiction, agency: FPAgency, dateCreated: Date?, status: FPRequestStatus?, sharingCode: String?, slug: String?) {
+    init(id: UUID? = nil, user: FPUser, title: String, requestLanguage: String? = nil, jurisdiction: FPJurisdiction, agency: FPAgency, dateCreated: Date? = nil, status: FPRequestStatus? = nil, sharingCode: String? = nil, slug: String? = nil) {
         self.id = id ?? UUID()
         self.user = user
         self.title = title
         self.requestLanguage = requestLanguage ?? "English"
         self.jurisdiction = jurisdiction
         self.agency = agency
-        
         self.dateCreated = dateCreated ?? Date()
-        self.status = .started
+        self.status = status ?? .started
         self.slug = slug ?? slugify(title)
         self.sharingCode = sharingCode ?? generateSharingCode()
 

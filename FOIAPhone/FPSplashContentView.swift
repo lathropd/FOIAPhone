@@ -18,10 +18,9 @@ struct FPSplashContentView: View {
                 .resizable()
                 .scaledToFit()
                 .rotationEffect(Angle(degrees: -30))
+                .id("FOIAPhoneAppLogo")
 
-            Text("\nFOIA\nPhone")
-                .font(.largeTitle)
-                .scaleEffect(1.6)
+            appDisplayName
             
             ProgressView(value: 0.5)
                 .progressViewStyle(.circular)
