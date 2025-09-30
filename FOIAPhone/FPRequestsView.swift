@@ -9,7 +9,8 @@ import SwiftUI
 import SwiftData
 
 struct FPRequestsView: View {
-    @Query(sort: \FPRecordRequest.dateCreated, order: .reverse) private var items: [FPRecordRequest] // Fetch SwiftData objects
+    @Environment(\.modelContext) private var modelContext
+    @Query(sort: \FPRecordRequest.dateCreated, order: .reverse) var items: [FPRecordRequest] // Fetch SwiftData objects
     @State private var selectedItem: FPRecordRequest? // Track selected item
     
     
@@ -17,16 +18,17 @@ struct FPRequestsView: View {
         
         VStack {
             NavigationSplitView {
-                List(items, selection: $selectedItem)
-                {item in
-                    NavigationLink(value: item) {
-                        VStack(alignment: .leading){
-                            Text(item.dateCreated.ISO8601Format())
-                            
-                            Text("Status: \(item.status)" )
-                            Text(item.title)
-                            
-                            
+                List(selection: $selectedItem) {
+                    ForEach(items){ item in
+                        NavigationLink(value: item) {
+                            VStack(alignment: .leading){
+                                Text(item.dateCreated.ISO8601Format())
+                                
+                                Text("Status: \(item.status)" )
+                                Text(item.title)
+                                
+                                
+                            }
                         }
                     }
                     
@@ -37,8 +39,10 @@ struct FPRequestsView: View {
                 .navigationTitle("Records Requests")
                 .listStyle(.plain)
             } detail: {
-                //                    Text(selectedItem?.title ?? "Error")
-                FPRequestDetailView(selectedItem: selectedItem)
+                if let selectedItem = selectedItem {
+                                    FPRequestDetailView(selectedItem: selectedItem) // A separate view to display details
+                                } else {
+                                    ContentUnavailableView("Select an Item", systemImage: "list.bullet.rectangle.portrait")                                }
                 
             }
             HStack(alignment: .center) {
@@ -49,7 +53,7 @@ struct FPRequestsView: View {
                     print("New Button was tapped")
                 } label: {
                     Label("New request", systemImage: "plus")
-
+                    
                 }
                 .padding()
             }

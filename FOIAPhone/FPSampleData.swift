@@ -22,6 +22,7 @@ final class FPSampleData {
     static let shared = FPSampleData()
     
     let modelContainer: ModelContainer
+    var requests: [FPRecordRequest] = []
     
     private init() {
         do {
@@ -149,6 +150,7 @@ final class FPSampleData {
                                               dateCreated: requestDate,
                                               status: requestStatus)
             context.insert(fakeRequest)
+            self.requests.append(fakeRequest)
         }
         
         

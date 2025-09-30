@@ -9,20 +9,19 @@ import SwiftUI
 import SwiftData
 
 struct FPRequestDetailView: View {
-
-    var selectedItem: FPRecordRequest? // Track selected item
-
-    var body: some View {
-        if selectedItem != nil { // Detail view for selected item
-            Text(selectedItem!.title)
-        } else {
-            ContentUnavailableView("Select an Item", systemImage: "list.bullet.rectangle.portrait")
-        }    }
     
+    @Bindable var selectedItem: FPRecordRequest // Track selected item
+    
+    
+    var body: some View {
+  
+            NavigationStack {
+                Form{
+                    TextField("request title", text: $selectedItem.title)
+                }
+            }
+      
+    }
 }
 
-
-#Preview {
-    FPRequestDetailView()
-}
 
