@@ -49,7 +49,7 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				FPModels.swift,
-				FPRecordDetailView.swift,
+				FPRequestDetailView.swift,
 				FPRequestsView.swift,
 				FPSampleData.swift,
 				FPSplashContentView.swift,

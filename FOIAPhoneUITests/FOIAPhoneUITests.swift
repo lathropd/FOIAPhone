@@ -50,14 +50,6 @@ final class FOIAPhoneUITests: XCTestCase {
         
     }
     
-    @MainActor
-    func testLaunchPerformance() throws {
-        // This measures how long it takes to launch your application.
-        
-        measure(metrics: [XCTApplicationLaunchMetric()]) {
-            XCUIApplication().launch()
-        }
-    }
     
     @MainActor
     func testNavigationViewLoads() throws {
@@ -70,7 +62,14 @@ final class FOIAPhoneUITests: XCTestCase {
         XCTAssertNotNil(navigationSplitView)
         XCTAssertNotNil(listView)
 
-
-
+    }
+    
+    @MainActor
+    func testLaunchPerformance() throws {
+        // This measures how long it takes to launch your application.
+        
+        measure(metrics: [XCTApplicationLaunchMetric()]) {
+            XCUIApplication().launch()
+        }
     }
 }

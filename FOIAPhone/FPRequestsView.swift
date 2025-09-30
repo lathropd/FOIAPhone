@@ -38,7 +38,7 @@ struct FPRequestsView: View {
                 .listStyle(.plain)
             } detail: {
                 //                    Text(selectedItem?.title ?? "Error")
-                FPRecordDetailView(selectedItem: selectedItem)
+                FPRequestDetailView(selectedItem: selectedItem)
                 
             }
             HStack(alignment: .center) {

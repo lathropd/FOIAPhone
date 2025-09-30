@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct FPRecordDetailView: View {
+struct FPRequestDetailView: View {
 
     var selectedItem: FPRecordRequest? // Track selected item
 
@@ -23,6 +23,6 @@ struct FPRecordDetailView: View {
 
 
 #Preview {
-    FPRecordDetailView()
+    FPRequestDetailView()
 }
 
