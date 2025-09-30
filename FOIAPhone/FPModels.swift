@@ -315,6 +315,7 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
     var jurisdiction: FPJurisdiction?
     var agency: FPAgency?
     var sharingCode: String
+    var requestText: String?
     
     // stub
     var communications: [FPCommunication] = []
@@ -322,7 +323,7 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
     // MARK: - Initializer
     
     /// Designated initializer for a new FOIA request.
-    init(id: UUID? = nil, user: FPUser, title: String, requestLanguage: String? = nil, jurisdiction: FPJurisdiction? = nil, agency: FPAgency, dateCreated: Date? = nil, status: FPRequestStatus? = nil, sharingCode: String? = nil, slug: String? = nil) {
+    init(id: UUID? = nil, user: FPUser, title: String, requestLanguage: String? = nil, jurisdiction: FPJurisdiction? = nil, agency: FPAgency, dateCreated: Date? = nil, status: FPRequestStatus? = nil, sharingCode: String? = nil, slug: String? = nil, requestText: String? = nil) {
         self.id = id ?? UUID()
         self.user = user
         self.title = title
@@ -333,6 +334,7 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
         self.status = status ?? .started
         self.slug = slug ?? slugify(title)
         self.sharingCode = sharingCode ?? generateSharingCode()
+        self.requestText = requestText
 
     }
     
