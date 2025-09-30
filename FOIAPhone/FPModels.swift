@@ -180,7 +180,7 @@ class FPAgency: FPModel {
     
     init(id: UUID? = nil, name: String,
     
-     parentAgency: FPAgency?,
+     parentAgency: FPAgency? = nil,
      jurisdiction: FPJurisdiction? = nil,
      contactFName: String? = nil,
      contactLName: String? = nil,
@@ -322,7 +322,7 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
     // MARK: - Initializer
     
     /// Designated initializer for a new FOIA request.
-    init(id: UUID? = nil, user: FPUser, title: String, requestLanguage: String? = nil, jurisdiction: FPJurisdiction, agency: FPAgency, dateCreated: Date? = nil, status: FPRequestStatus? = nil, sharingCode: String? = nil, slug: String? = nil) {
+    init(id: UUID? = nil, user: FPUser, title: String, requestLanguage: String? = nil, jurisdiction: FPJurisdiction? = nil, agency: FPAgency, dateCreated: Date? = nil, status: FPRequestStatus? = nil, sharingCode: String? = nil, slug: String? = nil) {
         self.id = id ?? UUID()
         self.user = user
         self.title = title
