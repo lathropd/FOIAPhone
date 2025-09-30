@@ -61,7 +61,7 @@ final class FOIAPhoneUITests: XCTestCase {
     
     @MainActor
     func testNavigationViewLoads() throws {
-        let view = FPMainNavView()
+        let view = FPRequestsView()
             .modelContainer(FPSampleData.shared.modelContainer)
         
         let navigationSplitView = try view.inspect().find(ViewType.NavigationSplitView.self)

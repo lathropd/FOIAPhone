@@ -48,9 +48,9 @@
 		8CD569752E7D90F400E17A7B /* Exceptions for "FOIAPhone" folder in "FOIAPhoneUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
-				FPMainNavView.swift,
 				FPModels.swift,
 				FPRecordDetailView.swift,
+				FPRequestsView.swift,
 				FPSampleData.swift,
 				FPSplashContentView.swift,
 			);

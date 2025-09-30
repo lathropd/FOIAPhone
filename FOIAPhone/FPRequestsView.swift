@@ -8,7 +8,7 @@
 import SwiftUI
 import SwiftData
 
-struct FPMainNavView: View {
+struct FPRequestsView: View {
     @Query(sort: \FPRecordRequest.dateCreated, order: .reverse) private var items: [FPRecordRequest] // Fetch SwiftData objects
     @State private var selectedItem: FPRecordRequest? // Track selected item
     
@@ -60,7 +60,7 @@ struct FPMainNavView: View {
 }
 
 #Preview {
-    FPMainNavView()
+    FPRequestsView()
         .modelContainer(FPSampleData.shared.modelContainer)
 }
 
