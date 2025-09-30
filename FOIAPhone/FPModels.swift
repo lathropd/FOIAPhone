@@ -162,12 +162,58 @@ class FPJurisdiction: FPModel {
 class FPAgency: FPModel {
     var id: UUID
     var name: String
-    var jurisdiction: FPJurisdiction
+    var parentAgency: FPAgency?
+    var jurisdiction: FPJurisdiction?
+    var contactFName: String?
+    var contactLName: String?
+    var contactTitle: String?
+    var contactEmail: String?
+    var contactAddress: String?
+    var contactCity: String?
+    var contactState: String?
+    var contactPostalCode: String?
+    var contactPhone: String?
+    var contactMobile: String?
+    var contactNotes: String?
+    var agencyFoiaPortal: URL?
+
     
-    init(id: UUID? = nil, name: String, jurisdiction: FPJurisdiction) {
+    init(id: UUID? = nil, name: String,
+    
+     parentAgency: FPAgency?,
+     jurisdiction: FPJurisdiction? = nil,
+     contactFName: String? = nil,
+     contactLName: String? = nil,
+     contactTitle: String? = nil,
+     contactEmail: String? = nil,
+     contactAddress: String? = nil,
+     contactCity: String? = nil,
+     contactState: String? = nil,
+     contactPostalCode: String? = nil,
+     contactPhone: String? = nil,
+     contactMobile: String? = nil,
+     contactNotes: String? = nil,
+     agencyFoiaPortal: URL? = nil
+         
+
+        ) {
         self.id = id ?? UUID()
         self.name = name
         self.jurisdiction = jurisdiction
+        self.parentAgency = parentAgency
+        self.contactFName = contactFName
+        self.contactLName = contactLName
+        self.contactTitle = contactTitle
+        self.contactEmail = contactEmail
+        self.contactAddress = contactAddress
+        self.contactCity = contactCity
+        self.contactState = contactState
+        self.contactPostalCode = contactPostalCode
+        self.contactPhone = contactPhone
+        self.contactMobile = contactMobile
+        self.contactNotes = contactNotes
+        self.agencyFoiaPortal = agencyFoiaPortal
+        
     }
     
 //    init(id: UUID) {
