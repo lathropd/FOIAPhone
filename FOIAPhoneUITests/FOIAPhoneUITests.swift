@@ -51,16 +51,20 @@ final class FOIAPhoneUITests: XCTestCase {
     }
     
     
+    // TODO: Figure out why testRequestsNavigationViewLoads() throws a "Set a
+    //       modelContext in view's environment to use Query" warning
     @MainActor
     func testRequestsNavigationViewLoads() throws {
         let view = FPRequestsView()
             .modelContainer(FPSampleData.shared.modelContainer)
-        
+
         let navigationStack = try view.inspect().find(ViewType.NavigationStack.self)
         let listView = try view.inspect().find(ViewType.List.self)
         
         XCTAssertNotNil(navigationStack)
         XCTAssertNotNil(listView)
+
+
 
     }
     
