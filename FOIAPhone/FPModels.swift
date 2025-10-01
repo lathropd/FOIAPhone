@@ -29,15 +29,18 @@ import SwiftData
 // MARK: - Commenting out untested functions
 
 // slugify()
-//A placeholder for a real slugify function.
-private func slugify(_ text: String) -> String {
-    return text.lowercased().replacingOccurrences(of: " ", with: "-")
+// A placeholder for a real slugify function. Made with ugly regexes.
+func fpSlugify(_ text: String) -> String {
+    return text.lowercased().replacingOccurrences(of:"\\s", with:"-", options:.regularExpression)
+        .replacingOccurrences(of:"\\p{P}", with:"-", options:.regularExpression)
+        .replacingOccurrences(of:"\\-+", with: "-", options:.regularExpression)
+        .replacingOccurrences(of:"\\-$", with: "", options:.regularExpression)
 }
 
 
 //generateSharingCode()
 //Generate a new sharing code. This method would also typically save to a database.
-private func generateSharingCode() -> String {
+func fpGenerateSharingCode() -> String {
     let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
     let sharingCode = String((0..<12).map { _ in letters.randomElement()! })
     return sharingCode
@@ -357,8 +360,8 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
         self.agency = agency
         self.dateCreated = dateCreated ?? Date()
         self.status = status ?? .started
-        self.slug = slug ?? slugify(title)
-        self.sharingCode = sharingCode ?? generateSharingCode()
+        self.slug = slug ?? fpSlugify(title)
+        self.sharingCode = sharingCode ?? fpGenerateSharingCode()
         self.requestText = requestText
 
     }
