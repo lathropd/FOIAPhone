@@ -8,25 +8,29 @@
 import SwiftUI
 
 struct FPSplashContentView: View {
-    var appDisplayName = Text("\nFOIA\nPhone")
+    var appDisplayName = Text("FOIA Phone")
         .font(.largeTitle)
+
     
     
     var body: some View {
+
         VStack {
+//            Spacer()
+
             Image("app-logo")
                 .resizable()
                 .scaledToFit()
                 .rotationEffect(Angle(degrees: -30))
                 .id("FOIAPhoneAppLogo")
-
-            appDisplayName
-            
             ProgressView(value: 0.5)
                 .progressViewStyle(.circular)
                 .padding(EdgeInsets(top: 30, leading: 60,bottom: 10, trailing: 60))
-                .scaleEffect(4.0 )
+    //                .scaleEffect(4.0 )
                 .accessibilityIdentifier("Loading")
+            appDisplayName
+            
+            
             
             
         }

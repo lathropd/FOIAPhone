@@ -29,7 +29,7 @@ final class FOIAPhoneUITests: XCTestCase {
 
         let view = FPSplashContentView()
    
-        let initialText = try view.inspect().find(text: "\nFOIA\nPhone")
+        let initialText = try view.inspect().find(text: "FOIA Phone")
         XCTAssertNotNil(initialText)
     }
     
@@ -52,15 +52,29 @@ final class FOIAPhoneUITests: XCTestCase {
     
     
     @MainActor
-    func testNavigationViewLoads() throws {
+    func testRequestsNavigationViewLoads() throws {
         let view = FPRequestsView()
             .modelContainer(FPSampleData.shared.modelContainer)
         
-        let navigationSplitView = try view.inspect().find(ViewType.NavigationSplitView.self)
+        let navigationStack = try view.inspect().find(ViewType.NavigationStack.self)
         let listView = try view.inspect().find(ViewType.List.self)
         
-        XCTAssertNotNil(navigationSplitView)
+        XCTAssertNotNil(navigationStack)
         XCTAssertNotNil(listView)
+
+    }
+    
+    @MainActor
+    func testRequestDetailsViewLoads() throws {
+        
+        let view = FPRequestDetailView(selectedItem: FPSampleData.shared.sampleRecords.recordRequests[0])
+            .modelContainer(FPSampleData.shared.modelContainer)
+        
+        let navigationStack = try view.inspect().find(ViewType.NavigationStack.self)
+        let formView = try view.inspect().find(ViewType.Form.self)
+        
+        XCTAssertNotNil(navigationStack)
+        XCTAssertNotNil(formView)
 
     }
     
