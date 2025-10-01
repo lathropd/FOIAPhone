@@ -139,12 +139,23 @@ class FPJurisdiction: FPModel {
 //    var muckRockID: String? // optional MuckRock id since muckrock uses integers
     var days: Int? // Optional number of days for response.
     
+    @Relationship(inverse: \FPAgency.jurisdiction) var agencies: [FPAgency]?
+
     init(id: UUID? = nil, name: String, days: Int? = nil, parent: FPJurisdiction? = nil) {
         self.id = id ?? UUID()
         self.name = name
         self.days = days
         self.parent = parent
     }
+    
+    var description: String {
+        return self.name
+    }
+    
+    static func < (lhs: FPJurisdiction, rhs: FPJurisdiction) -> Bool {
+        lhs.name > rhs.name // Sorts by popularity in descending order
+    }
+    
     
 //    init(id: UUID) {
 //        self.id = id
@@ -163,7 +174,7 @@ class FPAgency: FPModel {
     var id: UUID
     var name: String
     var parentAgency: FPAgency?
-    var jurisdiction: FPJurisdiction?
+    var jurisdiction: FPJurisdiction
     var contactFName: String?
     var contactLName: String?
     var contactTitle: String?
@@ -181,7 +192,7 @@ class FPAgency: FPModel {
     init(id: UUID? = nil, name: String,
     
      parentAgency: FPAgency? = nil,
-     jurisdiction: FPJurisdiction? = nil,
+     jurisdiction: FPJurisdiction,
      contactFName: String? = nil,
      contactLName: String? = nil,
      contactTitle: String? = nil,
@@ -221,6 +232,20 @@ class FPAgency: FPModel {
 //        self.name = "Generic Agency"
 //        self.jurisdiction = FPJurisdiction(id: UUID())
 //    }
+    
+    var fullName: String {
+
+        return "\(self.jurisdiction.name) \(self.name)"
+    
+    }
+    
+    var description: String {
+        return self.fullName
+    }
+    
+    static func < (lhs: FPAgency, rhs: FPAgency) -> Bool {
+        lhs.fullName > rhs.fullName // Sorts by popularity in descending order
+    }
 }
 
 /// A FOIA Machine Communication stores information about an exchange between a user and an agency.
@@ -315,7 +340,7 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
     var jurisdiction: FPJurisdiction?
     var agency: FPAgency?
     var sharingCode: String
-    var requestText: String?
+    var requestText: String
     
     // stub
     var communications: [FPCommunication] = []
@@ -323,7 +348,7 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
     // MARK: - Initializer
     
     /// Designated initializer for a new FOIA request.
-    init(id: UUID? = nil, user: FPUser, title: String, requestLanguage: String? = nil, jurisdiction: FPJurisdiction? = nil, agency: FPAgency, dateCreated: Date? = nil, status: FPRequestStatus? = nil, sharingCode: String? = nil, slug: String? = nil, requestText: String? = nil) {
+    init(id: UUID? = nil, user: FPUser, title: String, requestLanguage: String? = nil, jurisdiction: FPJurisdiction? = nil, agency: FPAgency, dateCreated: Date? = nil, status: FPRequestStatus? = nil, sharingCode: String? = nil, slug: String? = nil, requestText: String = "") {
         self.id = id ?? UUID()
         self.user = user
         self.title = title
@@ -379,3 +404,6 @@ class FPRecordRequest: FPModel, CustomStringConvertible, Hashable, Identifiable 
     }
     
 }
+
+
+
