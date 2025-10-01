@@ -11,14 +11,12 @@ import SwiftData
 struct FPRequestsView: View {
     @Environment(\.modelContext) private var modelContext
     @Query(sort: \FPRecordRequest.dateCreated, order: .reverse) var items: [FPRecordRequest] // Fetch SwiftData objects
-    @State private var selectedItem: FPRecordRequest? // Track selected item
-    
     
     var body: some View {
         
         VStack {
-            NavigationSplitView {
-                List(selection: $selectedItem) {
+            NavigationStack {
+                List{
                     ForEach(items){ item in
                         NavigationLink(value: item) {
                             VStack(alignment: .leading){
@@ -38,12 +36,10 @@ struct FPRequestsView: View {
                 
                 .navigationTitle("Records Requests")
                 .listStyle(.plain)
-            } detail: {
-                if let selectedItem = selectedItem {
-                                    FPRequestDetailView(selectedItem: selectedItem) // A separate view to display details
-                                } else {
-                                    ContentUnavailableView("Select an Item", systemImage: "list.bullet.rectangle.portrait")                                }
-                
+            }
+            .navigationDestination(for: FPRecordRequest.self) {
+                recordRequest in
+                FPRequestDetailView(selectedItem: recordRequest)
             }
             HStack(alignment: .center) {
                 Text("FOIAPhone")
