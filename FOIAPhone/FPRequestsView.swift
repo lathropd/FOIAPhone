@@ -18,7 +18,9 @@ struct FPRequestsView: View {
             NavigationStack {
                 List{
                     ForEach(items){ item in
-                        NavigationLink(value: item) {
+                        NavigationLink {
+                            FPRequestDetailView(selectedItem: item)
+                        } label: {
                             VStack(alignment: .leading){
                                 Text(item.dateCreated.ISO8601Format())
                                 
@@ -29,17 +31,10 @@ struct FPRequestsView: View {
                             }
                         }
                     }
-                    
-                    
-                    
                 }
                 
                 .navigationTitle("Records Requests")
                 .listStyle(.plain)
-            }
-            .navigationDestination(for: FPRecordRequest.self) {
-                recordRequest in
-                FPRequestDetailView(selectedItem: recordRequest)
             }
             HStack(alignment: .center) {
                 Text("FOIAPhone")
