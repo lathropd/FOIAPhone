@@ -41,7 +41,7 @@ struct FPRequestsView: View {
                     .padding()
                 Spacer()
                 Button {
-                    print("New Button was tapped")
+                    
                 } label: {
                     Label("New request", systemImage: "plus")
                     
