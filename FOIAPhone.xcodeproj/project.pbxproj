@@ -36,36 +36,9 @@
 		8CD569432E7B3B1E00E17A7B /* FOIAPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FOIAPhoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		8CD569742E7D90F400E17A7B /* Exceptions for "FOIAPhone" folder in "FOIAPhoneTests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FPModels.swift,
-				FPSampleData.swift,
-			);
-			target = 8CD569382E7B3B1E00E17A7B /* FOIAPhoneTests */;
-		};
-		8CD569752E7D90F400E17A7B /* Exceptions for "FOIAPhone" folder in "FOIAPhoneUITests" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				FPModels.swift,
-				FPNewRequestView.swift,
-				FPRequestDetailView.swift,
-				FPRequestsView.swift,
-				FPSampleData.swift,
-				FPSplashContentView.swift,
-			);
-			target = 8CD569422E7B3B1E00E17A7B /* FOIAPhoneUITests */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8CD5692E2E7B3B1C00E17A7B /* FOIAPhone */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				8CD569742E7D90F400E17A7B /* Exceptions for "FOIAPhone" folder in "FOIAPhoneTests" target */,
-				8CD569752E7D90F400E17A7B /* Exceptions for "FOIAPhone" folder in "FOIAPhoneUITests" target */,
-			);
 			path = FOIAPhone;
 			sourceTree = "<group>";
 		};
