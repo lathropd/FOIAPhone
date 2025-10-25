@@ -12,6 +12,7 @@ protocol JurisdictionModelProtocol: Hashable, Codable, Decodable {
     var name: String? {get set}
     var parentId: UUID? {get set}
     var law: String {get set}
+    var days: Int {get set}
     
     func parent() -> (any JurisdictionModelProtocol)?
     
@@ -23,22 +24,37 @@ extension JurisdictionModelProtocol {
         return nil
     }
     
+
 }
 
-struct Jurisdiction: JurisdictionModelProtocol {
+class Jurisdiction: JurisdictionModelProtocol {
+
+    
     let id: UUID
     var name: String?
     var parentId: UUID?
     var law: String
+    var days: Int
     
     init(id: UUID? = nil,
          name: String? = nil,
          parentId: UUID? = nil,
-         law: String = "") {
+         law: String = "",
+         days: Int = 0) {
         self.id = id ?? UUID()
         self.name = name
         self.parentId = parentId
         self.law = law
+        self.days = days
     }
+    
+    public func hash(into hasher: inout Hasher) {
+         hasher.combine(ObjectIdentifier(self))
+    }
+    
+    static func == (lhs: Jurisdiction, rhs: Jurisdiction) -> Bool {
+        return lhs === rhs
+    }
+    
     
 }

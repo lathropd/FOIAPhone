@@ -17,8 +17,8 @@ operations.
 Considering calling this "SAVE" (Services-Actors-Views-Entities) with most
 "business logic" contained in services rather than the data objects.
 
-This makes use of structs rather than objects for passing data in order to 
-avoid as much global state as possible.
+~~This makes use of structs rather than objects for passing data in order to 
+avoid as much global state as possible.~~ Nope. Gonna want class semantics.
 
 Trying ideas out for the creation of a framework for Swift apps should
 I keep building these. Because I miss the structure that Dajngo, Rails, etc.,

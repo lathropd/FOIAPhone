@@ -33,7 +33,7 @@ extension RequestModelProtocol {
 
 }
 
-struct Request: RequestModelProtocol {
+class Request: RequestModelProtocol {
 
     let id: UUID
     var created: Date
@@ -73,5 +73,14 @@ struct Request: RequestModelProtocol {
         self.method = method
 
     }
+    
+    public func hash(into hasher: inout Hasher) {
+         hasher.combine(ObjectIdentifier(self))
+    }
+    
+    static func == (lhs: Request, rhs: Request) -> Bool {
+        return lhs === rhs
+    }
+    
 
 }

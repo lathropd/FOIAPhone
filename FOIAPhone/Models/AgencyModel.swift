@@ -25,7 +25,7 @@ extension AgencyModelProtocol {
 
 }
 
-struct Agency: AgencyModelProtocol {
+class Agency: AgencyModelProtocol {
     let id: UUID
     var name: String
     var jurisdiction: Jurisdiction?
@@ -50,5 +50,14 @@ struct Agency: AgencyModelProtocol {
         self.jurisdiction = jurisdiction
         self.days = days
     }
+    
+    public func hash(into hasher: inout Hasher) {
+         hasher.combine(ObjectIdentifier(self))
+    }
+    
+    static func == (lhs: Agency, rhs: Agency) -> Bool {
+        return lhs === rhs
+    }
+    
 
 }
