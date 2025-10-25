@@ -20,8 +20,9 @@ struct FOIAPhoneApp: App {
     
     var body: some Scene {
         WindowGroup {
-            FPSplashContentView()
-            
+            if activeView == .nav {
+                FPNavStack()
+            }
             
         }
     }
