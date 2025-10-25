@@ -42,7 +42,7 @@ class Request: RequestModelProtocol {
     var contact: String
     var contactEmail: String
     var contactPhone: String
-    var contactWeb: URL?
+    var contactWeb: String
     var notes: AttributedString
     var text: AttributedString
     var method: RequestMethod
@@ -55,7 +55,7 @@ class Request: RequestModelProtocol {
         contact: String = "",
         contactEmail: String = "",
         contactPhone: String = "",
-        contactWeb: URL? = nil,
+        contactWeb: String = "",
         notes: AttributedString = "",
         text: AttributedString = "",
         method: RequestMethod = .email

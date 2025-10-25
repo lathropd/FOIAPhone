@@ -48,6 +48,7 @@
 				Models/JurisdictionModel.swift,
 				Models/RequestModel.swift,
 				Models/TemplateModel.swift,
+				Models/TestData.swift,
 				Services/Services.swift,
 				Views/MainMenuView.swift,
 				Views/RequestDetailView.swift,
@@ -63,6 +64,7 @@
 				Models/JurisdictionModel.swift,
 				Models/RequestModel.swift,
 				Models/TemplateModel.swift,
+				Models/TestData.swift,
 				Services/Services.swift,
 			);
 			target = 8CD569382E7B3B1E00E17A7B /* FOIAPhoneTests */;

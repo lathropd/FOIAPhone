@@ -17,7 +17,7 @@ protocol AgencyModelProtocol: Hashable, Codable, Decodable {
     var contact: String {get set}
     var contactEmail: String { get set }
     var contactPhone: String { get set }
-    var contactWeb: URLResource? { get set }
+    var contactWeb: String? { get set }
 
 }
 
@@ -33,7 +33,7 @@ class Agency: AgencyModelProtocol {
     var contact: String
     var contactEmail: String
     var contactPhone: String
-    var contactWeb: URLResource?
+    var contactWeb: String?
     
     init(
         id: UUID? = nil,
