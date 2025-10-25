@@ -9,7 +9,7 @@ import SwiftUI
 
 struct RequestListView: View {
     var data: [any RequestModelProtocol]
-    var actor: RequestActor
+    var actor: RequestActor?
 
     var body: some View {
         Text("Requests List")
@@ -17,5 +17,6 @@ struct RequestListView: View {
 }
 
 #Preview {
-    RequestListView(requests: [])
+    RequestListView(
+        data:TestData.shared.requests)
 }

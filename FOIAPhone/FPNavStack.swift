@@ -13,10 +13,10 @@ struct FPNavStack: View {
             MainMenuView()
         }
         .navigationDestination(for: Request.self) { item in
-                            RequestDetailView(request: item)
+            RequestDetailView(data: item)
                         }
         .navigationDestination(for: Array<Request>.self) { list in
-            RequestListView(requests: list)
+            RequestListView(data: list)
         }
             
         }

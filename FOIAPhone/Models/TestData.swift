@@ -15,7 +15,7 @@ final class TestData {
     var agencies: [Agency] = []
     var requests: [Request] = []
     var templates: [Template] = []
-    let shared = TestData()
+    static let shared = TestData()
     
     init() {
         self.jurisdictions = [

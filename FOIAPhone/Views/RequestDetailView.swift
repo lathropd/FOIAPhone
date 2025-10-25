@@ -17,5 +17,6 @@ struct RequestDetailView: View {
 }
 
 #Preview {
-    RequestDetailView()
+    RequestDetailView(
+        data:TestData.shared.requests.randomElement())
 }
