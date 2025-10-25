@@ -25,11 +25,28 @@ final class FOIAPhoneUITests: XCTestCase {
 //    }
 
     @MainActor
-    func testSomething() throws {
+    func testMainMenu() throws {
+        let sut = MainMenuView()
 
-        XCTAssertNotNil(true)
+
+        XCTAssertNotNil(sut)
     }
     
+    @MainActor
+    func testRequestDetailView() throws {
+        
+        let sut = RequestDetailView(data:TestData.shared.requests.randomElement())
+
+        XCTAssertNotNil(sut)
+    }
+
+    @MainActor
+    func testRequestListView() throws {
+        
+        let sut = RequestListView(data:TestData.shared.requests)
+
+
+        XCTAssertNotNil(sut)    }
     
     @MainActor
     func testLaunchPerformance() throws {
