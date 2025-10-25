@@ -49,6 +49,10 @@ class Agency: AgencyModelProtocol {
         self.name = name
         self.jurisdiction = jurisdiction
         self.days = days
+        self.contact = contact
+        self.contactEmail = contactEmail
+        self.contactPhone = contactPhone
+        self.contactWeb = contactWeb
     }
     
     public func hash(into hasher: inout Hasher) {

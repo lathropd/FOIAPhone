@@ -23,7 +23,7 @@ protocol RequestModelProtocol: Hashable, Codable, Decodable {
     var contact: String {get set}
     var contactEmail: String { get set }
     var contactPhone: String { get set }
-    var contactWeb: URL? { get set }
+    var contactWeb: String { get set }
     var notes: AttributedString { get set }
     var text: AttributedString { get set }
     var method: RequestMethod { get set }
