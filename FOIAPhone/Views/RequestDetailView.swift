@@ -8,15 +8,22 @@
 import SwiftUI
 
 struct RequestDetailView: View {
-    @State var data: (any RequestModelProtocol)?
+    @Binding var data: Request
     var actor: RequestActor?
     
     var body: some View {
-        Text("Request Details")
+        Form{
+            Text("Request Details")
+                
+        }.navigationTitle("Request")
+        .navigationBarTitleDisplayMode(.large)
+
     }
 }
 
 #Preview {
+    @Previewable @State var request = TestData.shared.requests[0]
+
     RequestDetailView(
-        data:TestData.shared.requests.randomElement())
+        data: $request)
 }

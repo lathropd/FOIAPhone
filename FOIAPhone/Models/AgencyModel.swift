@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-protocol AgencyModelProtocol: Hashable, Codable, Decodable {
+protocol AgencyModelProtocol: Hashable, Codable, Decodable, Identifiable, Observable {
     var id: UUID { get }
     var name: String { get set }
     // var parentId: UUID? {get set}

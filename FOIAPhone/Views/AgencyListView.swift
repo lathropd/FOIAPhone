@@ -7,14 +7,21 @@
 import SwiftUI
 
 struct AgencyListView: View {
-    @State var data: [(any AgencyModelProtocol)]?
+    @Binding var data: [Agency]
     var actor: AgencyActor?
     
     var body: some View {
-        Text("Agency List")
+        Form{
+            Text("Agency List")
+        }
+            .navigationTitle("Agencies")
+            .navigationBarTitleDisplayMode(.large) 
+
     }
 }
 
 #Preview {
-    AgencyListView()
+    @Previewable @State var agencies = TestData.shared.agencies
+    
+    AgencyListView(data: $agencies)
 }

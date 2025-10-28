@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol JurisdictionModelProtocol: Hashable, Codable, Decodable {
+protocol JurisdictionModelProtocol: Hashable, Codable, Decodable, Identifiable, Observable {
     var id: UUID {get}
     var name: String? {get set}
     var parentId: UUID? {get set}

@@ -8,14 +8,22 @@
 import SwiftUI
 
 struct TemplateListView: View {
-    @State var data: [(any TemplateModelProtocol)]?
+    @Binding var data: [Template]
     var actor: TemplateActor?
     
     var body: some View {
-        Text("Template List")
+        List($data) { $template in
+            NavigationLink(template.name, destination: TemplateDetailView(data: $template))
+        }
+            .navigationTitle("Templates")
+            .navigationBarTitleDisplayMode(.large)
+
+
     }
 }
 
 #Preview {
-    TemplateListView()
+    @Previewable @State var templates = TestData.shared.templates
+    
+    TemplateListView(data: $templates)
 }

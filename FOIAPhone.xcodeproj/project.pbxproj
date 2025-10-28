@@ -49,11 +49,15 @@
 				Models/TemplateModel.swift,
 				Models/TestData.swift,
 				Services/Services.swift,
+				Views/AgencyDetailView.swift,
 				Views/AgencyListView.swift,
+				Views/JurisdictionDetailView.swift,
 				Views/JurisdictionListView.swift,
 				Views/MainMenuView.swift,
+				Views/NewRequestView.swift,
 				Views/RequestDetailView.swift,
 				Views/RequestListView.swift,
+				Views/TemplateDetail.swift,
 				Views/TemplateListView.swift,
 			);
 			target = 8CD569422E7B3B1E00E17A7B /* FOIAPhoneUITests */;
@@ -68,8 +72,11 @@
 				Models/TemplateModel.swift,
 				Models/TestData.swift,
 				Services/Services.swift,
+				Views/AgencyDetailView.swift,
 				Views/AgencyListView.swift,
+				Views/JurisdictionDetailView.swift,
 				Views/JurisdictionListView.swift,
+				Views/TemplateDetail.swift,
 				Views/TemplateListView.swift,
 			);
 			target = 8CD569382E7B3B1E00E17A7B /* FOIAPhoneTests */;

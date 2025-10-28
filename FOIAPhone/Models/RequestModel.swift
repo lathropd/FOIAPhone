@@ -15,7 +15,7 @@ enum RequestMethod: Decodable, Encodable {
     case other
 }
 
-protocol RequestModelProtocol: Hashable, Codable, Decodable {
+protocol RequestModelProtocol: Hashable, Codable, Decodable, Identifiable , Observable{
     var id: UUID { get }
     var created: Date { get set }
     var agency: Agency? { get set }

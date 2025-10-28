@@ -7,8 +7,9 @@
 
 import Foundation
 
-protocol TemplateModelProtocol: Hashable, Codable, Decodable {
+protocol TemplateModelProtocol: Hashable, Codable, Decodable, Identifiable, Observable {
     var id: UUID {get}
+    var name: String {get set}
 }
 
 extension TemplateModelProtocol {
@@ -17,9 +18,11 @@ extension TemplateModelProtocol {
 
 class Template: TemplateModelProtocol {
     let id: UUID
+    var name: String
     
-    init(id: UUID?) {
+    init(id: UUID? = nil, name: String = "") {
         self.id = id ?? UUID()
+        self.name = name
     }
     
     public func hash(into hasher: inout Hasher) {

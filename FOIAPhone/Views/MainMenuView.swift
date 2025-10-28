@@ -11,16 +11,19 @@ struct MainMenuView: View {
     @State var data: FPData
     
     
+    
     var body: some View {
         NavigationStack{
-            
-            NavigationLink("New Request", destination: RequestDetailView())
-            NavigationLink("View Requests",
-                           destination: RequestListView(data: data.requests))
-            NavigationLink("Agencies & Jurisdictions", destination: JurisdictionListView(data:data.jurisdictions))
-            NavigationLink("Templates",
-                           destination:
-                            TemplateListView(data:data.templates))
+            List{
+                
+                NavigationLink("New Request", destination: NewRequestView())
+                NavigationLink("View Requests",
+                               destination: RequestListView(data: $data.requests))
+                NavigationLink("Agencies & Jurisdictions", destination: JurisdictionListView(data:$data.jurisdictions))
+                NavigationLink("Templates",
+                               destination:
+                                TemplateListView(data: $data.templates))
+            }
             
             
         }

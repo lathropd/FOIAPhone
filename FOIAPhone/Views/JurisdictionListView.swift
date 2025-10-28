@@ -8,14 +8,21 @@
 import SwiftUI
 
 struct JurisdictionListView: View {
-    @State var data: [(any JurisdictionModelProtocol)]?
+    @Binding var data: [Jurisdiction]
     var actor: JursidictionActor?
     
     var body: some View {
-        Text("Jurisdction List")
+        Form{
+            Text("Jurisdction List")
+        }
+            .navigationTitle("Jurisdictions")
+            .navigationBarTitleDisplayMode(.large)
+
     }
 }
 
 #Preview {
-    JurisdictionListView()
+    @Previewable @State var jurisdictions = TestData.shared.jurisdictions
+
+    JurisdictionListView(data: $jurisdictions)
 }

@@ -8,15 +8,23 @@
 import SwiftUI
 
 struct RequestListView: View {
-    @State var data: [any RequestModelProtocol]
+    @Binding var data: [Request]
     var actor: RequestActor?
 
     var body: some View {
-        Text("Request List")
+        Form {
+            Text("Request List")
+        }
+            .navigationTitle("Requests")
+            .navigationBarTitleDisplayMode(.large)
+
+
     }
 }
 
 #Preview {
+    @Previewable @State var requests = TestData.shared.requests
+
     RequestListView(
-        data:TestData.shared.requests)
+        data: $requests)
 }

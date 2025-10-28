@@ -12,7 +12,7 @@ let faker = Faker()
 
 
 
-protocol FPData {
+protocol FPData: Observable {
     var jurisdictions: [Jurisdiction] {get set}
     var agencies: [Agency] {get set}
     var requests: [Request] {get set}
@@ -30,6 +30,12 @@ final class TestData: FPData, Observable {
     static let shared = TestData()
 
     init() {
+        
+        self.templates = [
+            Template(name: "FOIA"),
+            Template(name: "Iowa Public Records Act")
+        ]
+        
         self.jurisdictions = [
             Jurisdiction(
                 name: "United States",
