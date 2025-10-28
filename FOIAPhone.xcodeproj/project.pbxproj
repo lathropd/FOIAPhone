@@ -43,16 +43,18 @@
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Actors/Actors.swift,
-				FPNavStack.swift,
 				Models/AgencyModel.swift,
 				Models/JurisdictionModel.swift,
 				Models/RequestModel.swift,
 				Models/TemplateModel.swift,
 				Models/TestData.swift,
 				Services/Services.swift,
+				Views/AgencyListView.swift,
+				Views/JurisdictionListView.swift,
 				Views/MainMenuView.swift,
 				Views/RequestDetailView.swift,
 				Views/RequestListView.swift,
+				Views/TemplateListView.swift,
 			);
 			target = 8CD569422E7B3B1E00E17A7B /* FOIAPhoneUITests */;
 		};
@@ -66,6 +68,9 @@
 				Models/TemplateModel.swift,
 				Models/TestData.swift,
 				Services/Services.swift,
+				Views/AgencyListView.swift,
+				Views/JurisdictionListView.swift,
+				Views/TemplateListView.swift,
 			);
 			target = 8CD569382E7B3B1E00E17A7B /* FOIAPhoneTests */;
 		};

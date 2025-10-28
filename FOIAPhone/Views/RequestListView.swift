@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct RequestListView: View {
-    var data: [any RequestModelProtocol]
+    @State var data: [any RequestModelProtocol]
     var actor: RequestActor?
 
     var body: some View {
-        Text("Requests List")
+        Text("Request List")
     }
 }
 

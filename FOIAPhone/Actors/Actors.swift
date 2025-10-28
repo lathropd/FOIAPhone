@@ -37,3 +37,9 @@ actor RequestActor: FPModelActor {
 actor TemplateActor: FPModelActor {
     
 }
+
+actor MainMenuActor: FPModelActor {    
+    
+}
+
+

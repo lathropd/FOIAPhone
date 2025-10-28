@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RequestDetailView: View {
-    var data: (any RequestModelProtocol)?
+    @State var data: (any RequestModelProtocol)?
     var actor: RequestActor?
     
     var body: some View {
