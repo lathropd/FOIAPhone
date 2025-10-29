@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct MainMenuView: View {
     @Environment(\.modelContext) private var modelContext

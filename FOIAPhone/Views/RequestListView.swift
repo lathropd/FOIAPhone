@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct RequestListView: View {
     @Environment(\.modelContext) private var modelContext
@@ -23,8 +25,10 @@ struct RequestListView: View {
 }
 
 #Preview {
-    @Previewable @State var requests = TestData.shared.requests
+    let testData = TestData.shared
 
-    RequestListView(
-        data: $requests)
+
+    RequestListView()
+        .modelContext(testData.container.mainContext)
+
 }

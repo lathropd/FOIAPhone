@@ -5,9 +5,11 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct AgencyListView: View {
-    @Environment(\.modelContext) private var modelContext
+    @Environment(\<#Root#>.modelContext) private var modelContext
     var actor: AgencyActor?
     
     var body: some View {
@@ -21,7 +23,10 @@ struct AgencyListView: View {
 }
 
 #Preview {
-    @Previewable @State var agencies = TestData.shared.agencies
+    let testData = TestData.shared
+
     
-    AgencyListView(data: $agencies)
+    AgencyListView()
+        .modelContext(testData.container.mainContext)
+
 }

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct TemplateDetailView: View {
     @Environment(\.modelContext) private var modelContext
@@ -22,6 +24,9 @@ struct TemplateDetailView: View {
 }
 
 #Preview {
-    @Previewable @State var template = TestData.shared.templates[0]
-    TemplateDetailView(data: $template)
+    let testData = TestData.shared
+
+    TemplateDetailView()
+        .modelContext(testData.container.mainContext)
+
 }

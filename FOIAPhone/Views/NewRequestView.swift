@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct NewRequestView: View {
     @Environment(\.modelContext) private var modelContext
@@ -22,6 +24,11 @@ struct NewRequestView: View {
 }
 
 #Preview {
+    let testData = TestData.shared
+
+
 
     NewRequestView()
+        .modelContext(testData.container.mainContext)
+
 }

@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import SwiftData
+
 
 struct JurisdictionListView: View {
     @Environment(\.modelContext) private var modelContext
@@ -22,7 +24,11 @@ struct JurisdictionListView: View {
 }
 
 #Preview {
-    @Previewable @State var jurisdictions = TestData.shared.jurisdictions
+    let testData = TestData.shared
 
-    JurisdictionListView(data: $jurisdictions)
+
+
+    JurisdictionListView()
+        .modelContext(testData.container.mainContext)
+
 }

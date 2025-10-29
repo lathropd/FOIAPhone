@@ -113,6 +113,8 @@ final class TestRecords: FPData, Observable {
 class TestData {
     let container: ModelContainer
     
+    static let shared = TestData()
+    
     init() {
         let schema = Schema([Agency.self, Jurisdiction.self, Request.self, Template.self])
         let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
@@ -121,6 +123,7 @@ class TestData {
         } catch {
             fatalError("Could not create MockData ModelContainer: \(error)")
         }
+        self.addTestData()
     }
     
     func addTestData() {
