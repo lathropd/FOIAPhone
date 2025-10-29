@@ -7,6 +7,7 @@
 
 import Fakery
 import Foundation
+import SwiftData
 
 let faker = Faker()
 
@@ -21,13 +22,13 @@ protocol FPData: Observable {
    
 }
 
-final class TestData: FPData, Observable {
+final class TestRecords: FPData, Observable {
     var jurisdictions: [Jurisdiction] = []
     var agencies: [Agency] = []
     var requests: [Request] = []
     var templates: [Template] = []
     
-    static let shared = TestData()
+    static let shared = TestRecords()
 
     init() {
         
@@ -105,5 +106,43 @@ final class TestData: FPData, Observable {
             }
         }
 
+    }
+}
+
+
+class TestData {
+    let container: ModelContainer
+    
+    init() {
+        let schema = Schema([Agency.self, Jurisdiction.self, Request.self, Template.self])
+        let configuration = ModelConfiguration(isStoredInMemoryOnly: true)
+        do {
+            self.container = try ModelContainer(for: schema, configurations: [configuration])
+        } catch {
+            fatalError("Could not create MockData ModelContainer: \(error)")
+        }
+    }
+    
+    func addTestData() {
+        
+        Task { @MainActor in
+            
+            for jurisdiction in TestRecords.shared.jurisdictions {
+                container.mainContext.insert(jurisdiction)
+                
+            }
+            for agency in TestRecords.shared.agencies {
+                container.mainContext.insert(agency)
+                
+            }
+            for request in TestRecords.shared.requests {
+                container.mainContext.insert(request)
+                
+            }
+            for template in TestRecords.shared.templates {
+                container.mainContext.insert(template)
+                
+            }
+        }
     }
 }
