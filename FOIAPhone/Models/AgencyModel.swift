@@ -56,13 +56,13 @@ class Agency: AgencyModelProtocol {
         self.contactWeb = contactWeb
     }
     
-    public func hash(into hasher: inout Hasher) {
-         hasher.combine(ObjectIdentifier(self))
-    }
-    
-    static func == (lhs: Agency, rhs: Agency) -> Bool {
-        return lhs === rhs
-    }
+//    public func hash(into hasher: inout Hasher) {
+//         hasher.combine(ObjectIdentifier(self))
+//    }
+//    
+//    static func == (lhs: Agency, rhs: Agency) -> Bool {
+//        return lhs === rhs
+//    }
     
 
 }

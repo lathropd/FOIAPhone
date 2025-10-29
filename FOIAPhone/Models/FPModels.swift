@@ -12,7 +12,7 @@ import Foundation
 // Removed Codable / Encodable / Decodable since @Model
 // Makes those harder. Will fix eventually.
 // See: https://www.donnywals.com/making-your-swiftdata-models-codable/
-protocol FPModelProtocol: Hashable, Identifiable, Observable, Equatable {
+protocol FPModelProtocol {
     var id: UUID { get }
     
 }

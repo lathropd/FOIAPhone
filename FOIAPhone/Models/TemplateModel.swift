@@ -18,7 +18,7 @@ extension TemplateModelProtocol {
 }
 
 @Model
-class Template: TemplateModelProtocol {
+class Template: TemplateModelProtocol  {
     var id: UUID
     var name: String
     
@@ -27,13 +27,13 @@ class Template: TemplateModelProtocol {
         self.name = name
     }
     
-    public func hash(into hasher: inout Hasher) {
-         hasher.combine(ObjectIdentifier(self))
-    }
-    
-    static func == (lhs: Template, rhs: Template) -> Bool {
-        return lhs === rhs
-    }
+//    public func hash(into hasher: inout Hasher) {
+//         hasher.combine(ObjectIdentifier(self))
+//    }
+//    
+//    static func == (lhs: Template, rhs: Template) -> Bool {
+//        return lhs === rhs
+//    }
     
     
 }

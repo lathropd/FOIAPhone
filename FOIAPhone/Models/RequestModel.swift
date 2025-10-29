@@ -9,7 +9,7 @@ import Contacts
 import Foundation
 import SwiftData
 
-enum RequestMethod: Decodable, Encodable {
+enum RequestMethod: Int, Decodable, Encodable {
     case web
     case email
     case letter
@@ -27,7 +27,7 @@ protocol RequestModelProtocol: FPModelProtocol {
     var contactWeb: String { get set }
     var notes: AttributedString { get set }
     var text: AttributedString { get set }
-    var method: RequestMethod { get set }
+//    var method: RequestMethod { get set }
 }
 
 extension RequestModelProtocol {
@@ -47,7 +47,7 @@ class Request: RequestModelProtocol {
     var contactWeb: String
     var notes: AttributedString
     var text: AttributedString
-    var method: RequestMethod
+//    var method: RequestMethod
 
     init(
         id: UUID?,
@@ -60,7 +60,7 @@ class Request: RequestModelProtocol {
         contactWeb: String = "",
         notes: AttributedString = "",
         text: AttributedString = "",
-        method: RequestMethod = .email
+//        method: RequestMethod = .email
     ) {
         self.id = id ?? UUID()
         self.created = created ?? Date()
@@ -72,17 +72,17 @@ class Request: RequestModelProtocol {
         self.contactWeb = contactWeb
         self.notes = notes
         self.text = text
-        self.method = method
+//        self.method = method
 
     }
     
-    public func hash(into hasher: inout Hasher) {
-         hasher.combine(ObjectIdentifier(self))
-    }
-    
-    static func == (lhs: Request, rhs: Request) -> Bool {
-        return lhs === rhs
-    }
+//    public func hash(into hasher: inout Hasher) {
+//         hasher.combine(ObjectIdentifier(self))
+//    }
+//    
+//    static func == (lhs: Request, rhs: Request) -> Bool {
+//        return lhs === rhs
+//    }
     
 
 }

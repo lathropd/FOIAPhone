@@ -50,13 +50,13 @@ class Jurisdiction: JurisdictionModelProtocol {
         self.days = days
     }
     
-    public func hash(into hasher: inout Hasher) {
-         hasher.combine(ObjectIdentifier(self))
-    }
-    
-    static func == (lhs: Jurisdiction, rhs: Jurisdiction) -> Bool {
-        return lhs === rhs
-    }
-    
+//    public func hash(into hasher: inout Hasher) {
+//         hasher.combine(ObjectIdentifier(self))
+//    }
+//    
+//    static func == (lhs: Jurisdiction, rhs: Jurisdiction) -> Bool {
+//        return lhs === rhs
+//    }
+//    
     
 }
