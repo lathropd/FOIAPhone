@@ -11,7 +11,9 @@ import SwiftData
 
 struct RequestDetailView: View {
     @Environment(\.modelContext) private var modelContext
+    var data: Request
     var actor: RequestActor?
+
     
     var body: some View {
         Form{
@@ -25,9 +27,10 @@ struct RequestDetailView: View {
 
 #Preview {
     let testData = TestData.shared
+    let data = TestRecords.shared.requests[0]
 
 
-    RequestDetailView()
+    RequestDetailView(data: data)
         .modelContext(testData.container.mainContext)
 
 }

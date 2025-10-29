@@ -9,7 +9,8 @@ import SwiftData
 
 
 struct AgencyListView: View {
-    @Environment(\<#Root#>.modelContext) private var modelContext
+    @Environment(\.modelContext) private var modelContext
+    @Query var data: [Agency]
     var actor: AgencyActor?
     
     var body: some View {

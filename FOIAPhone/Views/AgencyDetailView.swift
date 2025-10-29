@@ -9,6 +9,7 @@ import SwiftData
 
 struct AgencyDetailView: View {
     @Environment(\.modelContext) private var modelContext
+    var data: Agency
     var actor: AgencyActor?
     
     var body: some View {
@@ -25,9 +26,9 @@ struct AgencyDetailView: View {
     
     
     let testData = TestData.shared
-    let context = testData.container.mainContext
+    let data = TestRecords.shared.agencies[0]
 
-    AgencyDetailView()
-        .modelContext(context)
+    AgencyDetailView(data: data)
+        .modelContext(testData.container.mainContext)
 }
 

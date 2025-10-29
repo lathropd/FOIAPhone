@@ -11,7 +11,7 @@ import SwiftData
 
 struct MainMenuView: View {
     @Environment(\.modelContext) private var modelContext
-    @State var data: FPData
+    //@State var data: FPData
     
     
     
@@ -21,11 +21,11 @@ struct MainMenuView: View {
                 
                 NavigationLink("New Request", destination: NewRequestView())
                 NavigationLink("View Requests",
-                               destination: RequestListView(data: $data.requests))
-                NavigationLink("Agencies & Jurisdictions", destination: JurisdictionListView(data:$data.jurisdictions))
+                               destination: RequestListView())
+                NavigationLink("Agencies & Jurisdictions", destination: JurisdictionListView())
                 NavigationLink("Templates",
                                destination:
-                                TemplateListView(data: $data.templates))
+                                TemplateListView())
             }
             
             
@@ -35,5 +35,5 @@ struct MainMenuView: View {
 
 #Preview {
     
-    MainMenuView(data: TestData.shared)
+    MainMenuView()
 }

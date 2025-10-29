@@ -16,17 +16,17 @@ enum AppView {
 @main
 struct FOIAPhoneApp: App {
     @State var activeView: AppView = .nav
-    // @State var appData = TestData.shared    // for dev purposes we'll just use
-                                            // our test data
+   
     
     
     var body: some Scene {
         WindowGroup {
             if activeView == .nav {
-                MainMenuView(data: appData)
+                MainMenuView()
             }
-                .modelContainer(for: [Agency.self, Jurisdiction.self, Request.self, Template.self])
-        }.environment()
+        }
+        .modelContainer(for: [Agency.self, Jurisdiction.self, Request.self, Template.self])
+
     }
 }
 

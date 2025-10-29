@@ -11,7 +11,10 @@ import SwiftData
 
 struct JurisdictionListView: View {
     @Environment(\.modelContext) private var modelContext
+    @Query var data: [Jurisdiction]
     var actor: JursidictionActor?
+
+
     
     var body: some View {
         Form{

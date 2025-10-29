@@ -11,7 +11,10 @@ import SwiftData
 
 struct NewRequestView: View {
     @Environment(\.modelContext) private var modelContext
+    var data: Request?
     var actor: RequestActor?
+
+
     
     var body: some View {
         Form{

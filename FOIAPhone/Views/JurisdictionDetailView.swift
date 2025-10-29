@@ -11,7 +11,7 @@ import SwiftData
 
 struct JurisdictionDetailView: View {
     @Environment(\.modelContext) private var modelContext
-
+    var data: Jurisdiction
     var actor: JursidictionActor?
     
     var body: some View {
@@ -26,10 +26,11 @@ struct JurisdictionDetailView: View {
 
 #Preview {
     let testData = TestData.shared
+    let data = TestRecords.shared.jurisdictions[0]
 
 
     
-    JurisdictionDetailView(data: $jurisdiction)
+    JurisdictionDetailView(data: data)
         .modelContext(testData.container.mainContext)
 
 }

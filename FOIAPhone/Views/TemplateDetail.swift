@@ -11,7 +11,9 @@ import SwiftData
 
 struct TemplateDetailView: View {
     @Environment(\.modelContext) private var modelContext
+    @State var data: Template
     var actor: TemplateActor?
+
     
     var body: some View {
         Form {
@@ -25,8 +27,9 @@ struct TemplateDetailView: View {
 
 #Preview {
     let testData = TestData.shared
+    let data = TestRecords.shared.templates[0]
 
-    TemplateDetailView()
+    TemplateDetailView(data: data)
         .modelContext(testData.container.mainContext)
 
 }

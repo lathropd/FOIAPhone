@@ -11,7 +11,9 @@ import SwiftData
 
 struct RequestListView: View {
     @Environment(\.modelContext) private var modelContext
+    @Query var data: [Request]
     var actor: RequestActor?
+
 
     var body: some View {
         Form {
