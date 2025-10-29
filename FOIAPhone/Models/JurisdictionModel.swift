@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
-protocol JurisdictionModelProtocol: Hashable, Codable, Decodable, Identifiable, Observable {
+protocol JurisdictionModelProtocol: FPModelProtocol {
     var id: UUID {get}
     var name: String? {get set}
     var parentId: UUID? {get set}
@@ -27,10 +28,11 @@ extension JurisdictionModelProtocol {
 
 }
 
+@Model
 class Jurisdiction: JurisdictionModelProtocol {
 
     
-    let id: UUID
+    var id: UUID
     var name: String?
     var parentId: UUID?
     var law: String

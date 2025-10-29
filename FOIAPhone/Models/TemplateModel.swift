@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import SwiftData
 
-protocol TemplateModelProtocol: Hashable, Codable, Decodable, Identifiable, Observable {
+protocol TemplateModelProtocol: FPModelProtocol {
     var id: UUID {get}
     var name: String {get set}
 }
@@ -16,8 +17,9 @@ extension TemplateModelProtocol {
 
 }
 
+@Model
 class Template: TemplateModelProtocol {
-    let id: UUID
+    var id: UUID
     var name: String
     
     init(id: UUID? = nil, name: String = "") {

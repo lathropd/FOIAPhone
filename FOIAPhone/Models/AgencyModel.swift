@@ -8,7 +8,7 @@
 import Foundation
 import SwiftData
 
-protocol AgencyModelProtocol: Hashable, Codable, Decodable, Identifiable, Observable {
+protocol AgencyModelProtocol: FPModelProtocol {
     var id: UUID { get }
     var name: String { get set }
     // var parentId: UUID? {get set}
@@ -25,8 +25,9 @@ extension AgencyModelProtocol {
 
 }
 
+@Model
 class Agency: AgencyModelProtocol {
-    let id: UUID
+    var id: UUID
     var name: String
     var jurisdiction: Jurisdiction?
     var days: Int?

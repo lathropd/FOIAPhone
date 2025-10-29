@@ -7,6 +7,7 @@
 
 import Contacts
 import Foundation
+import SwiftData
 
 enum RequestMethod: Decodable, Encodable {
     case web
@@ -15,7 +16,7 @@ enum RequestMethod: Decodable, Encodable {
     case other
 }
 
-protocol RequestModelProtocol: Hashable, Codable, Decodable, Identifiable , Observable{
+protocol RequestModelProtocol: FPModelProtocol {
     var id: UUID { get }
     var created: Date { get set }
     var agency: Agency? { get set }
@@ -33,9 +34,10 @@ extension RequestModelProtocol {
 
 }
 
+@Model
 class Request: RequestModelProtocol {
 
-    let id: UUID
+    var id: UUID
     var created: Date
     var agency: Agency?
     var template: Template?

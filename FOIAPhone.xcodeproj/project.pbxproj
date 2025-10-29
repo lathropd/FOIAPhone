@@ -44,6 +44,7 @@
 			membershipExceptions = (
 				Actors/Actors.swift,
 				Models/AgencyModel.swift,
+				Models/FPModels.swift,
 				Models/JurisdictionModel.swift,
 				Models/RequestModel.swift,
 				Models/TemplateModel.swift,
@@ -67,6 +68,7 @@
 			membershipExceptions = (
 				Actors/Actors.swift,
 				Models/AgencyModel.swift,
+				Models/FPModels.swift,
 				Models/JurisdictionModel.swift,
 				Models/RequestModel.swift,
 				Models/TemplateModel.swift,
