@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AgencyListView: View {
-    @Binding var data: [Agency]
+    @Environment(\.modelContext) private var modelContext
     var actor: AgencyActor?
     
     var body: some View {

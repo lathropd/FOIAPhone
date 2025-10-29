@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewRequestView: View {
+    @Environment(\.modelContext) private var modelContext
     var actor: RequestActor?
     
     var body: some View {

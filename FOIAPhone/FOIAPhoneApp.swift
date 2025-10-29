@@ -16,7 +16,7 @@ enum AppView {
 @main
 struct FOIAPhoneApp: App {
     @State var activeView: AppView = .nav
-    @State var appData = TestData.shared    // for dev purposes we'll just use
+    // @State var appData = TestData.shared    // for dev purposes we'll just use
                                             // our test data
     
     
@@ -25,8 +25,8 @@ struct FOIAPhoneApp: App {
             if activeView == .nav {
                 MainMenuView(data: appData)
             }
-            
-        }.environment(appData)
+                .modelContainer(for: [Agency.self, Jurisdiction.self, Request.self, Template.self])
+        }.environment()
     }
 }
 

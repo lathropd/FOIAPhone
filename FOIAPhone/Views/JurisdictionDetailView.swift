@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct JurisdictionDetailView: View {
-    @Binding var data: Jurisdiction
+    @Environment(\.modelContext) private var modelContext
+
     var actor: JursidictionActor?
     
     var body: some View {

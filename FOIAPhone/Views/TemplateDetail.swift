@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct TemplateDetailView: View {
-    @Binding var data: Template
+    @Environment(\.modelContext) private var modelContext
     var actor: TemplateActor?
     
     var body: some View {

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RequestDetailView: View {
-    @Binding var data: Request
+    @Environment(\.modelContext) private var modelContext
     var actor: RequestActor?
     
     var body: some View {

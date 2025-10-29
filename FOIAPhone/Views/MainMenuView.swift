@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MainMenuView: View {
+    @Environment(\.modelContext) private var modelContext
     @State var data: FPData
     
     
