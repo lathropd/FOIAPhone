@@ -25,9 +25,9 @@ protocol RequestModelProtocol: FPModelProtocol {
     var contactEmail: String { get set }
     var contactPhone: String { get set }
     var contactWeb: String { get set }
-    var notes: AttributedString { get set }
-    var text: AttributedString { get set }
-//    var method: RequestMethod { get set }
+    var notes: String { get set }
+    var text: String { get set }
+    var method: RequestMethod { get set }
 }
 
 extension RequestModelProtocol {
@@ -45,9 +45,9 @@ class Request: RequestModelProtocol {
     var contactEmail: String
     var contactPhone: String
     var contactWeb: String
-    var notes: AttributedString
-    var text: AttributedString
-//    var method: RequestMethod
+    var notes: String
+    var text: String
+    var method: RequestMethod
 
     init(
         id: UUID?,
@@ -58,9 +58,9 @@ class Request: RequestModelProtocol {
         contactEmail: String = "",
         contactPhone: String = "",
         contactWeb: String = "",
-        notes: AttributedString = "",
-        text: AttributedString = "",
-//        method: RequestMethod = .email
+        notes: String = "",
+        text: String = "",
+        method: RequestMethod = .email
     ) {
         self.id = id ?? UUID()
         self.created = created ?? Date()
@@ -72,7 +72,7 @@ class Request: RequestModelProtocol {
         self.contactWeb = contactWeb
         self.notes = notes
         self.text = text
-//        self.method = method
+        self.method = method
 
     }
     

@@ -82,18 +82,18 @@ final class TestRecords {
                         contactEmail: agency.contactEmail,
                         contactPhone: agency.contactPhone,
                         contactWeb: agency.contactWeb ?? "",
-                        notes: AttributedString(faker.company.bs()),
-                        text: AttributedString(faker.company.bs()),
-//                        method: [
-//                            RequestMethod.email,
-//                            RequestMethod.email,
-//                            RequestMethod.email,
-//                            RequestMethod.web,
-//                            RequestMethod.web,
-//                            RequestMethod.web,
-//                            RequestMethod.letter,
-//                            RequestMethod.other,
-//                        ].randomElement() ?? RequestMethod.other
+                        notes: String(faker.company.bs()),
+                        text: String(faker.company.bs()),
+                        method: [
+                            RequestMethod.email,
+                            RequestMethod.email,
+                            RequestMethod.email,
+                            RequestMethod.web,
+                            RequestMethod.web,
+                            RequestMethod.web,
+                            RequestMethod.letter,
+                            RequestMethod.other,
+                        ].randomElement() ?? RequestMethod.other
                     )
                 )
             }
