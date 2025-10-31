@@ -13,7 +13,6 @@ import Foundation
 // Makes those harder. Will fix eventually.
 // See: https://www.donnywals.com/making-your-swiftdata-models-codable/
 protocol FPModelProtocol {
-    var id: UUID { get }
     
 }
 

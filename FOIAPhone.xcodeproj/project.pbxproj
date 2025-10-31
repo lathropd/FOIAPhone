@@ -55,9 +55,9 @@
 				Views/JurisdictionDetailView.swift,
 				Views/JurisdictionListView.swift,
 				Views/MainMenuView.swift,
-				Views/NewRequestView.swift,
 				Views/RequestDetailView.swift,
 				Views/RequestListView.swift,
+				Views/RequestView.swift,
 				Views/TemplateDetail.swift,
 				Views/TemplateListView.swift,
 			);

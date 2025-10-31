@@ -9,8 +9,8 @@ import Foundation
 import SwiftData
 
 protocol TemplateModelProtocol: FPModelProtocol {
-    var id: UUID {get}
     var name: String {get set}
+    var jurisdictions: [Jurisdiction] { get set }
 }
 
 extension TemplateModelProtocol {
@@ -19,12 +19,12 @@ extension TemplateModelProtocol {
 
 @Model
 class Template: TemplateModelProtocol  {
-    var id: UUID
     var name: String
+    var jurisdictions: [Jurisdiction]
     
-    init(id: UUID? = nil, name: String = "") {
-        self.id = id ?? UUID()
+    init(name: String = "", jurisdictions: [Jurisdiction] = []) {
         self.name = name
+        self.jurisdictions = jurisdictions
     }
     
 //    public func hash(into hasher: inout Hasher) {

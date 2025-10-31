@@ -9,7 +9,6 @@ import Foundation
 import SwiftData
 
 protocol AgencyModelProtocol: FPModelProtocol {
-    var id: UUID { get }
     var name: String { get set }
     // var parentId: UUID? {get set}
     var jurisdiction: Jurisdiction? { get set }
@@ -27,7 +26,6 @@ extension AgencyModelProtocol {
 
 @Model
 class Agency: AgencyModelProtocol {
-    var id: UUID
     var name: String
     var jurisdiction: Jurisdiction?
     var days: Int?
@@ -37,7 +35,6 @@ class Agency: AgencyModelProtocol {
     var contactWeb: String?
     
     init(
-        id: UUID? = nil,
         name: String = "",
         jurisdiction: Jurisdiction? = nil,
         days: Int? = nil,
@@ -46,7 +43,6 @@ class Agency: AgencyModelProtocol {
         contactPhone: String = "",
         contactWeb: String = ""
     ) {
-        self.id = id ?? UUID()
         self.name = name
         self.jurisdiction = jurisdiction
         self.days = days

@@ -59,7 +59,7 @@ final class TestRecords {
                 self.agencies.append(
                     Agency(
                         name:
-                            "\(jurisdiction.name!) Department of \(faker.cat.breed())",
+                            "\(jurisdiction.name) Department of \(faker.cat.breed())",
                         jurisdiction: jurisdiction,
                         days: jurisdiction.days,
                         contact: faker.name.name(),
@@ -76,7 +76,6 @@ final class TestRecords {
             for _ in 0...10 {
                 self.requests.append(
                     Request(
-                        id: nil,
                         agency: agency,
                         contact: agency.contact,
                         contactEmail: agency.contactEmail,
@@ -137,8 +136,9 @@ class TestData {
             }
             for template in TestRecords.shared.templates {
                 container.mainContext.insert(template)
-                
+
             }
         }
     }
 }
+

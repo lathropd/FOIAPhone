@@ -9,25 +9,38 @@ import Contacts
 import Foundation
 import SwiftData
 
-enum RequestMethod: Int, Decodable, Encodable {
+enum RequestMethod: String, Codable {
     case web
     case email
     case letter
     case other
 }
 
+enum RequestStatus: String, Codable {
+    case draft
+    case sent
+    case overdue
+    case acknowledged
+    case pending
+    case appealed
+    case completed
+    case denied
+}
+
 protocol RequestModelProtocol: FPModelProtocol {
-    var id: UUID { get }
+    var title: String { get set }
+    var recordsSought: String { get set }
     var created: Date { get set }
     var agency: Agency? { get set }
     var template: Template? { get set }
-    var contact: String {get set}
+    var contact: String { get set }
     var contactEmail: String { get set }
     var contactPhone: String { get set }
     var contactWeb: String { get set }
     var notes: String { get set }
     var text: String { get set }
     var method: RequestMethod { get set }
+    var status: RequestStatus { get set }
 }
 
 extension RequestModelProtocol {
@@ -37,7 +50,8 @@ extension RequestModelProtocol {
 @Model
 class Request: RequestModelProtocol {
 
-    var id: UUID
+    var title: String
+    var recordsSought: String
     var created: Date
     var agency: Agency?
     var template: Template?
@@ -48,10 +62,13 @@ class Request: RequestModelProtocol {
     var notes: String
     var text: String
     var method: RequestMethod
+    var status: RequestStatus
+
 
     init(
-        id: UUID?,
-        created: Date? = nil,
+        title: String = "",
+        recordsSought: String = "",
+        created: Date = Date(),
         agency: Agency? = nil,
         template: Template? = nil,
         contact: String = "",
@@ -60,10 +77,12 @@ class Request: RequestModelProtocol {
         contactWeb: String = "",
         notes: String = "",
         text: String = "",
-        method: RequestMethod = .email
+        method: RequestMethod = .email,
+        status: RequestStatus = .draft
     ) {
-        self.id = id ?? UUID()
-        self.created = created ?? Date()
+        self.title = title
+        self.recordsSought = recordsSought
+        self.created = created
         self.agency = agency
         self.template = template
         self.contact = contact
@@ -73,16 +92,24 @@ class Request: RequestModelProtocol {
         self.notes = notes
         self.text = text
         self.method = method
+        self.status = status
 
     }
     
-//    public func hash(into hasher: inout Hasher) {
-//         hasher.combine(ObjectIdentifier(self))
-//    }
-//    
-//    static func == (lhs: Request, rhs: Request) -> Bool {
-//        return lhs === rhs
-//    }
+    public func generateRequest() {
+        
+    }
     
+    public func emailRequest() {
+        
+    }
+
+    //    public func hash(into hasher: inout Hasher) {
+    //         hasher.combine(ObjectIdentifier(self))
+    //    }
+    //
+    //    static func == (lhs: Request, rhs: Request) -> Bool {
+    //        return lhs === rhs
+    //    }
 
 }
