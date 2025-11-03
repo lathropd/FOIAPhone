@@ -74,6 +74,7 @@
 				Models/TemplateModel.swift,
 				Models/TestData.swift,
 				Services/Services.swift,
+				ViewModels/RequestViewModel.swift,
 				Views/AgencyDetailView.swift,
 				Views/AgencyListView.swift,
 				Views/JurisdictionDetailView.swift,
