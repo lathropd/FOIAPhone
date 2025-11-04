@@ -15,8 +15,9 @@ struct AgencyView: View {
     var agency: Agency = Agency()
     
     var body: some View {
-        VStack{
+        Form{
             Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
         }
         .onAppear {
                 viewModel.agency = agency

@@ -28,6 +28,9 @@ struct RequestListView: View {
                 }
 
             }
+            Button("New Request", systemImage: "plus") {
+                print("Add request")
+            }
         }
         .navigationTitle("Requests")
         .navigationBarTitleDisplayMode(.large)

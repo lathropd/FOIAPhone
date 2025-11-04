@@ -15,16 +15,23 @@ struct TemplateListView: View {
     @State private var viewModel: TemplateListViewModel = TemplateListViewModel()
     
     var body: some View {
-        List(templates) { template in
-            NavigationLink(template.name, destination: TemplateView(template: template))
-        }
+        Form {
+            
+            
+            List(templates) { template in
+                NavigationLink(template.name, destination: TemplateView(template: template))
+            }
             .navigationTitle("Templates")
             .navigationBarTitleDisplayMode(.large)
             .onAppear {
                 viewModel.templates = self.templates
                 viewModel.modelContext = self.modelContext
-
+                
             }
+            Button("New Template", systemImage: "plus") {
+                print("Add template")
+            }
+        }
 
     }
 }

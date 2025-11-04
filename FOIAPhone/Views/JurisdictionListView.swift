@@ -17,16 +17,18 @@ struct JurisdictionListView: View {
         Form {
             List(jurisdictions) {
                 jurisdiction in
-               
-                VStack(alignment: .leading) {
-                    Text(jurisdiction.name)
-                        .font(.title2)
-                    Text("Statute: \(jurisdiction.law)")
-                    Text("Agencies: \(jurisdiction.agencies.count)")
-
-
+                NavigationLink(destination: JurisdictionView(jurisdiction: jurisdiction)) {
+                    VStack(alignment: .leading) {
+                        Text(jurisdiction.name)
+                            .font(.title2)
+                        Text("Statute: \(jurisdiction.law)")
+                        Text("Agencies: \(jurisdiction.agencies.count)")
+                    }
                 }
 
+            }
+            Button("Add Jurisdiction", systemImage: "plus") {
+                print("Add jurisdiction")
             }
         }
         .navigationTitle("Jurisdictions")
