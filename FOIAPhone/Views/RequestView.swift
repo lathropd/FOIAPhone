@@ -38,10 +38,9 @@ struct RequestView: View {
             actionButtons
         }
         .onAppear {
-        
-                viewModel.modelContext = modelContext
+            viewModel.request = request
+            viewModel.modelContext = modelContext
          
-            
         }
     }
     
@@ -158,6 +157,9 @@ struct RequestView: View {
         }
     }
 }
+
+
+
 
 #Preview {
     let testData = TestData.shared

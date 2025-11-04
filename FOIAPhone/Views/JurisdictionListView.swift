@@ -2,36 +2,51 @@
 //  JurisdictionListView.swift
 //  FOIAPhone
 //
-//  Created by me on 10/28/25.
+//  Created by me on 10/24/25.
 //
 
-import SwiftUI
 import SwiftData
-
+import SwiftUI
 
 struct JurisdictionListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query var data: [Jurisdiction]
-    var actor: JursidictionActor?
+    @Query private var jurisdictions: [Jurisdiction]
+    @State private var viewModel: JurisdictionListViewModel = JurisdictionListViewModel()
 
-
-    
     var body: some View {
-        Form{
-            Text("Jurisdction List")
+        Form {
+            List(viewModel.jurisidictions) {
+                jurisdiction in
+               
+                VStack(alignment: .leading) {
+                    Text(jurisdiction.name)
+                        .font(.title2)
+                    Text("Statute: \(jurisdiction.law)")
+                    Text("Agencies: \(jurisdiction.agencies.count)")
+
+
+                }
+
+            }
         }
-            .navigationTitle("Jurisdictions")
-            .navigationBarTitleDisplayMode(.large)
+        .navigationTitle("Jurisdictions")
+        .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            viewModel.jurisidictions = self.jurisdictions
+            viewModel.modelContext = self.modelContext
+
+        }
 
     }
+
 }
 
 #Preview {
     let testData = TestData.shared
+    NavigationView {
+        JurisdictionListView()
+            .modelContext(testData.container.mainContext)
 
-
-
-    JurisdictionListView()
-        .modelContext(testData.container.mainContext)
+    }
 
 }

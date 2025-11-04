@@ -43,7 +43,7 @@ final class TestRecords {
             ),
         ]
 
-        for _ in 0...10 {
+        for _ in 0...0 {
             let state = faker.address.state()
             self.jurisdictions.append(
                 Jurisdiction(
@@ -55,7 +55,7 @@ final class TestRecords {
         }
 
         for jurisdiction in self.jurisdictions {
-            for _ in 0...10 {
+            for _ in 0...0 {
                 self.agencies.append(
                     Agency(
                         name:
@@ -73,7 +73,7 @@ final class TestRecords {
         }
 
         for agency in self.agencies {
-            for _ in 0...10 {
+            for _ in 0...0 {
                 self.requests.append(
                     Request(
                         agency: agency,

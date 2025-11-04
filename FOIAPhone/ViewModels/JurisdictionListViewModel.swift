@@ -1,5 +1,5 @@
 //
-//  RequestListViewModel.swift
+//  JurisdictionListViewModel.swift
 //  FOIAPhone
 //
 //  Created by me on 10/31/25.
@@ -10,19 +10,19 @@ import SwiftData
 import Observation
 
 @Observable
-class RequestListViewModel {
+class JurisdictionListViewModel {
     // MARK: - Published State
-    var requests: [Request]
+    var jurisidictions: [Jurisdiction]
 
     // MARK: - Dependencies
     var modelContext: ModelContext?
 
     // MARK: - Initialization
     init(
-        requests: [Request] = [Request()],
+        jurisidictions: [Jurisdiction] = [Jurisdiction()],
         modelContext: ModelContext? = nil
     ) {
-        self.requests = requests
+        self.jurisidictions = jurisidictions
         self.modelContext = modelContext
     }
 }

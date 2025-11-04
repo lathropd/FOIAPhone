@@ -11,7 +11,6 @@ import SwiftData
 
 struct MainMenuView: View {
     @Environment(\.modelContext) private var modelContext
-    //@State var data: FPData
     @State private var path = NavigationPath()
 
     
@@ -21,8 +20,6 @@ struct MainMenuView: View {
         NavigationStack(path: $path){
                 
                 List{
-                    
-                    
                     NavigationLink("New Request", destination: RequestView())
                     NavigationLink("View Requests",
                                    destination: RequestListView())

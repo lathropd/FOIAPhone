@@ -5,32 +5,48 @@
 //  Created by me on 10/24/25.
 //
 
-import SwiftUI
 import SwiftData
-
+import SwiftUI
 
 struct RequestListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query var data: [Request]
-    var actor: RequestActor?
-
+    @Query private var requests: [Request]
+    @State private var viewModel: RequestListViewModel = RequestListViewModel()
 
     var body: some View {
         Form {
-            Text("Request List")
-        }
-            .navigationTitle("Requests")
-            .navigationBarTitleDisplayMode(.large)
+            List(viewModel.requests) {
+                request in
+                NavigationLink(destination: RequestView(request: request)) {
+                    VStack(alignment: .leading) {
+                        Text(request.created.formatted())
+                        Text(request.agency?.name ?? "")
+                        Text(request.recordsSought)
+                        Text("Status: \(request.status)")
 
+                    }
+                }
+
+            }
+        }
+        .navigationTitle("Requests")
+        .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            viewModel.requests = self.requests
+            viewModel.modelContext = self.modelContext
+
+        }
 
     }
+
 }
 
 #Preview {
     let testData = TestData.shared
+    NavigationView {
+        RequestListView()
+            .modelContext(testData.container.mainContext)
 
-
-    RequestListView()
-        .modelContext(testData.container.mainContext)
+    }
 
 }
