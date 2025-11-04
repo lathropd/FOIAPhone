@@ -11,16 +11,20 @@ import SwiftData
 
 struct TemplateListView: View {
     @Environment(\.modelContext) private var modelContext
-    @Query var data: [Template]
-    var actor: TemplateActor?
+    @Query var templates: [Template]
+    @State private var viewModel: TemplateListViewModel = TemplateListViewModel()
     
     var body: some View {
-        List(data) { template in
-            NavigationLink(template.name, destination: TemplateDetailView(data: template))
+        List(templates) { template in
+            NavigationLink(template.name, destination: TemplateView(template: template))
         }
             .navigationTitle("Templates")
             .navigationBarTitleDisplayMode(.large)
+            .onAppear {
+                viewModel.templates = self.templates
+                viewModel.modelContext = self.modelContext
 
+            }
 
     }
 }
@@ -28,7 +32,9 @@ struct TemplateListView: View {
 #Preview {
     let testData = TestData.shared
 
-    TemplateListView()
+    NavigationView{
+        TemplateListView()
+    }
         .modelContext(testData.container.mainContext)
 
 }

@@ -15,7 +15,7 @@ struct RequestListView: View {
 
     var body: some View {
         Form {
-            List(viewModel.requests) {
+            List(requests) {
                 request in
                 NavigationLink(destination: RequestView(request: request)) {
                     VStack(alignment: .leading) {

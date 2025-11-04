@@ -15,7 +15,7 @@ struct JurisdictionListView: View {
 
     var body: some View {
         Form {
-            List(viewModel.jurisidictions) {
+            List(jurisdictions) {
                 jurisdiction in
                
                 VStack(alignment: .leading) {
