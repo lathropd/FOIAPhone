@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		8C1541E72EBB38CC001E32EB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 8C1541E62EBB38CC001E32EB /* GRDB */; };
+		8C1541EA2EBB38E8001E32EB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 8C1541E92EBB38E8001E32EB /* GRDB */; };
+		8C1541EC2EBB38F7001E32EB /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 8C1541EB2EBB38F7001E32EB /* GRDB */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		8C1541C52EBB3166001E32EB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1541E72EBB38CC001E32EB /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1541EA2EBB38E8001E32EB /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C1541EC2EBB38F7001E32EB /* GRDB in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +87,7 @@
 				8C1541B92EBB3164001E32EB /* FOIAPhone */,
 				8C1541C72EBB3166001E32EB /* FOIAPhoneTests */,
 				8C1541D12EBB3166001E32EB /* FOIAPhoneUITests */,
+				8C1541E82EBB38E8001E32EB /* Frameworks */,
 				8C1541B82EBB3164001E32EB /* Products */,
 			);
 			sourceTree = "<group>";
@@ -90,6 +100,13 @@
 				8C1541CE2EBB3166001E32EB /* FOIAPhoneUITests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		8C1541E82EBB38E8001E32EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -112,6 +129,7 @@
 			);
 			name = FOIAPhone;
 			packageProductDependencies = (
+				8C1541E62EBB38CC001E32EB /* GRDB */,
 			);
 			productName = FOIAPhone;
 			productReference = 8C1541B72EBB3164001E32EB /* FOIAPhone.app */;
@@ -135,6 +153,7 @@
 			);
 			name = FOIAPhoneTests;
 			packageProductDependencies = (
+				8C1541E92EBB38E8001E32EB /* GRDB */,
 			);
 			productName = FOIAPhoneTests;
 			productReference = 8C1541C42EBB3166001E32EB /* FOIAPhoneTests.xctest */;
@@ -158,6 +177,7 @@
 			);
 			name = FOIAPhoneUITests;
 			packageProductDependencies = (
+				8C1541EB2EBB38F7001E32EB /* GRDB */,
 			);
 			productName = FOIAPhoneUITests;
 			productReference = 8C1541CE2EBB3166001E32EB /* FOIAPhoneUITests.xctest */;
@@ -195,6 +215,9 @@
 			);
 			mainGroup = 8C1541AE2EBB3164001E32EB;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				8C1541E12EBB381E001E32EB /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8C1541B82EBB3164001E32EB /* Products */;
 			projectDirPath = "";
@@ -558,6 +581,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		8C1541E12EBB381E001E32EB /* XCRemoteSwiftPackageReference "GRDB.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/groue/GRDB.swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		8C1541E62EBB38CC001E32EB /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C1541E12EBB381E001E32EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		8C1541E92EBB38E8001E32EB /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C1541E12EBB381E001E32EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		8C1541EB2EBB38F7001E32EB /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C1541E12EBB381E001E32EB /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 8C1541AF2EBB3164001E32EB /* Project object */;
 }
