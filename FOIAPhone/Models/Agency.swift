@@ -24,6 +24,9 @@ struct Agency: Equatable {
     var address: String
     var url: String
     var foiaUrl: String
+    var jurisdictionId: Int64?
+    
+
 
 //    var created: Date?
 //    var updated: Date?
@@ -35,13 +38,16 @@ struct Agency: Equatable {
 }
 
 extension Agency {
+    static let requests = hasMany(Request.self)
+    static let jurisdiction = hasOne(Jurisdiction.self)
+
 
 
 }
 
 // MARK: - Database
 
-extension Agency: Codable, FetchableRecord, MutablePersistableRecord {
+extension Agency: Identifiable, Codable, FetchableRecord, MutablePersistableRecord {
     // Define database columns from CodingKeys
     enum Columns {
         static let name = Column(CodingKeys.name)

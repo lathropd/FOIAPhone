@@ -29,11 +29,11 @@ extension AppDatabase {
             // Open or create the database
             let databaseURL = directoryURL.appendingPathComponent("db.sqlite")
             let config = AppDatabase.makeConfiguration()
-            let dbQuery = try DatabaseQuery(path: databaseURL.path, configuration: config)
+            let dbQueue = try DatabaseQueue(path: databaseURL.path, configuration: config)
         
             
             // Create the AppDatabase
-            let appDatabase = try AppDatabase(dbQuery)
+            let appDatabase = try AppDatabase(dbQueue)
             
             // Populate the database if it is empty, for better demo purpose.
 //            try appDatabase.createRandomPlayersIfEmpty()

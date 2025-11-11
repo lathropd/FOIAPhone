@@ -35,9 +35,30 @@
 		8C1541CE2EBB3166001E32EB /* FOIAPhoneUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FOIAPhoneUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8C4F418C2EBF497A00194409 /* Exceptions for "FOIAPhone" folder in "FOIAPhoneTests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Views/RequestView.swift,
+			);
+			target = 8C1541C32EBB3166001E32EB /* FOIAPhoneTests */;
+		};
+		8C4F418D2EBF497A00194409 /* Exceptions for "FOIAPhone" folder in "FOIAPhoneUITests" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Views/RequestView.swift,
+			);
+			target = 8C1541CD2EBB3166001E32EB /* FOIAPhoneUITests */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		8C1541B92EBB3164001E32EB /* FOIAPhone */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8C4F418C2EBF497A00194409 /* Exceptions for "FOIAPhone" folder in "FOIAPhoneTests" target */,
+				8C4F418D2EBF497A00194409 /* Exceptions for "FOIAPhone" folder in "FOIAPhoneUITests" target */,
+			);
 			path = FOIAPhone;
 			sourceTree = "<group>";
 		};

@@ -1,5 +1,5 @@
 //
-//  Template.swift
+//  Request.swift
 //  FOIAPhone
 //
 //  Created by me on 11/5/25.
@@ -9,12 +9,12 @@
 import GRDB
 import Foundation
 
-/// The Template struct.
+/// The Request struct.
 ///
 /// Identifiable conformance supports SwiftUI list animations, and type-safe
 /// GRDB primary key methods.
 /// Equatable conformance supports tests.
-struct Template: Equatable {  ///
+struct Request: Equatable {
     var id: Int64?
     var name: String
     var records: String
@@ -23,6 +23,11 @@ struct Template: Equatable {  ///
     var status: String
     var notes: String
     var sent: Date?
+    var agencyId: Int64?
+    var templateId: Int64?
+
+    
+
 //    var created: Date?
 //    var updated: Date?
     
@@ -33,7 +38,17 @@ struct Template: Equatable {  ///
     
 }
 
-extension Template {
+extension Request {
+    static let agency = belongsTo(Agency.self)
+
+    var agency: QueryInterfaceRequest<Agency> {
+            request(for: Request.agency)
+    }
+    
+    static let template = belongsTo(Template.self)
+    var template: QueryInterfaceRequest<Template> {
+            request(for: Request.template)
+    }
 
     
 //    /// Creates a new player with empty name and zero score
@@ -54,7 +69,7 @@ extension Template {
 /// Make Request a Codable Record.
 ///
 /// See <https://github.com/groue/GRDB.swift/blob/master/README.md#records>
-extension Template: Codable, FetchableRecord, MutablePersistableRecord {
+extension Request: Codable, Identifiable, FetchableRecord, MutablePersistableRecord {
     // Define database columns from CodingKeys
     enum Columns {
         static let name = Column(CodingKeys.name)
@@ -72,4 +87,6 @@ extension Template: Codable, FetchableRecord, MutablePersistableRecord {
     mutating func didInsert(_ inserted: InsertionSuccess) {
         id = inserted.rowID
     }
+    
+
 }

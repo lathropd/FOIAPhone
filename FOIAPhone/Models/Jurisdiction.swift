@@ -41,7 +41,7 @@ extension Jurisdiction {
 /// Make Request a Codable Record.
 ///
 /// See <https://github.com/groue/GRDB.swift/blob/master/README.md#records>
-extension Jurisdiction: Codable, FetchableRecord, MutablePersistableRecord {
+extension Jurisdiction: Codable, Identifiable, FetchableRecord, MutablePersistableRecord {
     // Define database columns from CodingKeys
     enum Columns {
         static let name = Column(CodingKeys.name)

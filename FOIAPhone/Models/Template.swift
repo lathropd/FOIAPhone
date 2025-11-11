@@ -1,5 +1,5 @@
 //
-//  Request.swift
+//  Template.swift
 //  FOIAPhone
 //
 //  Created by me on 11/5/25.
@@ -9,12 +9,12 @@
 import GRDB
 import Foundation
 
-/// The Request struct.
+/// The Template struct.
 ///
 /// Identifiable conformance supports SwiftUI list animations, and type-safe
 /// GRDB primary key methods.
 /// Equatable conformance supports tests.
-struct Request: Equatable {
+struct Template: Equatable {  ///
     var id: Int64?
     var name: String
     var records: String
@@ -33,7 +33,7 @@ struct Request: Equatable {
     
 }
 
-extension Request {
+extension Template {
 
     
 //    /// Creates a new player with empty name and zero score
@@ -54,7 +54,7 @@ extension Request {
 /// Make Request a Codable Record.
 ///
 /// See <https://github.com/groue/GRDB.swift/blob/master/README.md#records>
-extension Request: Codable, FetchableRecord, MutablePersistableRecord {
+extension Template: Codable, Identifiable, FetchableRecord, MutablePersistableRecord {
     // Define database columns from CodingKeys
     enum Columns {
         static let name = Column(CodingKeys.name)
@@ -72,6 +72,4 @@ extension Request: Codable, FetchableRecord, MutablePersistableRecord {
     mutating func didInsert(_ inserted: InsertionSuccess) {
         id = inserted.rowID
     }
-    
-
 }
