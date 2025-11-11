@@ -14,7 +14,7 @@ struct RequestView: View {
     var request: Request? = nil
     
     var body: some View {
-        ContentView(/*appDatabase: appDatabase,*/ request: request)
+        ContentView(viewModel: RequestViewModel(request: request) )
     }
 }
 
@@ -27,30 +27,28 @@ private struct ContentView: View {
     var request: Request? = nil
 
     var body: some View {
-
-        Form{
-            TextField("Name", text: $viewModel.name)
-            DatePicker("Date", selection: $viewModel.sentDate, displayedComponents: .date)
         
-            Picker("jurisdiction", selection: $viewModel.jurisdictionId) {
-                Text("Choose Jurisdiction")
-            }
-            Picker("agency", selection: $viewModel.agencyId) {
-                Text("Choose Agency")
-            }
-            Picker("template", selection: $viewModel.templateId) {
-                Text("Choose Template")
-            }
-           
+        Form{
+            TextField("Title", text: $viewModel.request.title)
+            DatePicker("Date", selection: $viewModel.request.sent, displayedComponents: .date)
+            
+            //            Picker("jurisdiction", selection: $viewModel.jurisdiction.id) {
+            //                Text("Choose Jurisdiction").tag("")
+            //            }
+            //            Picker("agency", selection: $viewModel.agency.id) {
+            //                Text("Choose Agency")
+            //            }
+            
+            
             
             Section("Records") {
-                TextEditor(text: $viewModel.records)
+                TextEditor(text: $viewModel.request.records)
             }
             
             Section("Request Text") {
-                TextEditor(text: $viewModel.text)
+                TextEditor(text: $viewModel.request.text)
                     .listRowSeparator(.hidden) // Hide separator for this row
-
+                
                 HStack {
                     Spacer()
                     Button("generate", systemImage: "bolt.fill") {
@@ -58,20 +56,20 @@ private struct ContentView: View {
                         
                     }.labelStyle(.iconOnly)
                 }
-
-                    
                 
-                Picker("status", selection: $viewModel.status) {
+                
+                
+                Picker("status", selection: $viewModel.request.status) {
                     Text("Choose Status")
                 }
-                Picker("request method", selection: $viewModel.method) {
+                Picker("request method", selection: $viewModel.request.method) {
                     Text("Choose Method")
                 }
-
+                
             }
             
             Section("Notes") {
-                    TextEditor(text: $viewModel.notes)
+                TextEditor(text: $viewModel.request.notes)
             }
             
             Section("Agency Info") {
@@ -84,74 +82,65 @@ private struct ContentView: View {
                     
                 }
                 .listRowSeparator(.hidden)
-
+                
             }
-            
-            HStack(alignment: .center) {
-                Button() {
+            Section {
+                HStack(alignment: .center) {
+                    Button() {
+                        
+                        
+                        viewModel.email()                } label: {
+                            Image(systemName:"envelope")
+                            Text("Send")
+                        }
+                        .buttonStyle(.borderless)
+                        .disabled(!viewModel.emailable)
                     
-                
-                    viewModel.email()                } label: {
-                        Image(systemName:"envelope")
-                        Text("Send")
+                    
+                    Spacer()
+                    Button() {
+                        viewModel.save()
+                    } label: {
+                        Image( systemName: "opticaldiscdrive")
+                        Text("Save")
                     }
-                .buttonStyle(.borderless)
-                    .disabled(!viewModel.emailable)
-                
-                
-                Spacer()
-                Button() {
-                    viewModel.save()
-                } label: {
-                    Image( systemName: "opticaldiscdrive")
-                    Text("Save")
+                    .buttonStyle(.borderless)
+                    .disabled(!viewModel.saveable)
+                    
+                    
+                    Spacer()
+                    // Something about the form makes the trash icon blue in a label or shortform button
+                    Button( role:.destructive) {
+                        viewModel.delete()
+                    } label: {
+                        Image( systemName: "trash")
+                        Text("Delete")
+                    }
+                    .disabled(!viewModel.deletable)
+                    .tint(.red)
+                    .buttonStyle(.borderless)
+                    
+                    
+                    
                 }
-                .buttonStyle(.borderless)
-                .disabled(!viewModel.saveable)
                 
                 
-                Spacer()
-                // Something about the form makes the trash icon blue in a label or shortform button
-                Button( role:.destructive) {
-                    viewModel.delete()
-                } label: {
-                    Image( systemName: "trash")
-                    Text("Delete")
-                }
-                .disabled(!viewModel.deletable)
-                .tint(.red)
-                .buttonStyle(.borderless)
-
-        
-
             }
-
-
-                 
+            
+            
+            
+            
+            
+        }.navigationTitle(viewModel.navTitle)
+            .navigationBarTitleDisplayMode(.large)
         
             
-        
-        }
-        .navigationTitle(viewModel.navTitle)
-        .navigationBarTitleDisplayMode(.large)
-    
-
     }
-    
-    init(/*appDatabase: AppDatabase,*/ request: Request? = nil, agency: Agency? = nil, jurisdiction: Jurisdiction? = nil) {
-        _viewModel = State(
-            initialValue: RequestViewModel(
-//                appDatabase: appDatabase,
-                request: request,
-                agency: agency, jurisdiction: jurisdiction
-            )
-        )
-    }
-    
+}
     
    
 
-}
+
 
 #Preview {
     NavigationStack{

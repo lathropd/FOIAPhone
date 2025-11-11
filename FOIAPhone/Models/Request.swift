@@ -18,7 +18,7 @@ struct Request: PBIdentifiableCollection {
     var method: String
     var status: String
     var notes: String
-    var sent: Date?
+    var sent: Date
     var agencyId: String?
 
     var created: String

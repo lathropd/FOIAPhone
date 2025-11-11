@@ -86,7 +86,7 @@ Jurisdiction: \("USA")
             method: "",
             status: "",
             notes: "",
-            sent: nil,
+            sent: Date(),
             agencyId: nil,
             created: "",
             updated: ""
