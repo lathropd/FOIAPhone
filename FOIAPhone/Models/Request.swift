@@ -7,19 +7,21 @@
 
 
 import Foundation
+import PocketBase
 
 /// The Request struct.
-struct Request: Equatable {
-    var id: Int64?
-    var name: String
+struct Request: PBIdentifiableCollection {
+    var id: String
+    var title: String
     var records: String
     var text: String
     var method: String
     var status: String
     var notes: String
     var sent: Date?
-    var agencyId: Int64?
-    var templateId: Int64?
+    var agencyId: String
 
+    var created: String
+    var updated: String
 
 }

@@ -38,6 +38,7 @@
 		8C4F418C2EBF497A00194409 /* Exceptions for "FOIAPhone" folder in "FOIAPhoneTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/Contact.swift,
 				Models/User.swift,
 				Views/RequestView.swift,
 			);
@@ -46,7 +47,9 @@
 		8C4F418D2EBF497A00194409 /* Exceptions for "FOIAPhone" folder in "FOIAPhoneUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/Contact.swift,
 				Models/User.swift,
+				Views/MainMenuView.swift,
 				Views/RequestView.swift,
 			);
 			target = 8C1541CD2EBB3166001E32EB /* FOIAPhoneUITests */;
@@ -497,7 +500,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3A5922G8N4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.articlexv.FOIAPhoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -516,7 +519,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 3A5922G8N4;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.articlexv.FOIAPhoneTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

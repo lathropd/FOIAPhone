@@ -7,20 +7,20 @@
 
 
 import Foundation
+import PocketBase
 
 /// The Agency struct.
 ///
-struct Agency: Equatable {
-    var id: Int64?
+struct Agency: PBIdentifiableCollection {
+    var id: String
     var name: String
-    var contactTitle: String
-    var contactName: String
-    var contactEmail: String
-    var contactPhone: String
-    var address: String
-    var url: String
-    var foiaUrl: String
-    var jurisdictionId: Int64?
+    var foiaPortal: String
+    var website: String
+    var juridsictionId: String
+
+    var created: String
+    var updated: String
+    
     
 
 

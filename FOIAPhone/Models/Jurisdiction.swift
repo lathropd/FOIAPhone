@@ -7,15 +7,20 @@
 
 
 import Foundation
+import PocketBase
 
 /// The Jurisdiction struct.
-/// 
-struct Jurisdiction: Equatable {
-    var id: Int64?
+///
+struct Jurisdiction: PBIdentifiableCollection {
+    var id: String
     var name: String
-    var text: String
-    var hints: String
-    var prompt: String
+    var lawName: String
+    var muckrockId: Int
+    var calendarDays: Int
+    var businessDays: Int
+
+    var created: String
+    var updated: String
 
     
 }

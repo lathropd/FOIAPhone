@@ -7,13 +7,20 @@
 
 
 import Foundation
-
+import PocketBase
 /// The User  struct.
 ///
-struct User: Equatable {
-    var id: Int64?
+struct User: PBIdentifiableCollection {
+ 
+
+    var id: String
     var name: String
-    var text: String
-    var hints: String
+    var email: String
+    var avatar: String
+    var verified: Bool
     var prompt: String
+   
+    var created: String
+    var updated: String
+    
 }

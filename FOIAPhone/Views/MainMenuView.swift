@@ -46,12 +46,12 @@ struct MainMenuView: View {
                 
                 
                 HStack {
-                    Image("templates")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.8)
-                    
-                        .foregroundStyle(.tint)
+//                    Image("templates")
+//                        .resizable()
+//                        .scaledToFit()
+//                        .scaleEffect(0.8)
+//                    
+//                        .foregroundStyle(.tint)
                     
                     Image("agencies")
                         .resizable()
