@@ -6,16 +6,15 @@
 //
 
 import SwiftUI
-import GRDB
 
 
 
 struct RequestView: View {
-    @Environment(\.appDatabase) var appDatabase
+    //@Environment(\.appDatabase) var appDatabase
     var request: Request? = nil
     
     var body: some View {
-        ContentView(appDatabase: appDatabase, request: request)
+        ContentView(/*appDatabase: appDatabase,*/ request: request)
     }
 }
 
@@ -139,10 +138,10 @@ private struct ContentView: View {
 
     }
     
-    init(appDatabase: AppDatabase, request: Request? = nil, agency: Agency? = nil, jurisdiction: Jurisdiction? = nil) {
+    init(/*appDatabase: AppDatabase,*/ request: Request? = nil, agency: Agency? = nil, jurisdiction: Jurisdiction? = nil) {
         _viewModel = State(
             initialValue: RequestViewModel(
-                appDatabase: appDatabase,
+//                appDatabase: appDatabase,
                 request: request,
                 agency: agency, jurisdiction: jurisdiction
             )

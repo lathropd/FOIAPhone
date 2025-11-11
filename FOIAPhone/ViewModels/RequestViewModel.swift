@@ -6,15 +6,14 @@
 //
 
 import Foundation
-import GRDB
 
 @Observable @MainActor final class RequestViewModel {
     
-    private let appDatabase: AppDatabase
+//    private let appDatabase: AppDatabase
     private var request: Request
     private var agency: Agency?
     private var jurisdiction: Jurisdiction?
-    private var template: Template?
+//    private var template: Template?
     
     
     // public variables
@@ -85,8 +84,8 @@ Jurisdiction: \("USA")
     }
 
 
-    init(appDatabase: AppDatabase, request: Request? = nil, agency: Agency? = nil, jurisdiction: Jurisdiction? = nil, template: Template? = nil) {
-        self.appDatabase = appDatabase
+    init(/*appDatabase: AppDatabase,*/ request: Request? = nil, agency: Agency? = nil, jurisdiction: Jurisdiction? = nil/*, template: Template? = nil*/) {
+//        self.appDatabase = appDatabase
         self.request = request ?? Request(name: "",
                                           records: "",
                                           text: "",
@@ -96,36 +95,35 @@ Jurisdiction: \("USA")
         
         if request?.agencyId != nil {
             _ = request!
-            try? appDatabase.reader.read {db in
-                self.agency = try? Agency.find(db, id: request?.agencyId  )
+//            try? appDatabase.reader.read {db in
+//                self.agency = try? Agency.find(db, id: request?.agencyId  )
                 
-            }
+//            }
         } else {
             self.agency = agency
         }
         
         if request?.templateId != nil {
-            _ = request!
-            try? appDatabase.reader.read {db in
-                self.template = try? Template.find(db, id: request?.templateId  )
-                
-            }
+//            _ = request!
+//            try? appDatabase.reader.read {db in
+//                self.template = try? Template.find(db, id: request?.templateId  )
+//                
+//            }
         } else {
-            self.template = template
+//            self.template = template
         }
         
         
         if self.agency?.jurisdictionId != nil {
-            _ = agency!
-            try? appDatabase.reader.read {db in
-                self.jurisdiction = try? Jurisdiction.find(db, id: agency?.jurisdictionId  )
-                
-            }
+//            _ = agency!
+//            try? appDatabase.reader.read {db in
+//                self.jurisdiction = try? Jurisdiction.find(db, id: agency?.jurisdictionId  )
+//                
+//            }
         } else {
             self.jurisdiction = jurisdiction
         }
 
-        self.template = template
         self.name = request?.name ?? self.name
         self.sentDate = request?.sent ?? Date()
         self.records = request?.records ?? self.records
@@ -134,7 +132,6 @@ Jurisdiction: \("USA")
         self.notes = request?.notes ?? self.notes
         self.agencyId = request?.agencyId // we're just going to store an ID
         self.jurisdictionId = self.jurisdiction?.id ?? nil // we're just going to store an ID
-        self.templateId = self.template?.id ?? nil  // we're just going to store an ID
         
     }
 }
