@@ -9,42 +9,34 @@ import Foundation
 
 @Observable @MainActor final class RequestViewModel {
     
-//    private let appDatabase: AppDatabase
-    private var request: Request
-    private var agency: Agency?
-    private var jurisdiction: Jurisdiction?
-//    private var template: Template?
-    
-    
-    // public variables
-    var jurisdictionId: Int64?
+    public var request: Request
+    public var agency: Agency?
+    public var jurisdiction: Jurisdiction?
+//    public var user: User
 
+    
+    
+
+    
+    
     // variables to shaddow request
     // change this to a dictionary?
-    var agencyId: Int64?
-    var sentDate: Date = Date()
-    var name: String = ""
-    var text: String = ""
-    var records: String = ""
-    var method: String = ""
-    var status: String = ""
-    var notes: String = ""
-    var templateId: Int64?
+   
     
     
     
     var saveable: Bool {
         switch true {
-        case self.name == "" : return false
-        case self.status == "": return false
-        case self.method == "": return false
-        case self.agencyId == nil: return false
+        case self.request.title == "" : return false
+        case self.request.status == "": return false
+        case self.request.method == "": return false
+        case self.request.agencyId == nil: return false
         default: return true
         }
     }
     
     var saved: Bool {
-        request.id != nil
+        self.request.id != nil
     }
     
     var deletable: Bool {
@@ -52,7 +44,7 @@ import Foundation
     }
     
     var emailable: Bool {
-        return (self.text != "")
+        return (self.request.text != "")
     }
     
     let navTitle = "New Request"
@@ -84,14 +76,22 @@ Jurisdiction: \("USA")
     }
 
 
-    init(/*appDatabase: AppDatabase,*/ request: Request? = nil, agency: Agency? = nil, jurisdiction: Jurisdiction? = nil/*, template: Template? = nil*/) {
+    init(request: Request? = nil, agency: Agency? = nil, jurisdiction: Jurisdiction? = nil/*, template: Template? = nil*/) {
 //        self.appDatabase = appDatabase
-        self.request = request ?? Request(name: "",
-                                          records: "",
-                                          text: "",
-                                          method: "",
-                                          status: "draft",
-                                          notes: "")
+        self.request = request ?? Request(
+            id: "",
+            title: "",
+            records: "",
+            text: "",
+            method: "",
+            status: "",
+            notes: "",
+            sent: nil,
+            agencyId: nil,
+            created: "",
+            updated: ""
+        )
+        
         
         if request?.agencyId != nil {
             _ = request!
@@ -103,18 +103,10 @@ Jurisdiction: \("USA")
             self.agency = agency
         }
         
-        if request?.templateId != nil {
-//            _ = request!
-//            try? appDatabase.reader.read {db in
-//                self.template = try? Template.find(db, id: request?.templateId  )
-//                
-//            }
-        } else {
-//            self.template = template
-        }
+
         
         
-        if self.agency?.jurisdictionId != nil {
+        if agency?.jurisdictionId != nil {
 //            _ = agency!
 //            try? appDatabase.reader.read {db in
 //                self.jurisdiction = try? Jurisdiction.find(db, id: agency?.jurisdictionId  )
@@ -124,14 +116,7 @@ Jurisdiction: \("USA")
             self.jurisdiction = jurisdiction
         }
 
-        self.name = request?.name ?? self.name
-        self.sentDate = request?.sent ?? Date()
-        self.records = request?.records ?? self.records
-        self.text = request?.text ?? self.text
-        self.status = request?.status ?? self.status
-        self.notes = request?.notes ?? self.notes
-        self.agencyId = request?.agencyId // we're just going to store an ID
-        self.jurisdictionId = self.jurisdiction?.id ?? nil // we're just going to store an ID
+       
         
     }
 }

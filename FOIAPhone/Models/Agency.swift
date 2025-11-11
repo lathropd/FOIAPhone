@@ -16,7 +16,7 @@ struct Agency: PBIdentifiableCollection {
     var name: String
     var foiaPortal: String
     var website: String
-    var juridsictionId: String
+    var jurisdictionId: String
 
     var created: String
     var updated: String
