@@ -26,3 +26,21 @@ struct Agency: PBIdentifiableCollection {
 
   
 }
+
+
+struct MockAgency: Equatable {
+    var id: String?
+    var name: String?
+    var foiaPortal: String?
+    var website: String?
+    var juridsictionId: String?
+
+    var created: String?
+    var updated: String?
+    
+    
+
+
+  
+}
+

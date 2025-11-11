@@ -24,3 +24,18 @@ struct Jurisdiction: PBIdentifiableCollection {
 
     
 }
+
+
+struct MockJurisdiction: Equatable {
+    var id: String?
+    var name: String?
+    var lawName: String?
+    var muckrockId: Int?
+    var calendarDays: Int?
+    var businessDays: Int?
+
+    var created: String?
+    var updated: String?
+
+    
+}
