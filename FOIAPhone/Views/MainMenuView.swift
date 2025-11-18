@@ -6,8 +6,24 @@
 //
 
 import SwiftUI
+import PocketBase
+
 
 struct MainMenuView: View {
+    @Environment(\.pocketBase) var pb
+    
+    var body: some View {
+        ContentView(vm: MainMenuViewModel(pb: pb) )
+    }
+}
+
+
+
+
+private struct ContentView: View {
+    @State var vm: MainMenuViewModel
+    
+
     var body: some View {
         NavigationStack {
             
@@ -20,16 +36,10 @@ struct MainMenuView: View {
                     .scaleEffect(1.4)
                 
                     .rotationEffect(.degrees(21))
-                    .offset(y: CGFloat(-100))
+//                    .offset(y: CGFloat(-100))
                 
                 HStack {
-                    NavigationLink(destination: RequestView()) {
-                        Image("newRequest")
-                            .resizable()
-                            .scaledToFit()
-                            .scaleEffect(0.8)
-                            .foregroundStyle(.tint)
-                    }
+  
                     
                     
                     
@@ -40,8 +50,16 @@ struct MainMenuView: View {
                         .foregroundStyle(.tint)
                     
                     
+                    Image("agencies")
+                        .resizable()
+                        .scaledToFit()
+                        .scaleEffect(1.1)
+                    
+                        .foregroundStyle(.tint)
+                    
+                    
                 }
-                .offset(y: CGFloat(-200))
+                .offset(y: CGFloat(-100))
                 
                 
                 
@@ -52,43 +70,48 @@ struct MainMenuView: View {
 //                        .scaleEffect(0.8)
 //                    
 //                        .foregroundStyle(.tint)
-                    
-                    Image("agencies")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(1.1)
-                    
-                        .foregroundStyle(.tint)
+                    NavigationLink(destination: RequestView()) {
+                        Image("newRequest")
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(0.8)
+                            .foregroundStyle(.tint)
+
+                    }
                 }
-                .offset(y: CGFloat(-200))
+                .offset(y: CGFloat(-100))
                 
-                Text("© 2025 Daniel Lathrop")
-                   
-                    .foregroundStyle(.red)
-                    .offset(y: CGFloat(22))
+
                    
                 HStack{
                     Spacer()
-                    
+
+                   
                     Spacer()
-                    Button("Settings", systemImage: "gear") {
-                        print("navigate to settings")
+
+                    Spacer()
+                    NavigationLink(destination: SettingsView()) {
                         
-                    }.tint(.gray)
-                        .labelStyle(.iconOnly)
-                        .padding()
+                        
+                        Label("Settings", systemImage: "gear")
+                            .tint(.gray)
+                            .labelStyle(.iconOnly)
+                            .font(.largeTitle)
+                            .padding()
+                            
+                    }
                     
 
-                }                    .offset(y: CGFloat(-20))
-               
+                }
+                .offset(y: CGFloat(-50))
 
-            
-//                        .labelStyle(.titleAndIcon)
-                    
+                            
                 }.padding()
+                
+
 
         }
-        }
+    }
 //    }
 }
 

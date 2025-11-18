@@ -4,10 +4,13 @@
 //
 //  Created by me on 11/6/25.
 //
+// Can I refactor this to a ViewState? Probably yes.
 
 import Foundation
+import PocketBase
 
-@Observable @MainActor final class RequestViewModel {
+
+private class RequestViewModel {
     
     public var request: Request
     public var agency: Agency?
