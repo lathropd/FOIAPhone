@@ -18,7 +18,6 @@ struct User: PBIdentifiableCollection {
     var email: String
     var avatar: String
     var verified: Bool
-    var prompt: String
    
     var created: String
     var updated: String

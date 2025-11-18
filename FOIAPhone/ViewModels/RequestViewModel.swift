@@ -10,7 +10,8 @@ import Foundation
 import PocketBase
 
 
-private class RequestViewModel {
+@Observable
+class RequestViewModel {
     
     public var request: Request
     public var agency: Agency?

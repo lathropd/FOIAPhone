@@ -9,7 +9,7 @@ import Foundation
 import PocketBase
 
 
-private class RequestsViewModel: Observable {
+class RequestsViewModel: Observable {
     // always going to make the model private and expose via a read-only
     // property when necessary
     private var model: [Request] = []

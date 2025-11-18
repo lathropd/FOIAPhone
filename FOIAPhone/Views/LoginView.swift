@@ -22,14 +22,13 @@ private struct ContentView: View {
     var body: some View {
         Form{
             Section(){
-                TextField("Email address", text: $vm.password)
+                TextField("Email address", text: $vm.email)
                 TextField("Password", text: $vm.password)
                 
                 Button("Sign In") {
-                    print("sign in")
-                    Task {
-                        try await vm.login()
-                    }
+                        vm.login()
+
+
                 }.disabled(vm.signedIn)
                 
                 Button("Create New Account") {
@@ -38,6 +37,7 @@ private struct ContentView: View {
                 
                 Button("Sign out", role:.destructive) {
                     print("sign out")
+                    vm.logout()
                 }.disabled(vm.signedIn ? false : true)
             }.headerProminence(.standard)
 
