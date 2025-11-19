@@ -10,10 +10,25 @@ import SwiftUI
 
 
 struct SettingsView: View {
+    @Environment(\.pocketBase) var pb
+
+
     
-    @State private var vm = SettingsViewModel()
+    var body: some View {
+        ContentView(vm: SettingsViewModel(pb: pb))
+    }
+}
+
+private struct ContentView: View {
     
+    @State var vm: SettingsViewModel
+    @State private var path = NavigationPath()
+
+
     
+    var loginScreenLabelText: String {
+        return vm.isAuthenticated ? "Account" : "Connect to an account"
+    }
     
     var body: some View {
         Form {
@@ -28,14 +43,14 @@ struct SettingsView: View {
                 }
                 TextField("Title", text: $vm.title)
                 TextField("Organization", text: $vm.organization)
-                NavigationLink(vm.email, destination: LoginView())
+                NavigationLink(loginScreenLabelText, destination: LoginView())
                     .foregroundStyle(.blue)
             }
                 
             Section("Email Signature"){
                 TextEditor(text: $vm.signature)
                     .frame(minHeight:50)
-                    .foregroundColor(vm.signatureIsSet ? .primary : .primary.opacity(0.25))
+
             }
                 //.brightness(1.0)
 
@@ -45,18 +60,27 @@ struct SettingsView: View {
         
             
     
-            Section(header: Text("Request augmentation"),
-                    footer: Text("Depending on the circumstsances, these may assist with requests for fee waivers and expedited review. Upgrade to FOIA Phone Enterprise to customize these per request.")
+            Section(header: Text("Requester details")
+                    
+
+                   
                     
             ) {
                 TextEditor(
                     text: $vm.description,
                 ).frame(minHeight:50)
-                    .foregroundColor(vm.descriptionIsSet ? .primary : .primary.opacity(0.25))
+            }
                 
-//            }
-//            
-//            Section {
+            Section(
+                footer:
+                    Text(
+                        """
+                        Describing your organization and purpose assist with requests \
+                        for fee waivers, records access and expedited review.
+                        """
+                    )
+                
+            ) {
                     
                     
                 Toggle("News Media", isOn: $vm.isMedia)
@@ -68,22 +92,24 @@ struct SettingsView: View {
 
 
             }
-            
+        
             
             Section( header:VStack {
                 Text("© 2025 Daniel Lathrop. View the [license](), [credits](), [privacy policy]() and [user agreement]() at [foiaphone.com](https://articlexv.com)")
                     .font(.caption)
 
             }, content: {})
-                
-
-                
-
-
             
         }.navigationTitle("Settings")
-            .navigationBarTitleDisplayMode(.large)
-            
+        .navigationBarTitleDisplayMode(.large)
+        .onAppear {
+            self.vm.updateAuthentication()
+            self.vm.loadSettings()
+        }
+        .onDisappear() {
+            self.vm.updateAuthentication()
+            self.vm.saveSettings()
+        }
 
     }
 }

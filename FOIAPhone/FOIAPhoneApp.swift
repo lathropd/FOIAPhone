@@ -14,9 +14,16 @@ struct FOIAPhoneApp: App {
     var body: some Scene {
         WindowGroup {
             MainMenuView()
-
+            
             
         }
+    }
+    
+    init() {
+        // Code to run when the app first launches
+        print("App is launching!")
+        // Example: Initialize UserDefaults
+        UserDefaults.standard.register(defaults: ["foiaPhoneSettings": ["":""]])
     }
 }
 

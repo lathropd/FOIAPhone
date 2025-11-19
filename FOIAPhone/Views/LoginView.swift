@@ -23,22 +23,33 @@ private struct ContentView: View {
         Form{
             Section(){
                 TextField("Email address", text: $vm.email)
-                TextField("Password", text: $vm.password)
-                
-                Button("Sign In") {
-                        vm.login()
+                    .textInputAutocapitalization(.never) // Prevents auto-capitalization
+
+                if vm.isAuthenticated != true {
+                    SecureField("Password", text: $vm.password)
+                        .textInputAutocapitalization(.never) // Prevents auto-capitalization
+                    Button("Sign In") {
+                            vm.login()
 
 
-                }.disabled(vm.signedIn)
+                    }
+                    
+                    Button("Create New Account") {
+                        print("create account")
+                    }
+                } else {
+                    Button("Sign out", role:.destructive) {
+                        print("sign out")
+                        vm.logout()
+                    }
+                    
+                }
+       
+
                 
-                Button("Create New Account") {
-                    print("create account")
-                }.disabled(vm.signedIn)
+
                 
-                Button("Sign out", role:.destructive) {
-                    print("sign out")
-                    vm.logout()
-                }.disabled(vm.signedIn ? false : true)
+
             }.headerProminence(.standard)
 
 

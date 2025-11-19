@@ -20,6 +20,14 @@ class LoginViewModel: Observable {
     init(pb: PocketBase) {
         self.pb = pb
         self.isAuthenticated = pb.isAuthenticated
+        if self.isAuthenticated {
+            Task {
+                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
+                if self.user != nil {
+                    self.email = self.user?.email ?? ""
+                }
+            }
+        }
     }
     
     var signedIn: Bool {
@@ -31,6 +39,8 @@ class LoginViewModel: Observable {
             do {
                 var authResult = try await self.pb.authWithPassword(email: self.email, password: self.password, userType: User.self)
                 self.isAuthenticated = pb.isAuthenticated
+                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
+                    
 
             } catch {
                 print("\(error)")
