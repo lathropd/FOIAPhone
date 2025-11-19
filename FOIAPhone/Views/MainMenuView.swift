@@ -41,21 +41,25 @@ private struct ContentView: View {
                 HStack {
   
                     
+                    NavigationLink(destination: RequestsView()) {
+                        
+                        
+                        Image("viewRequests")
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(0.8)
+                            .foregroundStyle(.tint)
+                    }
                     
-                    
-                    Image("viewRequests")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(0.8)
-                        .foregroundStyle(.tint)
-                    
-                    
-                    Image("agencies")
-                        .resizable()
-                        .scaledToFit()
-                        .scaleEffect(1.1)
-                    
-                        .foregroundStyle(.tint)
+                    NavigationLink(destination: AgenciesView()) {
+                        
+                        Image("agencies")
+                            .resizable()
+                            .scaledToFit()
+                            .scaleEffect(1.1)
+                        
+                            .foregroundStyle(.tint)
+                    }
                     
                     
                 }

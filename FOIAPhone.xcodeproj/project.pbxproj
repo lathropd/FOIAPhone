@@ -40,6 +40,8 @@
 			membershipExceptions = (
 				Models/Contact.swift,
 				Models/User.swift,
+				Services/Authentication.swift,
+				Services/LLM.swift,
 				ViewModels/AgencyViewModel.swift,
 				ViewModels/JurisdictionViewModel.swift,
 				ViewModels/LoginViewModel.swift,
@@ -61,6 +63,8 @@
 			membershipExceptions = (
 				Models/Contact.swift,
 				Models/User.swift,
+				Services/Authentication.swift,
+				Services/LLM.swift,
 				ViewModels/AgencyViewModel.swift,
 				ViewModels/JurisdictionViewModel.swift,
 				ViewModels/LoginViewModel.swift,
