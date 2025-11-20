@@ -9,10 +9,10 @@ import SwiftUI
 import PocketBase
 
 struct LoginView: View {
-        @Environment(\.pocketBase) var pb
+    @Environment(\.pocketBase) var pocketBase
         
         var body: some View {
-            ContentView(vm: LoginViewModel(pb: pb))
+            ContentView(vm: LoginViewModel(pb: pocketBase))
         }
     }
     

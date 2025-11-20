@@ -7,8 +7,43 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8CF639CB2EC340BF00F4117A /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8CF639CA2EC340BF00F4117A /* PocketBase */; };
-		8CF639CD2EC340D600F4117A /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8CF639CC2EC340D600F4117A /* PocketBase */; };
+		8C7A4B5D2ECF14A600AEF39E /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B5C2ECF14A600AEF39E /* PocketBase */; };
+		8C7A4B602ECF2EC100AEF39E /* AISDKJSONSchema in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B5F2ECF2EC100AEF39E /* AISDKJSONSchema */; };
+		8C7A4B622ECF2EC100AEF39E /* AISDKProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B612ECF2EC100AEF39E /* AISDKProvider */; };
+		8C7A4B642ECF2EC100AEF39E /* AISDKProviderUtils in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B632ECF2EC100AEF39E /* AISDKProviderUtils */; };
+		8C7A4B662ECF2EC100AEF39E /* AISDKZodAdapter in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B652ECF2EC100AEF39E /* AISDKZodAdapter */; };
+		8C7A4B682ECF2EC100AEF39E /* AmazonBedrockProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B672ECF2EC100AEF39E /* AmazonBedrockProvider */; };
+		8C7A4B6A2ECF2EC100AEF39E /* AnthropicProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B692ECF2EC100AEF39E /* AnthropicProvider */; };
+		8C7A4B6C2ECF2EC100AEF39E /* AssemblyAIProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B6B2ECF2EC100AEF39E /* AssemblyAIProvider */; };
+		8C7A4B6E2ECF2EC100AEF39E /* AzureProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B6D2ECF2EC100AEF39E /* AzureProvider */; };
+		8C7A4B702ECF2EC100AEF39E /* BasetenProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B6F2ECF2EC100AEF39E /* BasetenProvider */; };
+		8C7A4B722ECF2EC100AEF39E /* CerebrasProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B712ECF2EC100AEF39E /* CerebrasProvider */; };
+		8C7A4B742ECF2EC100AEF39E /* CohereProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B732ECF2EC100AEF39E /* CohereProvider */; };
+		8C7A4B762ECF2EC100AEF39E /* DeepInfraProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B752ECF2EC100AEF39E /* DeepInfraProvider */; };
+		8C7A4B782ECF2EC100AEF39E /* DeepSeekProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B772ECF2EC100AEF39E /* DeepSeekProvider */; };
+		8C7A4B7A2ECF2EC100AEF39E /* DeepgramProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B792ECF2EC100AEF39E /* DeepgramProvider */; };
+		8C7A4B7C2ECF2EC100AEF39E /* ElevenLabsProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B7B2ECF2EC100AEF39E /* ElevenLabsProvider */; };
+		8C7A4B7E2ECF2EC100AEF39E /* EventSourceParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B7D2ECF2EC100AEF39E /* EventSourceParser */; };
+		8C7A4B802ECF2EC100AEF39E /* FalProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B7F2ECF2EC100AEF39E /* FalProvider */; };
+		8C7A4B822ECF2EC100AEF39E /* FireworksProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B812ECF2EC100AEF39E /* FireworksProvider */; };
+		8C7A4B842ECF2EC100AEF39E /* GatewayProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B832ECF2EC100AEF39E /* GatewayProvider */; };
+		8C7A4B862ECF2EC100AEF39E /* GladiaProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B852ECF2EC100AEF39E /* GladiaProvider */; };
+		8C7A4B882ECF2EC100AEF39E /* GoogleProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B872ECF2EC100AEF39E /* GoogleProvider */; };
+		8C7A4B8A2ECF2EC100AEF39E /* GoogleVertexProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B892ECF2EC100AEF39E /* GoogleVertexProvider */; };
+		8C7A4B8C2ECF2EC100AEF39E /* GroqProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B8B2ECF2EC100AEF39E /* GroqProvider */; };
+		8C7A4B8E2ECF2EC100AEF39E /* HuggingFaceProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B8D2ECF2EC100AEF39E /* HuggingFaceProvider */; };
+		8C7A4B902ECF2EC100AEF39E /* HumeProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B8F2ECF2EC100AEF39E /* HumeProvider */; };
+		8C7A4B922ECF2EC100AEF39E /* LMNTProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B912ECF2EC100AEF39E /* LMNTProvider */; };
+		8C7A4B942ECF2EC100AEF39E /* LumaProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B932ECF2EC100AEF39E /* LumaProvider */; };
+		8C7A4B962ECF2EC100AEF39E /* MistralProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B952ECF2EC100AEF39E /* MistralProvider */; };
+		8C7A4B982ECF2EC100AEF39E /* OpenAICompatibleProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B972ECF2EC100AEF39E /* OpenAICompatibleProvider */; };
+		8C7A4B9A2ECF2EC100AEF39E /* OpenAIProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B992ECF2EC100AEF39E /* OpenAIProvider */; };
+		8C7A4B9C2ECF2EC100AEF39E /* PerplexityProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B9B2ECF2EC100AEF39E /* PerplexityProvider */; };
+		8C7A4B9E2ECF2EC100AEF39E /* ReplicateProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B9D2ECF2EC100AEF39E /* ReplicateProvider */; };
+		8C7A4BA02ECF2EC100AEF39E /* SwiftAISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B9F2ECF2EC100AEF39E /* SwiftAISDK */; };
+		8C7A4BA22ECF2EC100AEF39E /* XAIProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4BA12ECF2EC100AEF39E /* XAIProvider */; };
+		8C7A4BA72ECF383A00AEF39E /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4BA62ECF383A00AEF39E /* PocketBase */; };
+		8C7A4BA92ECF38C700AEF39E /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4BA82ECF38C700AEF39E /* PocketBase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,20 +73,28 @@
 		8C4F418C2EBF497A00194409 /* Exceptions for "FOIAPhone" folder in "FOIAPhoneTests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/Agency.swift,
 				Models/Contact.swift,
+				Models/Jurisdiction.swift,
+				Models/Request.swift,
 				Models/User.swift,
+				PocketBaseKey.swift,
 				Services/Authentication.swift,
+				Services/Database.swift,
 				Services/LLM.swift,
+				ViewModels/AgenciesViewModel.swift,
 				ViewModels/AgencyViewModel.swift,
 				ViewModels/JurisdictionViewModel.swift,
 				ViewModels/LoginViewModel.swift,
 				ViewModels/MainMenuViewModel.swift,
 				ViewModels/RequestsViewModel.swift,
+				ViewModels/RequestViewModel.swift,
 				ViewModels/SettingsViewModel.swift,
 				Views/AgenciesView.swift,
 				Views/AgencyView.swift,
 				Views/JurisdictionView.swift,
 				Views/LoginView.swift,
+				Views/MainMenuView.swift,
 				Views/RequestsView.swift,
 				Views/RequestView.swift,
 				Views/SettingsView.swift,
@@ -61,15 +104,22 @@
 		8C4F418D2EBF497A00194409 /* Exceptions for "FOIAPhone" folder in "FOIAPhoneUITests" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
+				Models/Agency.swift,
 				Models/Contact.swift,
+				Models/Jurisdiction.swift,
+				Models/Request.swift,
 				Models/User.swift,
+				PocketBaseKey.swift,
 				Services/Authentication.swift,
+				Services/Database.swift,
 				Services/LLM.swift,
+				ViewModels/AgenciesViewModel.swift,
 				ViewModels/AgencyViewModel.swift,
 				ViewModels/JurisdictionViewModel.swift,
 				ViewModels/LoginViewModel.swift,
 				ViewModels/MainMenuViewModel.swift,
 				ViewModels/RequestsViewModel.swift,
+				ViewModels/RequestViewModel.swift,
 				ViewModels/SettingsViewModel.swift,
 				Views/AgenciesView.swift,
 				Views/AgencyView.swift,
@@ -111,7 +161,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF639CB2EC340BF00F4117A /* PocketBase in Frameworks */,
+				8C7A4B722ECF2EC100AEF39E /* CerebrasProvider in Frameworks */,
+				8C7A4BA02ECF2EC100AEF39E /* SwiftAISDK in Frameworks */,
+				8C7A4B622ECF2EC100AEF39E /* AISDKProvider in Frameworks */,
+				8C7A4B602ECF2EC100AEF39E /* AISDKJSONSchema in Frameworks */,
+				8C7A4B682ECF2EC100AEF39E /* AmazonBedrockProvider in Frameworks */,
+				8C7A4B962ECF2EC100AEF39E /* MistralProvider in Frameworks */,
+				8C7A4B842ECF2EC100AEF39E /* GatewayProvider in Frameworks */,
+				8C7A4B662ECF2EC100AEF39E /* AISDKZodAdapter in Frameworks */,
+				8C7A4BA22ECF2EC100AEF39E /* XAIProvider in Frameworks */,
+				8C7A4B702ECF2EC100AEF39E /* BasetenProvider in Frameworks */,
+				8C7A4B6A2ECF2EC100AEF39E /* AnthropicProvider in Frameworks */,
+				8C7A4B742ECF2EC100AEF39E /* CohereProvider in Frameworks */,
+				8C7A4B8A2ECF2EC100AEF39E /* GoogleVertexProvider in Frameworks */,
+				8C7A4B7E2ECF2EC100AEF39E /* EventSourceParser in Frameworks */,
+				8C7A4B9E2ECF2EC100AEF39E /* ReplicateProvider in Frameworks */,
+				8C7A4B882ECF2EC100AEF39E /* GoogleProvider in Frameworks */,
+				8C7A4B822ECF2EC100AEF39E /* FireworksProvider in Frameworks */,
+				8C7A4B862ECF2EC100AEF39E /* GladiaProvider in Frameworks */,
+				8C7A4B642ECF2EC100AEF39E /* AISDKProviderUtils in Frameworks */,
+				8C7A4B6E2ECF2EC100AEF39E /* AzureProvider in Frameworks */,
+				8C7A4B8C2ECF2EC100AEF39E /* GroqProvider in Frameworks */,
+				8C7A4B8E2ECF2EC100AEF39E /* HuggingFaceProvider in Frameworks */,
+				8C7A4B9C2ECF2EC100AEF39E /* PerplexityProvider in Frameworks */,
+				8C7A4B982ECF2EC100AEF39E /* OpenAICompatibleProvider in Frameworks */,
+				8C7A4B942ECF2EC100AEF39E /* LumaProvider in Frameworks */,
+				8C7A4B802ECF2EC100AEF39E /* FalProvider in Frameworks */,
+				8C7A4B922ECF2EC100AEF39E /* LMNTProvider in Frameworks */,
+				8C7A4B9A2ECF2EC100AEF39E /* OpenAIProvider in Frameworks */,
+				8C7A4B5D2ECF14A600AEF39E /* PocketBase in Frameworks */,
+				8C7A4B6C2ECF2EC100AEF39E /* AssemblyAIProvider in Frameworks */,
+				8C7A4B762ECF2EC100AEF39E /* DeepInfraProvider in Frameworks */,
+				8C7A4B902ECF2EC100AEF39E /* HumeProvider in Frameworks */,
+				8C7A4B782ECF2EC100AEF39E /* DeepSeekProvider in Frameworks */,
+				8C7A4B7C2ECF2EC100AEF39E /* ElevenLabsProvider in Frameworks */,
+				8C7A4B7A2ECF2EC100AEF39E /* DeepgramProvider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,7 +203,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8CF639CD2EC340D600F4117A /* PocketBase in Frameworks */,
+				8C7A4BA92ECF38C700AEF39E /* PocketBase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -127,6 +211,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C7A4BA72ECF383A00AEF39E /* PocketBase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,7 +266,41 @@
 			);
 			name = FOIAPhone;
 			packageProductDependencies = (
-				8CF639CA2EC340BF00F4117A /* PocketBase */,
+				8C7A4B5C2ECF14A600AEF39E /* PocketBase */,
+				8C7A4B5F2ECF2EC100AEF39E /* AISDKJSONSchema */,
+				8C7A4B612ECF2EC100AEF39E /* AISDKProvider */,
+				8C7A4B632ECF2EC100AEF39E /* AISDKProviderUtils */,
+				8C7A4B652ECF2EC100AEF39E /* AISDKZodAdapter */,
+				8C7A4B672ECF2EC100AEF39E /* AmazonBedrockProvider */,
+				8C7A4B692ECF2EC100AEF39E /* AnthropicProvider */,
+				8C7A4B6B2ECF2EC100AEF39E /* AssemblyAIProvider */,
+				8C7A4B6D2ECF2EC100AEF39E /* AzureProvider */,
+				8C7A4B6F2ECF2EC100AEF39E /* BasetenProvider */,
+				8C7A4B712ECF2EC100AEF39E /* CerebrasProvider */,
+				8C7A4B732ECF2EC100AEF39E /* CohereProvider */,
+				8C7A4B752ECF2EC100AEF39E /* DeepInfraProvider */,
+				8C7A4B772ECF2EC100AEF39E /* DeepSeekProvider */,
+				8C7A4B792ECF2EC100AEF39E /* DeepgramProvider */,
+				8C7A4B7B2ECF2EC100AEF39E /* ElevenLabsProvider */,
+				8C7A4B7D2ECF2EC100AEF39E /* EventSourceParser */,
+				8C7A4B7F2ECF2EC100AEF39E /* FalProvider */,
+				8C7A4B812ECF2EC100AEF39E /* FireworksProvider */,
+				8C7A4B832ECF2EC100AEF39E /* GatewayProvider */,
+				8C7A4B852ECF2EC100AEF39E /* GladiaProvider */,
+				8C7A4B872ECF2EC100AEF39E /* GoogleProvider */,
+				8C7A4B892ECF2EC100AEF39E /* GoogleVertexProvider */,
+				8C7A4B8B2ECF2EC100AEF39E /* GroqProvider */,
+				8C7A4B8D2ECF2EC100AEF39E /* HuggingFaceProvider */,
+				8C7A4B8F2ECF2EC100AEF39E /* HumeProvider */,
+				8C7A4B912ECF2EC100AEF39E /* LMNTProvider */,
+				8C7A4B932ECF2EC100AEF39E /* LumaProvider */,
+				8C7A4B952ECF2EC100AEF39E /* MistralProvider */,
+				8C7A4B972ECF2EC100AEF39E /* OpenAICompatibleProvider */,
+				8C7A4B992ECF2EC100AEF39E /* OpenAIProvider */,
+				8C7A4B9B2ECF2EC100AEF39E /* PerplexityProvider */,
+				8C7A4B9D2ECF2EC100AEF39E /* ReplicateProvider */,
+				8C7A4B9F2ECF2EC100AEF39E /* SwiftAISDK */,
+				8C7A4BA12ECF2EC100AEF39E /* XAIProvider */,
 			);
 			productName = FOIAPhone;
 			productReference = 8C1541B72EBB3164001E32EB /* FOIAPhone.app */;
@@ -205,7 +324,7 @@
 			);
 			name = FOIAPhoneTests;
 			packageProductDependencies = (
-				8CF639CC2EC340D600F4117A /* PocketBase */,
+				8C7A4BA82ECF38C700AEF39E /* PocketBase */,
 			);
 			productName = FOIAPhoneTests;
 			productReference = 8C1541C42EBB3166001E32EB /* FOIAPhoneTests.xctest */;
@@ -229,6 +348,7 @@
 			);
 			name = FOIAPhoneUITests;
 			packageProductDependencies = (
+				8C7A4BA62ECF383A00AEF39E /* PocketBase */,
 			);
 			productName = FOIAPhoneUITests;
 			productReference = 8C1541CE2EBB3166001E32EB /* FOIAPhoneUITests.xctest */;
@@ -267,7 +387,8 @@
 			mainGroup = 8C1541AE2EBB3164001E32EB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				8CF639C92EC340BF00F4117A /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */,
+				8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */,
+				8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8C1541B82EBB3164001E32EB /* Products */;
@@ -481,7 +602,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,7 +631,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -572,6 +693,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.articlexv.FOIAPhoneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -589,6 +711,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.articlexv.FOIAPhoneUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -638,25 +761,208 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8CF639C92EC340BF00F4117A /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */ = {
+		8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/drewalth/pocketbase-swift-sdk.git";
+			repositoryURL = "https://github.com/drewalth/pocketbase-swift-sdk";
 			requirement = {
 				branch = main;
 				kind = branch;
 			};
 		};
+		8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/teunlao/swift-ai-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.4;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		8CF639CA2EC340BF00F4117A /* PocketBase */ = {
+		8C7A4B5C2ECF14A600AEF39E /* PocketBase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8CF639C92EC340BF00F4117A /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */;
+			package = 8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */;
 			productName = PocketBase;
 		};
-		8CF639CC2EC340D600F4117A /* PocketBase */ = {
+		8C7A4B5F2ECF2EC100AEF39E /* AISDKJSONSchema */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8CF639C92EC340BF00F4117A /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = AISDKJSONSchema;
+		};
+		8C7A4B612ECF2EC100AEF39E /* AISDKProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = AISDKProvider;
+		};
+		8C7A4B632ECF2EC100AEF39E /* AISDKProviderUtils */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = AISDKProviderUtils;
+		};
+		8C7A4B652ECF2EC100AEF39E /* AISDKZodAdapter */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = AISDKZodAdapter;
+		};
+		8C7A4B672ECF2EC100AEF39E /* AmazonBedrockProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = AmazonBedrockProvider;
+		};
+		8C7A4B692ECF2EC100AEF39E /* AnthropicProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = AnthropicProvider;
+		};
+		8C7A4B6B2ECF2EC100AEF39E /* AssemblyAIProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = AssemblyAIProvider;
+		};
+		8C7A4B6D2ECF2EC100AEF39E /* AzureProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = AzureProvider;
+		};
+		8C7A4B6F2ECF2EC100AEF39E /* BasetenProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = BasetenProvider;
+		};
+		8C7A4B712ECF2EC100AEF39E /* CerebrasProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = CerebrasProvider;
+		};
+		8C7A4B732ECF2EC100AEF39E /* CohereProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = CohereProvider;
+		};
+		8C7A4B752ECF2EC100AEF39E /* DeepInfraProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = DeepInfraProvider;
+		};
+		8C7A4B772ECF2EC100AEF39E /* DeepSeekProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = DeepSeekProvider;
+		};
+		8C7A4B792ECF2EC100AEF39E /* DeepgramProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = DeepgramProvider;
+		};
+		8C7A4B7B2ECF2EC100AEF39E /* ElevenLabsProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = ElevenLabsProvider;
+		};
+		8C7A4B7D2ECF2EC100AEF39E /* EventSourceParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = EventSourceParser;
+		};
+		8C7A4B7F2ECF2EC100AEF39E /* FalProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = FalProvider;
+		};
+		8C7A4B812ECF2EC100AEF39E /* FireworksProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = FireworksProvider;
+		};
+		8C7A4B832ECF2EC100AEF39E /* GatewayProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = GatewayProvider;
+		};
+		8C7A4B852ECF2EC100AEF39E /* GladiaProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = GladiaProvider;
+		};
+		8C7A4B872ECF2EC100AEF39E /* GoogleProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = GoogleProvider;
+		};
+		8C7A4B892ECF2EC100AEF39E /* GoogleVertexProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = GoogleVertexProvider;
+		};
+		8C7A4B8B2ECF2EC100AEF39E /* GroqProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = GroqProvider;
+		};
+		8C7A4B8D2ECF2EC100AEF39E /* HuggingFaceProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = HuggingFaceProvider;
+		};
+		8C7A4B8F2ECF2EC100AEF39E /* HumeProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = HumeProvider;
+		};
+		8C7A4B912ECF2EC100AEF39E /* LMNTProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = LMNTProvider;
+		};
+		8C7A4B932ECF2EC100AEF39E /* LumaProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = LumaProvider;
+		};
+		8C7A4B952ECF2EC100AEF39E /* MistralProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = MistralProvider;
+		};
+		8C7A4B972ECF2EC100AEF39E /* OpenAICompatibleProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = OpenAICompatibleProvider;
+		};
+		8C7A4B992ECF2EC100AEF39E /* OpenAIProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = OpenAIProvider;
+		};
+		8C7A4B9B2ECF2EC100AEF39E /* PerplexityProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = PerplexityProvider;
+		};
+		8C7A4B9D2ECF2EC100AEF39E /* ReplicateProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = ReplicateProvider;
+		};
+		8C7A4B9F2ECF2EC100AEF39E /* SwiftAISDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = SwiftAISDK;
+		};
+		8C7A4BA12ECF2EC100AEF39E /* XAIProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = XAIProvider;
+		};
+		8C7A4BA62ECF383A00AEF39E /* PocketBase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */;
+			productName = PocketBase;
+		};
+		8C7A4BA82ECF38C700AEF39E /* PocketBase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */;
 			productName = PocketBase;
 		};
 /* End XCSwiftPackageProductDependency section */

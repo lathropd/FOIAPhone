@@ -6,12 +6,14 @@
 //
 
 import Testing
-@testable import FOIAPhone
+//@testable import FOIAPhone
 
 struct FOIAPhoneTests {
 
-    @Test func example() async throws {
-        // Write your test here and use APIs like `#expect(...)` to check expected conditions.
+    @Test func applicationTestOne() async throws {
+
+        #expect("llm" != "nil")
+        
     }
 
 }

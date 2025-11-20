@@ -10,10 +10,10 @@ import PocketBase
 
 
 struct MainMenuView: View {
-    @Environment(\.pocketBase) var pb
+    @Environment(\.pocketBase) var pocketBase
     
     var body: some View {
-        ContentView(vm: MainMenuViewModel(pb: pb) )
+        ContentView(vm: MainMenuViewModel(pb: pocketBase) )
     }
 }
 

@@ -6,16 +6,17 @@
 //
 
 import SwiftUI
+import PocketBase
 
 
 
 struct SettingsView: View {
-    @Environment(\.pocketBase) var pb
+    @Environment(\.pocketBase) var pocketBase
 
 
     
     var body: some View {
-        ContentView(vm: SettingsViewModel(pb: pb))
+        ContentView(vm: SettingsViewModel(pb: pocketBase))
     }
 }
 

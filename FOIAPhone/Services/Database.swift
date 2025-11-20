@@ -1,5 +1,5 @@
 //
-//  Authentication.swift
+//  Database.swift
 //  FOIAPhone
 //
 //  Created by me on 11/19/25.
@@ -7,7 +7,6 @@
 
 import Foundation
 
-class AuthenticationService {
+class DatabaseService {
     // bake this later
 }
-
