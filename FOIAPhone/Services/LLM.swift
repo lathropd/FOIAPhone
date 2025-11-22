@@ -48,10 +48,15 @@ class LLMService {
     
     func generateResponseFromData(data: String = "", template: String) async throws ->  any GenerateTextResult  {
         let prompt = self.promptFromTemplate(data: data, template: template)
-        let result = try? await generateText(
-            model: model,
-            prompt: prompt)
-        return result!
+        do {
+            let result = try await generateText(
+                model: model,
+                prompt: prompt)
+            return result
+        } catch {
+            print("\(error)")
+            throw error
+        }
     }
     
 }

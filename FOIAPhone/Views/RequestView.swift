@@ -52,9 +52,12 @@ private struct ContentView: View {
                 HStack {
                     Spacer()
                     Button("generate", systemImage: "bolt.fill") {
+                        print("generate letter")
                         Task {
                             // add spinner
-                            await viewModel.generateLetter()
+                            print("letter generator task")
+                            try? await viewModel.generateLetter()
+                            print("generated letter")
                             // cancel spinner
                         }
                         

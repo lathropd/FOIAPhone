@@ -1,0 +1,76 @@
+# Xcode
+# Build folders and derived data
+build/
+DerivedData/
+
+# User-specific settings and workspace files
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+xcuserdata/
+*.xcscmblueprint
+*.xccheckout
+*.xcworkspace # Consider if you want to ignore this, especially in multi-project setups
+
+# Swift Package Manager (SwiftPM)
+.build/
+Packages/
+Package.resolved
+
+# Carthage
+Carthage/Build/
+Carthage/Checkouts/
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# SwiftLint
+.swiftlint.yml
+
+# Archives
+*.xcarchive
+
+# Xcode Server
+.xcscmblueprint
+.xccheckout
+
+# Playground
+timeline.xctimeline
+playground.xcworkspace
+
+# App Data
+*.moved-aside
+*.xcuserstate
+
+# macOS system files
+.DS_Store
+
+# User settings
+*.swp
+*.swo
+*.orig
+
+# Crash reports
+*.crash
+*.ips
+
+# Firebase Crashlytics
+*.dSYM.zip
+*.dSYM
+
+# Other common files
+*.log
+*.tmp
+

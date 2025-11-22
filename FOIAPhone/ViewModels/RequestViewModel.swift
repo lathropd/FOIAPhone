@@ -77,11 +77,16 @@ Jurisdiction: \("USA")
     }
     
     func generateLetter() async {
-        let llm = try! LLMService()
-        let request = try! await llm.generateResponseFromData(data: self.request.records, template: "string.template")
-        let letterText = request.text
-        print(self.request.text)
-        self.request.text = letterText
+        do {
+            let llm = try LLMService()
+            let request = try await llm.generateResponseFromData(data: self.request.records, template: "string.template")
+            let letterText = request.text
+            print(self.request.text)
+            self.request.text = letterText
+        } catch {
+            print("\(error)")
+        }
+
         
     
         
