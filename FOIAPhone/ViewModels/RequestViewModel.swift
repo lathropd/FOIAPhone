@@ -63,6 +63,7 @@ Jurisdiction: \("USA")
 """
     }
     
+    
     func save() {
         print("save")
     }
@@ -75,8 +76,15 @@ Jurisdiction: \("USA")
         print("send email")
     }
     
-    func generateLetter() {
-        print("generate a request letter")
+    func generateLetter() async {
+        let llm = try! LLMService()
+        let request = try! await llm.generateResponseFromData(data: self.request.records, template: "string.template")
+        let letterText = request.text
+        print(self.request.text)
+        self.request.text = letterText
+        
+    
+        
     }
 
 

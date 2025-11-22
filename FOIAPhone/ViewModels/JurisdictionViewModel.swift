@@ -13,12 +13,13 @@ class JurisdictionViewModel: Observable {
     private var model: Jurisdiction? = nil
     
     
-    func deleteJurisdiction(request: Jurisdiction) {
-        
+    private func deleteJurisdiction(request: Jurisdiction) -> String {
+        return "Delete"
     }
     
-    func deleteJurisdiction(id: String) {
+    func deleteJurisdiction(id: String) throws  -> String {
         
+        return "Delete"
     }
     
 }

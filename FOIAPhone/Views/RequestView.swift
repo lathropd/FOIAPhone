@@ -52,7 +52,11 @@ private struct ContentView: View {
                 HStack {
                     Spacer()
                     Button("generate", systemImage: "bolt.fill") {
-                        viewModel.generateLetter()
+                        Task {
+                            // add spinner
+                            await viewModel.generateLetter()
+                            // cancel spinner
+                        }
                         
                     }.labelStyle(.iconOnly)
                 }
