@@ -48,6 +48,7 @@ class LLMService {
     
     func generateResponseFromData(data: String = "", template: String) async throws ->  any GenerateTextResult  {
         let prompt = self.promptFromTemplate(data: data, template: template)
+        print(prompt)
         do {
             let result = try await generateText(
                 model: model,
@@ -60,6 +61,7 @@ class LLMService {
     }
     
 }
+
 
 
 

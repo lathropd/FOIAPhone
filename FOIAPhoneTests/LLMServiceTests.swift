@@ -78,6 +78,8 @@ struct LLMServiceTests {
                             keywords being searched or being overly detailed about the search process.
                             
                             Provide justification of why potenital FOIA exemptions do not apply.
+                    
+                            Allow charges of up to $25 for searches and copying fees
 
                     
                             Also provide instructions on submitting the request.
@@ -103,6 +105,7 @@ struct LLMServiceTests {
                                   prompt
                                 * a list of links to material that assisted in creating the request and an explanation
                                   of what, how and why was incorporated from that material.
+                    
                     
                             
                     """
