@@ -11,12 +11,13 @@ import PocketBase
 
 /// The Agency struct.
 ///
-struct Agency: PBIdentifiableCollection {
+struct Agency: PBIdentifiableCollection{
     var id: String
     var name: String
     var foiaPortal: String
     var website: String
     var jurisdictionId: String
+    
 
     var created: String
     var updated: String

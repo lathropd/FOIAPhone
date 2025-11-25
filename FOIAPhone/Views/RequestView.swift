@@ -10,23 +10,27 @@ import SwiftUI
 
 
 struct RequestView: View {
-    //@Environment(\.appDatabase) var appDatabase
-    var request: Request? = nil
+    @Environment(\.pocketBase) var pocketBase
+    var request: Request?
     
     var body: some View {
-        ContentView(viewModel: RequestViewModel(request: request) )
+        ContentView(viewModel: RequestViewModel(request: request, pocketBase: pocketBase) )
     }
 }
 
+//
 
 // using technique from GRDB demo to load
 // our views
 // https://github.com/groue/GRDB.swift/blob/master/Documentation/DemoApps/GRDBDemo/GRDBDemo/Views/PlayersNavigationView.swift
 private struct ContentView: View {
     @State var viewModel: RequestViewModel
+    @Environment(\.dismiss) var dismiss
+
     var request: Request? = nil
 
     var body: some View {
+        
         
         Form{
             TextField("Title", text: $viewModel.request.title)
@@ -43,35 +47,80 @@ private struct ContentView: View {
             
             Section("Records") {
                 TextEditor(text: $viewModel.request.records)
+//            }
+//            
+//            Section("Agency") {
+                Picker("Jurisdiction", selection: $viewModel.jurisdictionId) {
+                    
+                }
+                Picker("Agency", selection: $viewModel.request.agencyId) {
+                    
+                }
             }
             
             Section("Request Text") {
-                TextEditor(text: $viewModel.request.text)
-                    .listRowSeparator(.hidden) // Hide separator for this row
                 
-                HStack {
-                    Spacer()
-                    Button("generate", systemImage: "bolt.fill") {
-                        print("generate letter")
-                        Task {
-                            // add spinner
-                            print("letter generator task")
-                            try? await viewModel.generateLetter()
-                            print("generated letter")
-                            // cancel spinner
-                        }
+                ZStack {
+                    VStack {
                         
-                    }.labelStyle(.iconOnly)
+                        TextEditor(text: $viewModel.request.text)
+                            .listRowSeparator(.hidden) // Hide separator for this row
+                            .frame(minHeight: 50, maxHeight:200)
+                            .disabled(viewModel.letterIsLoading)
+                        
+                        HStack {
+                            Spacer()
+          
+                            Button("generate", systemImage: "bolt.fill") {
+                                print("generate letter")
+                                Task {
+                                    // add spinner
+                                    print("letter generator task")
+                                    await viewModel.generateLetter()
+                                    print("generated letter")
+                                    // cancel spinner
+                                }
+                                
+                            }.labelStyle(.iconOnly)
+                                .buttonStyle(.automatic)
+
+                        }
+                    }
+                    
+                    
+                    if (viewModel.letterIsLoading) {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .scaleEffect(1.5) // Make it more visible
+                        //.tint(.blue)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    }
+                    
                 }
                 
                 
                 
                 Picker("status", selection: $viewModel.request.status) {
-                    Text("Choose Status")
+                    Text("draft").tag("draft")
+                    Text("sent").tag("sent")
+                    Text("disclosure in progress").tag("inProgress")
+                    Text("fulfilled").tag("fulfilled")
+                    Text("fulfilled (partial)").tag("partiallyFulfilled")
+                    Text("rejected").tag("rejected")
+                    Text("on appeal").tag("onAppeal")
+
+
+
                 }
                 Picker("request method", selection: $viewModel.request.method) {
-                    Text("Choose Method")
+                    Text("email").tag("email")
+                    Text("online submission").tag("online")
+                    Text("muckrock").tag("muckrock")
+                    Text("letter").tag("letter")
+                    Text("fax").tag("fax")
+                    Text("other").tag("other")
                 }
+                
                 
             }
             
@@ -95,8 +144,9 @@ private struct ContentView: View {
                 HStack(alignment: .center) {
                     Button() {
                         
-                        
-                        viewModel.email()                } label: {
+                        viewModel.email()
+                    }
+                    label: {
                             Image(systemName:"envelope")
                             Text("Send")
                         }
@@ -119,6 +169,7 @@ private struct ContentView: View {
                     // Something about the form makes the trash icon blue in a label or shortform button
                     Button( role:.destructive) {
                         viewModel.delete()
+                        dismiss()
                     } label: {
                         Image( systemName: "trash")
                         Text("Delete")
@@ -140,6 +191,13 @@ private struct ContentView: View {
             
         }.navigationTitle(viewModel.navTitle)
             .navigationBarTitleDisplayMode(.large)
+            .alert(isPresented: $viewModel.alertShows) {
+                Alert(
+                    title: Text(viewModel.alertTitle),
+                    message: Text(viewModel.alertText)
+                )
+            }
+    
         
             
     }

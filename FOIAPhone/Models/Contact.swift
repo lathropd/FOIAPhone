@@ -10,7 +10,7 @@ import PocketBase
 
 // The Contact struct
 
-struct Contact: PBIdentifiableCollection {
+struct Contact: PBBaseRecord {
     var id: String
     var fname: String
     var lname: String

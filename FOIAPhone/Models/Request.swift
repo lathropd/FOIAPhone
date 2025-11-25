@@ -20,6 +20,11 @@ struct Request: PBIdentifiableCollection {
     var notes: String
     var sent: Date
     var agencyId: String?
+    var userId: String
+    
+    
+    
+
 
     var created: String
     var updated: String

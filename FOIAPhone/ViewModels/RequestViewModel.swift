@@ -12,10 +12,26 @@ import PocketBase
 
 @Observable
 class RequestViewModel {
+
+    public var pocketBase: PocketBase
+    
+    public var requestsCollection: Collection<Request>
+    public var agenciesCollection: Collection<Agency>
+    public var jurisidctionsCollection: Collection<Jurisdiction>
+    
     
     public var request: Request
-    public var agency: Agency?
-    public var jurisdiction: Jurisdiction?
+    
+    public var jurisdictionId: String = ""
+
+    
+    public var agencyList: [Agency]  = []
+    
+    public var letterIsLoading: Bool = false
+    
+    public var alertShows: Bool = false
+    public var alertText: String = ""
+    public var alertTitle: String = ""
 //    public var user: User
 
     
@@ -34,13 +50,13 @@ class RequestViewModel {
         case self.request.title == "" : return false
         case self.request.status == "": return false
         case self.request.method == "": return false
-        case self.request.agencyId == nil: return false
+        //case self.request.agencyId == nil: return false
         default: return true
         }
     }
     
     var saved: Bool {
-        self.request.id != nil
+        self.request.id != "nil"
     }
     
     var deletable: Bool {
@@ -65,7 +81,34 @@ Jurisdiction: \("USA")
     
     
     func save() {
-        print("save")
+        if self.request.id == "" {
+            Task {
+                print("creating new")
+                do {
+                    let newRequest =  try await requestsCollection.create(record: self.request, output: Request.self)
+                    print("retrieved new")
+                    self.request = newRequest
+                    print("new request created")
+                    
+                } catch {
+                    print("\(error)")
+                }
+                
+                
+            }
+        } else {
+            Task {
+                do {
+                    let newRequest = try await requestsCollection.update(id: self.request.id,
+                                                                         record: self.request)
+                    self.request = newRequest
+
+                } catch {
+                    print("\(error)")
+                }
+            }
+        }
+
     }
     
     func delete() {
@@ -79,12 +122,20 @@ Jurisdiction: \("USA")
     func generateLetter() async {
         do {
             let llm = try LLMService()
+            self.letterIsLoading = true
             let request = try await llm.generateResponseFromData(data: self.request.records, template: "string.template")
-            let letterText = request.text
-            print(self.request.text)
-            self.request.text = letterText
+            self.request.text = request.text
+            self.letterIsLoading = false
         } catch {
             print("\(error)")
+            self.alertTitle = "Network Error"
+            self.alertText = """
+                            So, something went wrong on the Internet. It could be bad connection, it could be \
+                            something else. If this keeps happening, please e-mail support@foiaphone.app.
+                            """
+            self.alertShows = true
+            self.letterIsLoading = false
+
         }
 
         
@@ -93,44 +144,65 @@ Jurisdiction: \("USA")
     }
 
 
-    init(request: Request? = nil, agency: Agency? = nil, jurisdiction: Jurisdiction? = nil/*, template: Template? = nil*/) {
+    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, pocketBase: PocketBase) {
 //        self.appDatabase = appDatabase
-        self.request = request ?? Request(
-            id: "",
-            title: "",
-            records: "",
-            text: "",
-            method: "",
-            status: "",
-            notes: "",
-            sent: Date(),
-            agencyId: nil,
-            created: "",
-            updated: ""
-        )
+        
+    
+            
+        self.pocketBase = pocketBase
+
+        self.requestsCollection = pocketBase.collection("requests")
+        
+        self.agenciesCollection = pocketBase.collection("agencies")
+        
+        self.jurisidctionsCollection = pocketBase.collection("jurisdictions")
         
         
-        if request?.agencyId != nil {
-            _ = request!
-//            try? appDatabase.reader.read {db in
-//                self.agency = try? Agency.find(db, id: request?.agencyId  )
-                
-//            }
-        } else {
-            self.agency = agency
+        if pocketBase.isAuthenticated != true {
+            Task {
+                do {
+                    _ = try await pocketBase.authRefresh(userType: User.self)
+
+                } catch {
+                    print("\(error)")
+                }
+            }
         }
         
 
-        
-        
-        if agency?.jurisdictionId != nil {
-//            _ = agency!
-//            try? appDatabase.reader.read {db in
-//                self.jurisdiction = try? Jurisdiction.find(db, id: agency?.jurisdictionId  )
-//                
-//            }
+        if request != nil {
+            self.request = request!
         } else {
-            self.jurisdiction = jurisdiction
+            self.request = Request(
+                id: "",
+                title: "",
+                records: "",
+                text: "",
+                method: "",
+                status: "",
+                notes: "",
+                sent: Date(),
+                agencyId: "",
+                userId: pocketBase.currentUserId!,
+                created: "",
+                updated: ""
+            )
+            
+                
+            
+        }
+    
+        
+        
+        if agencyId != nil {
+            self.request.agencyId = agencyId ?? ""
+        }
+        
+        if jurisdictionId != nil {
+            self.jurisdictionId = jurisdictionId ?? ""
+            //
+        } else if request?.agencyId != nil {
+            
         }
 
        
