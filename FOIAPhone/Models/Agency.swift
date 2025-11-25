@@ -7,11 +7,10 @@
 
 
 import Foundation
-import PocketBase
-
+ 
 /// The Agency struct.
 ///
-struct Agency: PBIdentifiableCollection{
+struct Agency: Codable{
     var id: String
     var name: String
     var foiaPortal: String

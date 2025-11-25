@@ -6,29 +6,28 @@
 //
 
 import Foundation
-import PocketBase
-
+ 
 @Observable
 @MainActor
 class LoginViewModel: Observable {
     var email: String = ""
     var password: String = ""
-    var user: User? = nil
-    var pb: PocketBase
+    //    var user: User? = nil
+    //    var  
     var isAuthenticated: Bool = false
     
-    init(pb: PocketBase) {
-        self.pb = pb
-        self.isAuthenticated = pb.isAuthenticated
+    init( ) {
+//        self.pb = pb
+        self.isAuthenticated = false
         if self.isAuthenticated {
             Task {
-                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
-                if self.user != nil {
-                    self.email = self.user?.email ?? ""
-                }
+                //                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
+                //                if self.user != nil {
+                //                    self.email = self.user?.email ?? ""
             }
         }
     }
+
     
     var signedIn: Bool {
         return self.isAuthenticated
@@ -37,14 +36,14 @@ class LoginViewModel: Observable {
     func login()  {
         Task {
             do {
-                _ = try await self.pb.authWithPassword(email: self.email, password: self.password, userType: User.self)
-                self.isAuthenticated = pb.isAuthenticated
-                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
+//                _ = try await self.pb.authWithPassword(email: self.email, password: self.password, userType: User.self)
+//                self.isAuthenticated = pb.isAuthenticated
+//                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
                     
 
             } catch {
                 print("\(error)")
-                self.isAuthenticated = pb.isAuthenticated
+//                self.isAuthenticated = pb.isAuthenticated
                 self.errorState = .failedLogin
             }
         }
@@ -52,8 +51,8 @@ class LoginViewModel: Observable {
     }
     
     func logout() {
-        self.pb.signOut()
-        self.isAuthenticated = pb.isAuthenticated
+//        self.pb.signOut()
+//        self.isAuthenticated = pb.isAuthenticated
     }
     
     

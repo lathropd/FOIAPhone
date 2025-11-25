@@ -6,8 +6,7 @@
 //
 
 import Foundation
-import PocketBase
-
+ 
 
 class SettingsViewModel: Observable {
     // always going to make this private and expose via a read-only
@@ -43,7 +42,6 @@ class SettingsViewModel: Observable {
    
     var user: User?
     
-    var pb: PocketBase
     
     
 
@@ -61,17 +59,17 @@ class SettingsViewModel: Observable {
 
     
      
-    init(pb: PocketBase) {
-        self.pb = pb
+    init() {
+//        self.pb = pb
         self.savedSettings = UserDefaults.standard.dictionary(forKey: "foiaPhoneSettings") as? [String: String] ?? [:]
-        self.isAuthenticated = pb.isAuthenticated
-        self.userId = pb.currentUserId ?? ""
+        self.isAuthenticated = false
+//        self.userId = pb.currentUserId ?? ""
         if self.isAuthenticated {
             Task {
-                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
-                if self.user != nil {
-                    self.email = self.user?.email ?? ""
-                }
+//                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
+//                if self.user != nil {
+//                    self.email = self.user?.email ?? ""
+//                }
             }
             print(self.email)
 
@@ -80,8 +78,8 @@ class SettingsViewModel: Observable {
     }
     
     func updateAuthentication() {
-        self.isAuthenticated = pb.isAuthenticated
-        self.userId = pb.currentUserId ?? ""
+//        self.isAuthenticated = pb.isAuthenticated
+//        self.userId = pb.currentUserId ?? ""
     }
     
     func saveSettings() {

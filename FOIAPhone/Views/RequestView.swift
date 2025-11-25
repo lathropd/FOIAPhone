@@ -10,11 +10,11 @@ import SwiftUI
 
 
 struct RequestView: View {
-    @Environment(\.pocketBase) var pocketBase
+//    @Environment(\.pocketBase) var pocketBase
     var request: Request?
     
     var body: some View {
-        ContentView(viewModel: RequestViewModel(request: request, pocketBase: pocketBase) )
+        ContentView(viewModel: RequestViewModel(request: request) )
     }
 }
 

@@ -7,10 +7,9 @@
 
 
 import Foundation
-import PocketBase
-/// The User  struct.
+ /// The User  struct.
 ///
-struct User: PBIdentifiableCollection {
+struct User: Codable {
  
 
     var id: String

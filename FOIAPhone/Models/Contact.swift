@@ -6,11 +6,10 @@
 //
 
 import Foundation
-import PocketBase
-
+ 
 // The Contact struct
 
-struct Contact: PBBaseRecord {
+struct Contact: Codable {
     var id: String
     var fname: String
     var lname: String

@@ -7,11 +7,10 @@
 
 
 import Foundation
-import PocketBase
-
+ 
 /// The Jurisdiction struct.
 ///
-struct Jurisdiction: PBIdentifiableCollection {
+struct Jurisdiction: Codable {
     var id: String
     var name: String
     var lawName: String

@@ -7,19 +7,12 @@
 // Can I refactor this to a ViewState? Probably yes.
 
 import Foundation
-import PocketBase
-
+ 
 
 @Observable
 class RequestViewModel {
 
-    public var pocketBase: PocketBase
-    
-    public var requestsCollection: Collection<Request>
-    public var agenciesCollection: Collection<Agency>
-    public var jurisidctionsCollection: Collection<Jurisdiction>
-    
-    
+     
     public var request: Request
     
     public var jurisdictionId: String = ""
@@ -85,9 +78,7 @@ Jurisdiction: \("USA")
             Task {
                 print("creating new")
                 do {
-                    let newRequest =  try await requestsCollection.create(record: self.request, output: Request.self)
                     print("retrieved new")
-                    self.request = newRequest
                     print("new request created")
                     
                 } catch {
@@ -99,10 +90,7 @@ Jurisdiction: \("USA")
         } else {
             Task {
                 do {
-                    let newRequest = try await requestsCollection.update(id: self.request.id,
-                                                                         record: self.request)
-                    self.request = newRequest
-
+      
                 } catch {
                     print("\(error)")
                 }
@@ -144,31 +132,26 @@ Jurisdiction: \("USA")
     }
 
 
-    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, pocketBase: PocketBase) {
+    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil) {
 //        self.appDatabase = appDatabase
         
     
             
-        self.pocketBase = pocketBase
 
-        self.requestsCollection = pocketBase.collection("requests")
-        
-        self.agenciesCollection = pocketBase.collection("agencies")
-        
-        self.jurisidctionsCollection = pocketBase.collection("jurisdictions")
-        
-        
-        if pocketBase.isAuthenticated != true {
-            Task {
-                do {
-                    _ = try await pocketBase.authRefresh(userType: User.self)
 
-                } catch {
-                    print("\(error)")
-                }
-            }
-        }
         
+//        
+//        if pocketBase.isAuthenticated != true {
+//            Task {
+//                do {
+//                    _ = try await pocketBase.authRefresh(userType: User.self)
+//
+//                } catch {
+//                    print("\(error)")
+//                }
+//            }
+//        }
+//        
 
         if request != nil {
             self.request = request!
@@ -183,7 +166,7 @@ Jurisdiction: \("USA")
                 notes: "",
                 sent: Date(),
                 agencyId: "",
-                userId: pocketBase.currentUserId!,
+                userId: "",//pocketBase.currentUserId!,
                 created: "",
                 updated: ""
             )

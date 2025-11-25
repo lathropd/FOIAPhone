@@ -6,14 +6,13 @@
 //
 
 import SwiftUI
-import PocketBase
-
+ 
 
 struct MainMenuView: View {
-    @Environment(\.pocketBase) var pocketBase
+//    @Environment(\.pocketBase) var pocketBase
     
     var body: some View {
-        ContentView(vm: MainMenuViewModel(pb: pocketBase) )
+        ContentView(vm: MainMenuViewModel() )
     }
 }
 

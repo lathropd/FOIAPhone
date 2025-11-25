@@ -14,11 +14,8 @@
 		8C0782D12ED6259C009DD612 /* SQLKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C0782D02ED6259C009DD612 /* SQLKit */; };
 		8C31EA452ED19E6A0069403F /* GoogleProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C31EA442ED19E6A0069403F /* GoogleProvider */; };
 		8C31EA472ED19E6A0069403F /* SwiftAISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8C31EA462ED19E6A0069403F /* SwiftAISDK */; };
-		8C7A4B5D2ECF14A600AEF39E /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B5C2ECF14A600AEF39E /* PocketBase */; };
 		8C7A4B882ECF2EC100AEF39E /* GoogleProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B872ECF2EC100AEF39E /* GoogleProvider */; };
 		8C7A4BA02ECF2EC100AEF39E /* SwiftAISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B9F2ECF2EC100AEF39E /* SwiftAISDK */; };
-		8C7A4BA72ECF383A00AEF39E /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4BA62ECF383A00AEF39E /* PocketBase */; };
-		8C7A4BA92ECF38C700AEF39E /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4BA82ECF38C700AEF39E /* PocketBase */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +50,6 @@
 				Models/Jurisdiction.swift,
 				Models/Request.swift,
 				Models/User.swift,
-				PocketBaseKey.swift,
 				Services/Authentication.swift,
 				Services/Database.swift,
 				Services/LLM.swift,
@@ -84,7 +80,6 @@
 				Models/Jurisdiction.swift,
 				Models/Request.swift,
 				Models/User.swift,
-				PocketBaseKey.swift,
 				Services/Authentication.swift,
 				Services/Database.swift,
 				Services/LLM.swift,
@@ -139,7 +134,6 @@
 				8C0782CF2ED6257D009DD612 /* SQLKit in Frameworks */,
 				8C7A4BA02ECF2EC100AEF39E /* SwiftAISDK in Frameworks */,
 				8C7A4B882ECF2EC100AEF39E /* GoogleProvider in Frameworks */,
-				8C7A4B5D2ECF14A600AEF39E /* PocketBase in Frameworks */,
 				8C0782CA2ED624CA009DD612 /* SQLiteKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -148,7 +142,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8C7A4BA92ECF38C700AEF39E /* PocketBase in Frameworks */,
 				8C0782D12ED6259C009DD612 /* SQLKit in Frameworks */,
 				8C0782CC2ED624DB009DD612 /* SQLiteKit in Frameworks */,
 			);
@@ -159,7 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C31EA452ED19E6A0069403F /* GoogleProvider in Frameworks */,
-				8C7A4BA72ECF383A00AEF39E /* PocketBase in Frameworks */,
 				8C31EA472ED19E6A0069403F /* SwiftAISDK in Frameworks */,
 				8C0782C82ED62398009DD612 /* SQLiteKit in Frameworks */,
 			);
@@ -216,7 +208,6 @@
 			);
 			name = FOIAPhone;
 			packageProductDependencies = (
-				8C7A4B5C2ECF14A600AEF39E /* PocketBase */,
 				8C7A4B872ECF2EC100AEF39E /* GoogleProvider */,
 				8C7A4B9F2ECF2EC100AEF39E /* SwiftAISDK */,
 				8C0782C92ED624CA009DD612 /* SQLiteKit */,
@@ -244,7 +235,6 @@
 			);
 			name = FOIAPhoneTests;
 			packageProductDependencies = (
-				8C7A4BA82ECF38C700AEF39E /* PocketBase */,
 				8C0782CB2ED624DB009DD612 /* SQLiteKit */,
 				8C0782D02ED6259C009DD612 /* SQLKit */,
 			);
@@ -270,7 +260,6 @@
 			);
 			name = FOIAPhoneUITests;
 			packageProductDependencies = (
-				8C7A4BA62ECF383A00AEF39E /* PocketBase */,
 				8C31EA442ED19E6A0069403F /* GoogleProvider */,
 				8C31EA462ED19E6A0069403F /* SwiftAISDK */,
 				8C0782C72ED62398009DD612 /* SQLiteKit */,
@@ -312,7 +301,6 @@
 			mainGroup = 8C1541AE2EBB3164001E32EB;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */,
 				8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */,
 				8C0782C62ED62388009DD612 /* XCRemoteSwiftPackageReference "sqlite-kit" */,
 				8C0782CD2ED6257D009DD612 /* XCRemoteSwiftPackageReference "sql-kit" */,
@@ -704,14 +692,6 @@
 				minimumVersion = 3.33.2;
 			};
 		};
-		8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/drewalth/pocketbase-swift-sdk";
-			requirement = {
-				branch = main;
-				kind = branch;
-			};
-		};
 		8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/teunlao/swift-ai-sdk";
@@ -758,11 +738,6 @@
 			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
 			productName = SwiftAISDK;
 		};
-		8C7A4B5C2ECF14A600AEF39E /* PocketBase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */;
-			productName = PocketBase;
-		};
 		8C7A4B872ECF2EC100AEF39E /* GoogleProvider */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
@@ -772,16 +747,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
 			productName = SwiftAISDK;
-		};
-		8C7A4BA62ECF383A00AEF39E /* PocketBase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */;
-			productName = PocketBase;
-		};
-		8C7A4BA82ECF38C700AEF39E /* PocketBase */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */;
-			productName = PocketBase;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

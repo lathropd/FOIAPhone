@@ -6,14 +6,12 @@
 //
 
 import SwiftUI
-import PocketBase
-import SQLKit
+ import SQLKit
 import SQLiteKit
 
 
 @main
 struct FOIAPhoneApp: App {
-    @Environment(\.pocketBase) var pb
     var body: some Scene {
         WindowGroup {
             MainMenuView()

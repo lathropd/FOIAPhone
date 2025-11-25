@@ -6,17 +6,16 @@
 //
 
 import Foundation
-import PocketBase
-
+ 
 class MainMenuViewModel: Observable {
-    var pb: PocketBase
+//    var  
     
-    init(pb: PocketBase) {
-        self.pb = pb
+    init() {
+//        self.pb = pb
     }
     
     var signedIn: Bool {
-        return pb.isAuthenticated
+        return false
     }
     
     var showLoginScreen: Bool {
