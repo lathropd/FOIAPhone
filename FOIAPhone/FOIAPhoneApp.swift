@@ -7,6 +7,8 @@
 
 import SwiftUI
 import PocketBase
+import SQLKit
+import SQLiteKit
 
 
 @main

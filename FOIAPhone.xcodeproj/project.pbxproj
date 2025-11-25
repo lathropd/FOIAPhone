@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8C0782C82ED62398009DD612 /* SQLiteKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C0782C72ED62398009DD612 /* SQLiteKit */; };
+		8C0782CA2ED624CA009DD612 /* SQLiteKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C0782C92ED624CA009DD612 /* SQLiteKit */; };
+		8C0782CC2ED624DB009DD612 /* SQLiteKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C0782CB2ED624DB009DD612 /* SQLiteKit */; };
+		8C0782CF2ED6257D009DD612 /* SQLKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C0782CE2ED6257D009DD612 /* SQLKit */; };
+		8C0782D12ED6259C009DD612 /* SQLKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8C0782D02ED6259C009DD612 /* SQLKit */; };
 		8C31EA452ED19E6A0069403F /* GoogleProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C31EA442ED19E6A0069403F /* GoogleProvider */; };
 		8C31EA472ED19E6A0069403F /* SwiftAISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8C31EA462ED19E6A0069403F /* SwiftAISDK */; };
 		8C7A4B5D2ECF14A600AEF39E /* PocketBase in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B5C2ECF14A600AEF39E /* PocketBase */; };
@@ -131,9 +136,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8C0782CF2ED6257D009DD612 /* SQLKit in Frameworks */,
 				8C7A4BA02ECF2EC100AEF39E /* SwiftAISDK in Frameworks */,
 				8C7A4B882ECF2EC100AEF39E /* GoogleProvider in Frameworks */,
 				8C7A4B5D2ECF14A600AEF39E /* PocketBase in Frameworks */,
+				8C0782CA2ED624CA009DD612 /* SQLiteKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C7A4BA92ECF38C700AEF39E /* PocketBase in Frameworks */,
+				8C0782D12ED6259C009DD612 /* SQLKit in Frameworks */,
+				8C0782CC2ED624DB009DD612 /* SQLiteKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +161,7 @@
 				8C31EA452ED19E6A0069403F /* GoogleProvider in Frameworks */,
 				8C7A4BA72ECF383A00AEF39E /* PocketBase in Frameworks */,
 				8C31EA472ED19E6A0069403F /* SwiftAISDK in Frameworks */,
+				8C0782C82ED62398009DD612 /* SQLiteKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,6 +219,8 @@
 				8C7A4B5C2ECF14A600AEF39E /* PocketBase */,
 				8C7A4B872ECF2EC100AEF39E /* GoogleProvider */,
 				8C7A4B9F2ECF2EC100AEF39E /* SwiftAISDK */,
+				8C0782C92ED624CA009DD612 /* SQLiteKit */,
+				8C0782CE2ED6257D009DD612 /* SQLKit */,
 			);
 			productName = FOIAPhone;
 			productReference = 8C1541B72EBB3164001E32EB /* FOIAPhone.app */;
@@ -233,6 +245,8 @@
 			name = FOIAPhoneTests;
 			packageProductDependencies = (
 				8C7A4BA82ECF38C700AEF39E /* PocketBase */,
+				8C0782CB2ED624DB009DD612 /* SQLiteKit */,
+				8C0782D02ED6259C009DD612 /* SQLKit */,
 			);
 			productName = FOIAPhoneTests;
 			productReference = 8C1541C42EBB3166001E32EB /* FOIAPhoneTests.xctest */;
@@ -259,6 +273,7 @@
 				8C7A4BA62ECF383A00AEF39E /* PocketBase */,
 				8C31EA442ED19E6A0069403F /* GoogleProvider */,
 				8C31EA462ED19E6A0069403F /* SwiftAISDK */,
+				8C0782C72ED62398009DD612 /* SQLiteKit */,
 			);
 			productName = FOIAPhoneUITests;
 			productReference = 8C1541CE2EBB3166001E32EB /* FOIAPhoneUITests.xctest */;
@@ -299,6 +314,8 @@
 			packageReferences = (
 				8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */,
 				8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */,
+				8C0782C62ED62388009DD612 /* XCRemoteSwiftPackageReference "sqlite-kit" */,
+				8C0782CD2ED6257D009DD612 /* XCRemoteSwiftPackageReference "sql-kit" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8C1541B82EBB3164001E32EB /* Products */;
@@ -671,6 +688,22 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		8C0782C62ED62388009DD612 /* XCRemoteSwiftPackageReference "sqlite-kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/sqlite-kit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.5.2;
+			};
+		};
+		8C0782CD2ED6257D009DD612 /* XCRemoteSwiftPackageReference "sql-kit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/vapor/sql-kit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.33.2;
+			};
+		};
 		8C7A4B5B2ECF14A600AEF39E /* XCRemoteSwiftPackageReference "pocketbase-swift-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/drewalth/pocketbase-swift-sdk";
@@ -690,6 +723,31 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		8C0782C72ED62398009DD612 /* SQLiteKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C0782C62ED62388009DD612 /* XCRemoteSwiftPackageReference "sqlite-kit" */;
+			productName = SQLiteKit;
+		};
+		8C0782C92ED624CA009DD612 /* SQLiteKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C0782C62ED62388009DD612 /* XCRemoteSwiftPackageReference "sqlite-kit" */;
+			productName = SQLiteKit;
+		};
+		8C0782CB2ED624DB009DD612 /* SQLiteKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C0782C62ED62388009DD612 /* XCRemoteSwiftPackageReference "sqlite-kit" */;
+			productName = SQLiteKit;
+		};
+		8C0782CE2ED6257D009DD612 /* SQLKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C0782CD2ED6257D009DD612 /* XCRemoteSwiftPackageReference "sql-kit" */;
+			productName = SQLKit;
+		};
+		8C0782D02ED6259C009DD612 /* SQLKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C0782CD2ED6257D009DD612 /* XCRemoteSwiftPackageReference "sql-kit" */;
+			productName = SQLKit;
+		};
 		8C31EA442ED19E6A0069403F /* GoogleProvider */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
