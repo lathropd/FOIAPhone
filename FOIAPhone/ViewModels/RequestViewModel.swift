@@ -134,7 +134,7 @@ Jurisdiction: \("USA")
     }
 
 
-    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, db: DB) {
+    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, db: FPDatabase) {
         if request != nil {
             self.request = request!
         } else {

@@ -9,17 +9,17 @@ import Foundation
 import GRDB
 import SwiftUI
 
-class DB {
-    let queue: DatabaseQueue
+class FPDatabase {
+    let db: DatabaseQueue
     
     init(filename: String)  {
         do {
             let documentsDirectoryURL = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
             let url = documentsDirectoryURL.appendingPathComponent(filename)
-            self.queue = try! DatabaseQueue(path: url.path)
+            self.db = try! DatabaseQueue(path: url.path)
         } catch {
             print("\(error)")
-            self.queue = try! DatabaseQueue()
+            self.db = try! DatabaseQueue()
         }
 
         
@@ -28,14 +28,14 @@ class DB {
     }
     
     init(queue: DatabaseQueue) {
-        self.queue = queue
+        self.db = queue
     }
     
     
     
 
     func migrate() throws {
-        try FPMigrations(db: self.queue).execute()
+        try FPMigrations(db: self.db).execute()
     }
     
     
@@ -44,7 +44,9 @@ class DB {
 }
 
 extension EnvironmentValues {
-    @Entry var db: DB = DB(filename: "./foiaphone.db")
+    @Entry var db: FPDatabase = FPDatabase(filename: "./foiaphone.db")
 }
 
-
+protocol FPRecord: Codable, FetchableRecord, MutablePersistableRecord {
+    
+}

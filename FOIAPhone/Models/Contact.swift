@@ -6,37 +6,50 @@
 //
 
 import Foundation
+import GRDB
  
 // The Contact struct
 
-struct Contact: Codable {
-    var id: String
+struct Contact: FPRecord  {
+    var id: Int32?
     var fname: String
     var lname: String
+    var primary: Bool
     var title: String
     var email: String
     var phone: String
     var address: String
     var url: String
     var active: Bool
-    var agencyId: String
+    var agencyId: Int32?
 
-    var created: String
-    var updated: String
-}
 
-struct MockContact: Equatable {
-    var id: String?
-    var fname: String?
-    var lname: String?
-    var title: String?
-    var email: String?
-    var phone: String?
-    var address: String?
-    var url: String?
-    var active: Bool?
-    var agencyId: String?
+    
+    var created: Date
+    var updated: Date
+    
+    
+    enum Columns {
+        static let id = Column(CodingKeys.id)
+        static let fname = Column(CodingKeys.fname)
+        static let lname = Column(CodingKeys.lname)
+        static let primary = Column(CodingKeys.primary)
+        static let title = Column(CodingKeys.title)
+        static let email = Column(CodingKeys.email)
+        static let address = Column(CodingKeys.address)
+        static let url = Column(CodingKeys.url)
+        static let active = Column(CodingKeys.active)
+        
+        
+        static let agencyId = Column(CodingKeys.agencyId)
 
-    var created: String?
-    var updated: String?
+
+        static let created = Column(CodingKeys.created)
+        static let updated = Column(CodingKeys.updated)
+
+        
+    }
+    
+    static let agency = belongsTo(Agency.self)
+
 }

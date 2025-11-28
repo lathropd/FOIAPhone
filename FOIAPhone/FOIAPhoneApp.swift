@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct FOIAPhoneApp: App {
-    @Environment(\.db) var db: DB
+    @Environment(\.db) var db: FPDatabase
 
     var body: some Scene {
         WindowGroup {

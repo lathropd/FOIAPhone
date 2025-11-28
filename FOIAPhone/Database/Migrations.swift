@@ -29,13 +29,12 @@ struct FPMigrations {
                 t.column("name", .text)
                 t.column("lawName",  .text)
                 t.column("muckrockId", .integer)
-                t.column("email", .text)
                 t.column("calendarDays", .integer)
                 t.column("businessDays", .integer)
                 
                 
-                t.column("createdDate", .datetime)
-                t.column("updatedDate", .datetime)
+                t.column("created", .datetime)
+                t.column("updated", .datetime)
             }
         }
 
@@ -46,12 +45,14 @@ struct FPMigrations {
                 t.column("foiaPortal", .text)
                 t.column("website", .text)
                 
+                t.column("muckrockId", .integer)
+
                 
                 t.belongsTo("jurisdiction").notNull()
                 
                 
-                t.column("updateDate", .datetime)
-                t.column("creationDate", .datetime)
+                t.column("updated", .datetime)
+                t.column("created", .datetime)
                 
             }
         }
@@ -71,8 +72,8 @@ struct FPMigrations {
                 
                 t.belongsTo("agency").notNull()
                 
-                t.column("createdDate", .datetime)
-                t.column("updatedDate", .datetime)
+                t.column("updated", .datetime)
+                t.column("created", .datetime)
             }
         }
         
@@ -84,8 +85,8 @@ struct FPMigrations {
                 t.column("method", .text)
                 t.column("verified", .boolean)
                 
-                t.column("createdDate", .datetime)
-                t.column("updatedDate", .datetime)
+                t.column("updated", .datetime)
+                t.column("created", .datetime)
             }
         }
         
@@ -97,14 +98,14 @@ struct FPMigrations {
                 t.column("text", .text)
                 t.column("method", .text)
                 t.column("status", .text)
+                t.column("notes", .text)
                 t.column("sent", .date)
-                t.column("businessDays", .integer)
                 
                 t.belongsTo("user").notNull()
                 t.belongsTo("agency").notNull()
                 
-                t.column("createdDate", .datetime)
-                t.column("updatedDate", .datetime)
+                t.column("updated", .datetime)
+                t.column("created", .datetime)
             }
         }
         

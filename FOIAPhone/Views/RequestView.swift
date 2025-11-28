@@ -10,7 +10,7 @@ import SwiftUI
 
 
 struct RequestView: View {
-    @Environment(\.db) var db: DB
+    @Environment(\.db) var db: FPDatabase
     var request: Request?
     
     var body: some View {
