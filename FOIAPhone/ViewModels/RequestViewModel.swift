@@ -135,27 +135,6 @@ Jurisdiction: \("USA")
 
 
     init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, db: DB) {
-//        self.appDatabase = appDatabase
-        print("Tesla")
-        
-
-            
-
-
-        
-//        
-//        if pocketBase.isAuthenticated != true {
-//            Task {
-//                do {
-//                    _ = try await pocketBase.authRefresh(userType: User.self)
-//
-//                } catch {
-//                    print("\(error)")
-//                }
-//            }
-//        }
-//        
-
         if request != nil {
             self.request = request!
         } else {
