@@ -6,12 +6,11 @@
 //
 
 import SwiftUI
- import SQLKit
-import SQLiteKit
-
 
 @main
 struct FOIAPhoneApp: App {
+    @Environment(\.db) var db: DB
+
     var body: some Scene {
         WindowGroup {
             MainMenuView()
@@ -24,6 +23,16 @@ struct FOIAPhoneApp: App {
         // Code to run when the app first launches
         print("App is launching!")
         // Example: Initialize UserDefaults
+        
+        // migrate if necessary
+        do {
+            print("running databse migrations")
+            try db.migrate()
+        } catch {
+            print("migrations failed: \(error)")
+        }
+        
         UserDefaults.standard.register(defaults: ["foiaPhoneSettings": ["":""]])
+        
     }
 }

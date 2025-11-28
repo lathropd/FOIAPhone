@@ -15,6 +15,8 @@ class RequestViewModel {
      
     public var request: Request
     
+
+    
     public var jurisdictionId: String = ""
 
     
@@ -132,10 +134,11 @@ Jurisdiction: \("USA")
     }
 
 
-    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil) {
+    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, db: DB) {
 //        self.appDatabase = appDatabase
+        print("Tesla")
         
-    
+
             
 
 

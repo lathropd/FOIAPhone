@@ -10,19 +10,19 @@ import SwiftUI
 
 
 struct RequestView: View {
-//    @Environment(\.pocketBase) var pocketBase
+    @Environment(\.db) var db: DB
     var request: Request?
     
     var body: some View {
-        ContentView(viewModel: RequestViewModel(request: request) )
+        // inject environment database into the viewmodel
+
+        ContentView(viewModel: RequestViewModel(request: request, db: db))
     }
+    
+   
 }
 
-//
 
-// using technique from GRDB demo to load
-// our views
-// https://github.com/groue/GRDB.swift/blob/master/Documentation/DemoApps/GRDBDemo/GRDBDemo/Views/PlayersNavigationView.swift
 private struct ContentView: View {
     @State var viewModel: RequestViewModel
     @Environment(\.dismiss) var dismiss
