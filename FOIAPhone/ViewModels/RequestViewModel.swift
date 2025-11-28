@@ -14,6 +14,7 @@ class RequestViewModel {
 
      
     public var request: Request
+    var db: FPDatabase
     
 
     
@@ -51,7 +52,7 @@ class RequestViewModel {
     }
     
     var saved: Bool {
-        self.request.id != "nil"
+        self.request.id != nil
     }
     
     var deletable: Bool {
@@ -62,21 +63,24 @@ class RequestViewModel {
         return (self.request.text != "")
     }
     
-    let navTitle = "New Request"
+    var navTitle: String {
+        return ( self.saved ? "Request" : "New Request" )
+    }
     
     var agencyInfo: String {
-        return """
-Agency Name\nContact Name: \("First Last")
-\("Title")
-\("(206) 555-1212")
-\("user@domain.ext")
-Jurisdiction: \("USA")
-"""
+        let t = """
+                Agency Name\nContact Name: \("First Last")
+                \("Title")
+                \("(206) 555-1212")
+                \("user@domain.ext")
+                Jurisdiction: \("USA")
+                """
+        return t
     }
     
     
     func save() {
-        if self.request.id == "" {
+        if self.request.id == nil {
             Task {
                 print("creating new")
                 do {
@@ -121,7 +125,7 @@ Jurisdiction: \("USA")
             self.alertTitle = "Network Error"
             self.alertText = """
                             So, something went wrong on the Internet. It could be bad connection, it could be \
-                            something else. If this keeps happening, please e-mail support@foiaphone.app.
+                            qsomething else. If this keeps happening, please e-mail [support@foiaphone.app](mailto:support@foiaphone.app).
                             """
             self.alertShows = true
             self.letterIsLoading = false
@@ -139,7 +143,7 @@ Jurisdiction: \("USA")
             self.request = request!
         } else {
             self.request = Request(
-                id: "",
+                id: nil,
                 title: "",
                 records: "",
                 text: "",
@@ -147,10 +151,10 @@ Jurisdiction: \("USA")
                 status: "",
                 notes: "",
                 sent: Date(),
-                agencyId: "",
-                userId: "",//pocketBase.currentUserId!,
-                created: "",
-                updated: ""
+                agencyId: nil,
+                userId: -1,
+                created: Date(),
+                updated: Date()
             )
             
                 
@@ -158,10 +162,7 @@ Jurisdiction: \("USA")
         }
     
         
-        
-        if agencyId != nil {
-            self.request.agencyId = agencyId ?? ""
-        }
+    
         
         if jurisdictionId != nil {
             self.jurisdictionId = jurisdictionId ?? ""
@@ -169,6 +170,8 @@ Jurisdiction: \("USA")
         } else if request?.agencyId != nil {
             
         }
+        
+        self.db = db
 
        
         

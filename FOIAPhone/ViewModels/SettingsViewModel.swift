@@ -8,6 +8,7 @@
 import Foundation
  
 
+@Observable
 class SettingsViewModel: Observable {
     // always going to make this private and expose via a read-only
     // property when necessary

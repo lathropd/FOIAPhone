@@ -8,16 +8,27 @@
 import SwiftUI
 
 struct AgenciesView: View {
-    private var vm = AgenciesViewModel()
+        @Environment(\.db) var db: FPDatabase
+        
+        var body: some View {
+            // inject environment database into the viewmodel
+
+            ContentView(viewModel: AgenciesViewModel(db: db))
+        }
+        
+       
+    }
+    
+private struct ContentView: View {
+    @State var viewModel: AgenciesViewModel
+    
     
     var body: some View {
         VStack {
             List {
-                Text("Hello, World!")
-                Section {
-                    ForEach(vm.agencies, id: \.id) { agency in
+                Section{
+                    ForEach(viewModel.agencies) { agency in
                         Text(agency.name)
-                            .font(.title)
                     }
                     Button {
                         

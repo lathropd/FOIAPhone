@@ -10,45 +10,43 @@ import SwiftUI
 
 
 struct SettingsView: View {
-//    @Environment(\.pocketBase) var pocketBase
+//    @Environment(\.db) var FPDatabase
 
 
     
     var body: some View {
-        ContentView(vm: SettingsViewModel())
+        ContentView(viewModel: SettingsViewModel())
     }
 }
 
 private struct ContentView: View {
     
-    @State var vm: SettingsViewModel
+    @State var viewModel: SettingsViewModel
     @State private var path = NavigationPath()
 
 
     
-    var loginScreenLabelText: String {
-        return vm.isAuthenticated ? "Account" : "Connect to an account"
-    }
+
     
     var body: some View {
         Form {
             Section("Identity") {
                 HStack {
-                    TextField("First Name", text: $vm.fname)
-                    TextField("Middle",  text: $vm.mi)
+                    TextField("First Name", text: $viewModel.fname)
+                    TextField("Middle",  text: $viewModel.mi)
                         .frame(width: 50)
-                    TextField("Last Name", text: $vm.lname)
+                    TextField("Last Name", text: $viewModel.lname)
                     
                     
                 }
-                TextField("Title", text: $vm.title)
-                TextField("Organization", text: $vm.organization)
-                NavigationLink(loginScreenLabelText, destination: LoginView())
-                    .foregroundStyle(.blue)
-            }
+                TextField("Title", text: $viewModel.title)
+                TextField("Organization", text: $viewModel.organization)
+                TextField("Email", text: $viewModel.email)
+
+                }
                 
             Section("Email Signature"){
-                TextEditor(text: $vm.signature)
+                TextEditor(text: $viewModel.signature)
                     .frame(minHeight:50)
 
             }
@@ -60,35 +58,31 @@ private struct ContentView: View {
         
             
     
-            Section(header: Text("Requester details")
+            Section(header: Text("Requester details"),
                     
-
+                    footer:
+                        Text(
+                            """
+                            Describing your organization and purpose assist with requests \
+                            for fee waivers, records access and expedited review.
+                            """
+                        )
+                    
                    
                     
             ) {
                 TextEditor(
-                    text: $vm.description,
+                    text: $viewModel.description,
                 ).frame(minHeight:50)
-            }
-                
-            Section(
-                footer:
-                    Text(
-                        """
-                        Describing your organization and purpose assist with requests \
-                        for fee waivers, records access and expedited review.
-                        """
-                    )
-                
-            ) {
+          
                     
                     
-                Toggle("News Media", isOn: $vm.isMedia)
-                Toggle("Nonprofit Organization", isOn: $vm.isNonprofit)
-                Toggle("Academic Research", isOn: $vm.isAcademic)
-                Toggle("Political Organization", isOn: $vm.isPolitical)
-                Toggle("Privacy Act", isOn: $vm.isPrivacyAct)
-                Toggle("Litigation", isOn: $vm.isLitigation)
+                Toggle("News Media", isOn: $viewModel.isMedia)
+                Toggle("Nonprofit Organization", isOn: $viewModel.isNonprofit)
+                Toggle("Academic Research", isOn: $viewModel.isAcademic)
+                Toggle("Political Organization", isOn: $viewModel.isPolitical)
+                Toggle("Privacy Act", isOn: $viewModel.isPrivacyAct)
+                Toggle("Litigation", isOn: $viewModel.isLitigation)
 
 
             }
@@ -103,12 +97,12 @@ private struct ContentView: View {
         }.navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
-            self.vm.updateAuthentication()
-            self.vm.loadSettings()
+            self.viewModel.updateAuthentication()
+            self.viewModel.loadSettings()
         }
         .onDisappear() {
-            self.vm.updateAuthentication()
-            self.vm.saveSettings()
+            self.viewModel.updateAuthentication()
+            self.viewModel.saveSettings()
         }
 
     }

@@ -10,33 +10,32 @@ import Foundation
 class AgenciesViewModel: Observable {
     // always going to make this private and expose via a read-only
     // property when necessary
-    var model: [Agency] = []
+    var data: [Agency] = []
+    var jurisdictions: [Jurisdiction] = []
+    var db: FPDatabase
     
     // rght not this can't be edited because there is no
     // setter. To allow edits add a setter or a mutator functions.
     var agencies: [Agency] {
-        return self.model
+        return self.data
     }
     
-    var jurisdictions: [Jurisdiction] {
-        return []
-    }
+  
     
     func delete(agency: Agency) {
-        self.delete(id: agency.id)
+        
     }
     
-    func delete(id: String) {
-        // CRUD Logic
-    }
-    
+ 
     func delete(jurisdiction: Jurisdiction) {
-        self.delete(jurisdictionId: jurisdiction.id)
+
     }
     
-    func delete(jurisdictionId: String) {
-        // CRUD Logic
+    init(db: FPDatabase) {
+        self.db = db
     }
+    
+
 
 
 }

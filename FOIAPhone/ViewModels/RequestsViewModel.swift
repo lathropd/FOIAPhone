@@ -8,20 +8,24 @@
 import Foundation
  
 
+@Observable
 class RequestsViewModel: Observable {
     // always going to make the model private and expose via a read-only
     // property when necessary
-    private var model: [Request] = []
+    private var data: [Request] = []
+    var db: FPDatabase
     
     var requests: [Request] {
-        return self.model
+        return self.data
     }
     
     func delete(request: Request) {
-        self.delete(id: request.id)
+        
     }
     
-    func delete(id: String) {
-        // CRUD logic
+    init(requests: [Request] = [], db: FPDatabase) {
+        self.data = requests
+        self.db = db
     }
+
 }

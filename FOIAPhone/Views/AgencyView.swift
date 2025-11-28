@@ -9,8 +9,20 @@ import SwiftUI
 
 
 struct AgencyView: View {
+    @Environment(\.db) private var db: FPDatabase
+    var agency: Agency?
     
-    @State private var vm = AgencyViewModel()
+    var body: some View {
+        ContentView(viewModel: AgencyViewModel(agency: agency, db: db))
+    }
+    
+}
+
+    
+private struct ContentView: View {
+    
+
+    @State var viewModel: AgencyViewModel
     @Environment(\.dismiss) private var dismiss
 
     

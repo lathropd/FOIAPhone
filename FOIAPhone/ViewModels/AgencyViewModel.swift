@@ -10,10 +10,11 @@ import Foundation
 class AgencyViewModel {
     // always going to make t private and expose via a read-only
     // property when necessary
-    private var model: Agency? = nil
-    
+    private var data: Agency?
+    var db: FPDatabase
+
     var agency: Agency? {
-        return self.model
+        return self.data
     }
     
     func save() {
@@ -23,6 +24,11 @@ class AgencyViewModel {
 
     func delete() {
         // CRUD LOGIC
+    }
+    
+    init(agency: Agency? = nil, db: FPDatabase) {
+        self.data = agency
+        self.db = db
     }
 
     

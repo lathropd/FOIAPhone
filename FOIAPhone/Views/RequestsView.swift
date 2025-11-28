@@ -7,10 +7,20 @@
 import SwiftUI
 
 
-
 struct RequestsView: View {
+        @Environment(\.db) var db: FPDatabase
+        
+        var body: some View {
+            // inject environment database into the viewmodel
+
+            ContentView(viewModel: RequestsViewModel(db: db))
+        }
+        
+       
+    }
     
-    @State private var vm = RequestsViewModel()
+private struct ContentView: View {
+    @State var viewModel: RequestsViewModel
 
     
     var body: some View {
