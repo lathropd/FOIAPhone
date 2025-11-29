@@ -19,6 +19,7 @@ struct Agency: FPRecord {
     var jurisdictionId: Int32
     var muckrockId: Int32?
     
+    var hidden: Bool = false
 
 
     var created: Date

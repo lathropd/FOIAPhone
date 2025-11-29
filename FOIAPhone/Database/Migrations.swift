@@ -109,7 +109,23 @@ struct FPMigrations {
             }
         }
         
+        migrator.registerMigration("Add hidden to jurisdiction and agency tables") { db in
+            try db.alter(table: "jurisdiction") { t in
+                t.add(column: "hidden", .boolean)
+            }
+            
+            try db.alter(table: "agency") { t in
+                t.add(column: "hidden", .boolean)
+            }
+        }
         
+        migrator.registerMigration("Add residencyRequirment to jurisdiction  tables") { db in
+            try db.alter(table: "jurisdiction") { t in
+                t.add(column: "residencyRequired", .boolean)
+            }
+        }
+            
+        // TODO: Add automatic timestamping at the table level
         
         
         

@@ -17,6 +17,10 @@ struct Jurisdiction: FPRecord  {
     var muckrockId: Int32?
     var calendarDays: Int
     var businessDays: Int
+    
+    var residencyRequired: Bool = false
+    var hidden: Bool = false
+
 
     var created: Date
     var updated: Date
