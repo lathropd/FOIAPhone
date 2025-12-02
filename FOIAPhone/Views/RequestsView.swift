@@ -25,7 +25,20 @@ private struct ContentView: View {
     
     var body: some View {
         Form {
-            
+            List {
+                ForEach(viewModel.requests) { request in
+                    NavigationLink(destination:  RequestView(request: request)) {
+                        Text(request.title)
+                    }
+                }
+                NavigationLink(destination:  RequestView()) {
+                    Button {
+                        
+                    } label: {
+                        Text("+ Add")
+                    }
+                }
+            }
         }.navigationTitle("Requests")
             .navigationBarTitleDisplayMode(.large)
 

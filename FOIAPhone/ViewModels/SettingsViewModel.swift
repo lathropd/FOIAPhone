@@ -12,10 +12,8 @@ import Foundation
 class SettingsViewModel: Observable {
     // always going to make this private and expose via a read-only
     // property when necessary
-    private var model: User? = nil
+    private var data: User? = nil
     
-    
-    // pocketbase object props don't bubble up through observable
     var isAuthenticated: Bool = false
     
 

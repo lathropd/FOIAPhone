@@ -12,9 +12,15 @@ class AgencyViewModel {
     // property when necessary
     private var data: Agency?
     var db: FPDatabase
+    
+    var stringg = ""
 
     var agency: Agency? {
         return self.data
+    }
+    
+    var contacts: [Contact] {
+        return []
     }
     
     func save() {

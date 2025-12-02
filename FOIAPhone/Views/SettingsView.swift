@@ -22,28 +22,23 @@ struct SettingsView: View {
 private struct ContentView: View {
     
     @State var viewModel: SettingsViewModel
-    @State private var path = NavigationPath()
 
-
-    
-
-    
     var body: some View {
         Form {
-            Section("Identity") {
-                HStack {
-                    TextField("First Name", text: $viewModel.fname)
-                    TextField("Middle",  text: $viewModel.mi)
-                        .frame(width: 50)
-                    TextField("Last Name", text: $viewModel.lname)
-                    
-                    
-                }
-                TextField("Title", text: $viewModel.title)
-                TextField("Organization", text: $viewModel.organization)
-                TextField("Email", text: $viewModel.email)
 
-                }
+            HStack {
+                TextField("First Name", text: $viewModel.fname)
+                TextField("Middle",  text: $viewModel.mi)
+                    .frame(width: 50)
+                TextField("Last Name", text: $viewModel.lname)
+            }
+                    
+                    
+            TextField("Title", text: $viewModel.title)
+            TextField("Organization", text: $viewModel.organization)
+            TextField("Email", text: $viewModel.email)
+
+            
                 
             Section("Email Signature"){
                 TextEditor(text: $viewModel.signature)
@@ -97,11 +92,11 @@ private struct ContentView: View {
         }.navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)
         .onAppear {
-            self.viewModel.updateAuthentication()
+//            self.viewModel.updateAuthentication()
             self.viewModel.loadSettings()
         }
         .onDisappear() {
-            self.viewModel.updateAuthentication()
+//            self.viewModel.updateAuthentication()
             self.viewModel.saveSettings()
         }
 

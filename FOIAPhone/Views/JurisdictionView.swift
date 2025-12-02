@@ -28,6 +28,20 @@ private struct ContentView: View {
     
     var body: some View {
         Form {
+            TextField("Name", text: $viewModel.stringg )
+            TextField("Sunshine Law", text: $viewModel.stringg )
+            TextField("Business days to respond", text: $viewModel.stringg )
+            TextField("Calendar days to respond", text: $viewModel.stringg )
+            Toggle("Residency Requirement", isOn: $viewModel.booleann)
+            
+            
+            Section("Requests") {
+                
+            }
+
+
+
+
             
         }.navigationTitle("Jurisdiction")
             .navigationBarTitleDisplayMode(.large)

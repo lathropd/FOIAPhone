@@ -11,7 +11,10 @@ class AgenciesViewModel: Observable {
     // always going to make this private and expose via a read-only
     // property when necessary
     var data: [Agency] = []
+    
     var jurisdictions: [Jurisdiction] = []
+
+    
     var db: FPDatabase
     
     // rght not this can't be edited because there is no

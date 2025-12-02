@@ -21,17 +21,50 @@ struct AgencyView: View {
     
 private struct ContentView: View {
     
-
+    
     @State var viewModel: AgencyViewModel
     @Environment(\.dismiss) private var dismiss
-
+    
     
     var body: some View {
         Form {
+            TextField("Name", text: $viewModel.stringg )
+            TextField("FOIA Portal", text: $viewModel.stringg)
+            TextField("Website", text: $viewModel.stringg)
+            TextField("Jurisdiction", text: $viewModel.stringg)
+
+            Section("Contacts") {
+                ForEach(viewModel.contacts) { contact in
+                    // probably want a fairly complex rendering view
+                    // but ... later?
+                    VStack {
+                        HStack {
+                            Text(contact.fname)
+                            Text(contact.lname)
+                        }
+                        Text(contact.title)
+                        Text(contact.email)
+                        Text(contact.phone)
+                        Text(contact.url)
+                    }
+                }
+                Button {
+                    // We'll eventully want a contact creation/editing
+                    // view
+                } label: {
+                    Text("+ Add")
+                }
+                
+            }
+            
+            Section("Requests") {
+                
+            }
+            
             
         }.navigationTitle("Agency")
-            .navigationBarTitleDisplayMode(.large)
-
+        .navigationBarTitleDisplayMode(.large)
+        
     }
 }
 

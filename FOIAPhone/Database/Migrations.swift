@@ -119,9 +119,25 @@ struct FPMigrations {
             }
         }
         
-        migrator.registerMigration("Add residencyRequirment to jurisdiction  tables") { db in
+        migrator.registerMigration("Add residencyRequirment to jurisdiction table") { db in
             try db.alter(table: "jurisdiction") { t in
                 t.add(column: "residencyRequired", .boolean)
+            }
+        }
+        
+        migrator.registerMigration("Add fields to user to user table") { db in
+            try db.alter(table: "user") { t in
+                t.add(column: "newsmedia", .boolean)
+                t.add(column: "nonprofit", .boolean)
+                t.add(column: "academic", .boolean)
+                t.add(column: "political", .boolean)
+                t.add(column: "privacyAct", .boolean)
+                t.add(column: "litigant", .boolean)
+                
+                t.rename(column: "name", to: "lname")
+                t.add(column: "fname", .text)
+                t.add(column: "organization", .text)
+                t.add(column: "organizationDescription", .text)
             }
         }
             

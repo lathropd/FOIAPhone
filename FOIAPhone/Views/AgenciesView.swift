@@ -28,18 +28,28 @@ private struct ContentView: View {
             List {
                 Section{
                     ForEach(viewModel.agencies) { agency in
-                        Text(agency.name)
+                        NavigationLink(destination:  AgencyView(agency: agency)) {
+                            Text(agency.name)
+                        }
                     }
-                    Button {
-                        
-                    } label: {
-                        Text("+ Add")
+                    NavigationLink(destination:  AgencyView()) {
+                        Button {
+                            
+                        } label: {
+                            Text("+ Add")
+                        }
                     }
+                   
                     
                 }
      
                 
                 Section("Jurisdictions") {
+                    ForEach(viewModel.jurisdictions) { jurisdiction in
+                        NavigationLink(destination:  JurisdictionView(jurisdiction: jurisdiction)) {
+                            Text(jurisdiction.name)
+                        }
+                    }
                     
                     Button {
                         
