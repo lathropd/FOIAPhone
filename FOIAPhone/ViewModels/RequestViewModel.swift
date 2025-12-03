@@ -174,7 +174,7 @@ class RequestViewModel {
         
         
         self.fp = fp
-        self.request = request
+        self.data = request!
 
        
         

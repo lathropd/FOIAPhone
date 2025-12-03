@@ -9,7 +9,8 @@
 import Foundation
 import GRDB
 /// The User  struct.
-///
+
+// MARK: for the time being, User -1 is going to be where we store our user data
 struct User: FPRecord, Equatable {
     var id: Int32?
     var fname: String

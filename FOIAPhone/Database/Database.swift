@@ -47,6 +47,6 @@ extension EnvironmentValues {
     @Entry var fp: FPAppData = FPAppData(filename: "./foiaphone.db")
 }
 
-protocol FPRecord: Codable, FetchableRecord, MutablePersistableRecord, Identifiable {
+protocol FPRecord: Codable, FetchableRecord, MutablePersistableRecord, Identifiable, Equatable {
     
 }
