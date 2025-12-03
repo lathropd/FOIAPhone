@@ -51,10 +51,12 @@ private struct ContentView: View {
                         }
                     }
                     
-                    Button {
-                        
-                    } label: {
-                        Text("+ Add")
+                    NavigationLink(destination:  JurisdictionView()) {
+                        Button {
+                            
+                        } label: {
+                            Text("+ Add")
+                        }
                     }
                     
                 }.headerProminence(.increased)
@@ -68,7 +70,11 @@ private struct ContentView: View {
                     content: {
                     })
             }
-        }.navigationTitle("Agencies")
+        }
+        .onAppear() {
+            viewModel.load()
+        }
+        .navigationTitle("Agencies")
             .navigationBarTitleDisplayMode(.large)
     }
 }

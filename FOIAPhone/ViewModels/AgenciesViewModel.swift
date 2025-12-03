@@ -34,9 +34,39 @@ class AgenciesViewModel: Observable {
 
     }
     
+    func load()  {
+        do {
+            try self.fp.db.read { db in
+                
+                let agencies =  try?  Agency.fetchAll(db, sql: """
+                                                            select * 
+                                                            from agency where id <> -1;
+                                                            """)
+                if agencies != nil {
+                    self.data = agencies!
+                    print("loaded agencies!")
+
+                }
+                
+                let jurisdictions =  try? Jurisdiction.fetchAll(db, sql: """
+                                                            select * 
+                                                            from jurisdiction where id <> -1;
+                                                            """)
+                if jurisdictions != nil {
+                    self.jurisdictions = jurisdictions!
+                    print("loaded jurisdictions!")
+
+                }
+
+            }
+        } catch {
+            print("error in AgenciesViewModel\n\(error)")
+        }
+    }
+    
     init(fp: FPAppData) {
         self.fp = fp
-        //
+
     }
     
 

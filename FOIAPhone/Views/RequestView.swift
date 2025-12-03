@@ -192,6 +192,7 @@ private struct ContentView: View {
         }.onChange(of: viewModel.data) { newData in
             
         }
+        .onAppear() {}
         .navigationTitle(viewModel.navTitle)
             .navigationBarTitleDisplayMode(.large)
             .alert(isPresented: $viewModel.alertShows) {
