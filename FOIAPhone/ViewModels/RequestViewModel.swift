@@ -11,16 +11,16 @@ import Foundation
 
 @Observable
 class RequestViewModel {
-
-     
+    
+    
     var request: Request
     var fp: FPAppData
     
     public var data: Request
-
+    
     
     public var jurisdictionId: String = ""
-
+    
     
     public var agencyList: [Agency]  = []
     
@@ -29,16 +29,16 @@ class RequestViewModel {
     public var alertShows: Bool = false
     public var alertText: String = ""
     public var alertTitle: String = ""
-//    public var user: User
-
+    //    public var user: User
     
     
-
+    
+    
     
     
     // variables to shaddow request
     // change this to a dictionary?
-   
+    
     
     
     
@@ -47,7 +47,7 @@ class RequestViewModel {
         case self.request.title == "" : return false
         case self.request.status == "": return false
         case self.request.method == "": return false
-        //case self.request.agencyId == nil: return false
+            //case self.request.agencyId == nil: return false
         default: return true
         }
     }
@@ -97,19 +97,19 @@ class RequestViewModel {
         } else {
             Task {
                 do {
-      
+                    
                 } catch {
                     print("\(error)")
                 }
             }
         }
-
+        
     }
     
     func delete() {
         print("delete")
     }
-
+    
     func email() {
         print("send email")
     }
@@ -130,20 +130,19 @@ class RequestViewModel {
                             """
             self.alertShows = true
             self.letterIsLoading = false
-
+            
         }
-
         
-    
+        
+        
         
     }
-
-
+    
+    
     init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, fp: FPAppData) {
-        if request != nil {
-            self.request = request!
-        } else {
-            self.request = Request(
+        if request == nil  {
+            // mask request parameter
+            let rq = Request(
                 id: nil,
                 title: "",
                 records: "",
@@ -157,10 +156,14 @@ class RequestViewModel {
                 created: Date(),
                 updated: Date()
             )
-            
-                
-            
+            self.request = rq
+            self.data = rq
+        } else {
+            self.request = request!
+            self.data = request!
         }
+
+    
     
         
     
@@ -174,7 +177,6 @@ class RequestViewModel {
         
         
         self.fp = fp
-        self.data = request!
 
        
         
