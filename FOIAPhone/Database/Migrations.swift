@@ -12,9 +12,10 @@ import GRDB
  
 ///
 ///
-// TODO: Will need to add a uuid field for purposes of migrations later when creating server side element
+// MARK: Will need to add a uuid field for purposes of migrations later when creating server side element
 //
 
+// TODO: Come up with a better approach to all the database fields I'm creating but not doing anything with at this point
 
 struct FPMigrations {
     
@@ -169,6 +170,7 @@ struct FPMigrations {
         // TODO: Add automatic timestamping at the table level
         
         // TODO: Add fixtures and restoring backup here
+        
         
         
         try migrator.migrate(db)
