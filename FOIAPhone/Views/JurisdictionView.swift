@@ -9,11 +9,11 @@ import SwiftUI
 
 
 struct JurisdictionView: View {
-    @Environment(\.db) private var db: FPDatabase
+    @Environment(\.fp) private var fp: FPAppData
     var jurisdiction: Jurisdiction?
     
     var body: some View {
-        ContentView(viewModel: JurisdictionViewModel(jurisdiction: jurisdiction, db: db))
+        ContentView(viewModel: JurisdictionViewModel(jurisdiction: jurisdiction, fp: fp))
     }
     
 }

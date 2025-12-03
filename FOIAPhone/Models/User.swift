@@ -10,20 +10,22 @@ import Foundation
 import GRDB
 /// The User  struct.
 ///
-struct User: FPRecord  {
+struct User: FPRecord, Equatable {
     var id: Int32?
     var fname: String
+    var mi: String
     var lname: String
     var email: String
-    var avatar: String
     var method: String
     var verified: Bool
     
     
     var organization: String
     var title: String
+    var signature: String
 
-    var organizationDescription: String
+
+    var description: String
     var media: Bool
     var nonprofit: Bool
     var academic: Bool
@@ -42,12 +44,11 @@ struct User: FPRecord  {
         static let lname = Column(CodingKeys.lname)
         static let email = Column(CodingKeys.email)
         static let method = Column(CodingKeys.method)
-        static let avatar = Column(CodingKeys.avatar)
         static let verified = Column(CodingKeys.verified)
         static let organization =  Column(CodingKeys.organization)
         static let title = Column(CodingKeys.title)
         
-        static let organizationDescription =  Column(CodingKeys.organizationDescription)
+        static let description =  Column(CodingKeys.description)
         static let media = Column(CodingKeys.media)
         static let nonprofit = Column(CodingKeys.nonprofit)
         static let academic = Column(CodingKeys.academic)

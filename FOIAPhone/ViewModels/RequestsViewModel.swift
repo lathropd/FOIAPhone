@@ -13,7 +13,7 @@ class RequestsViewModel: Observable {
     // always going to make the model private and expose via a read-only
     // property when necessary
     private var data: [Request] = []
-    var db: FPDatabase
+    var fp: FPAppData
     
     var requests: [Request] {
         return self.data
@@ -23,9 +23,9 @@ class RequestsViewModel: Observable {
         
     }
     
-    init(requests: [Request] = [], db: FPDatabase) {
+    init(requests: [Request] = [], fp: FPAppData) {
         self.data = requests
-        self.db = db
+        self.fp = fp
     }
 
 }

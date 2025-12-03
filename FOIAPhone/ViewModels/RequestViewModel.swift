@@ -13,9 +13,10 @@ import Foundation
 class RequestViewModel {
 
      
-    public var request: Request
-    var db: FPDatabase
+    var request: Request
+    var fp: FPAppData
     
+    public var data: Request
 
     
     public var jurisdictionId: String = ""
@@ -138,7 +139,7 @@ class RequestViewModel {
     }
 
 
-    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, db: FPDatabase) {
+    init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, fp: FPAppData) {
         if request != nil {
             self.request = request!
         } else {
@@ -151,7 +152,7 @@ class RequestViewModel {
                 status: "",
                 notes: "",
                 sent: Date(),
-                agencyId: nil,
+                agencyId: -1,
                 userId: -1,
                 created: Date(),
                 updated: Date()
@@ -171,7 +172,9 @@ class RequestViewModel {
             
         }
         
-        self.db = db
+        
+        self.fp = fp
+        self.request = request
 
        
         

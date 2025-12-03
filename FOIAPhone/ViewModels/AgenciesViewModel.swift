@@ -15,7 +15,7 @@ class AgenciesViewModel: Observable {
     var jurisdictions: [Jurisdiction] = []
 
     
-    var db: FPDatabase
+    var fp: FPAppData
     
     // rght not this can't be edited because there is no
     // setter. To allow edits add a setter or a mutator functions.
@@ -34,8 +34,9 @@ class AgenciesViewModel: Observable {
 
     }
     
-    init(db: FPDatabase) {
-        self.db = db
+    init(fp: FPAppData) {
+        self.fp = fp
+        //
     }
     
 

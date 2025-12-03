@@ -14,7 +14,7 @@ class JurisdictionViewModel: Observable {
     var stringg = ""
     var booleann = false
     
-    var db: FPDatabase
+    var fp: FPAppData
     
     var jurisdiction: Jurisdiction? {
         return self.data
@@ -29,8 +29,8 @@ class JurisdictionViewModel: Observable {
         return "Delete"
     }
     
-    init(jurisdiction: Jurisdiction?, db: FPDatabase) {
+    init(jurisdiction: Jurisdiction?, fp: FPAppData) {
         self.data = jurisdiction
-        self.db = db
+        self.fp = fp
     }
 }

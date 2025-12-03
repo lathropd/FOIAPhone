@@ -22,6 +22,8 @@ struct FPMigrations {
     
     func execute() throws {
         var migrator = DatabaseMigrator()
+        migrator.eraseDatabaseOnSchemaChange = true
+
         
         migrator.registerMigration("Create jurisdiction table") { db in
             try db.create(table: "jurisdiction") { t in
@@ -119,7 +121,7 @@ struct FPMigrations {
             }
         }
         
-        migrator.registerMigration("Add residencyRequirment to jurisdiction table") { db in
+        migrator.registerMigration("Add residencyRequirment to jurisdiction tables") { db in
             try db.alter(table: "jurisdiction") { t in
                 t.add(column: "residencyRequired", .boolean)
             }
@@ -127,7 +129,7 @@ struct FPMigrations {
         
         migrator.registerMigration("Add fields to user to user table") { db in
             try db.alter(table: "user") { t in
-                t.add(column: "newsmedia", .boolean)
+                t.add(column: "media", .boolean)
                 t.add(column: "nonprofit", .boolean)
                 t.add(column: "academic", .boolean)
                 t.add(column: "political", .boolean)
@@ -136,14 +138,37 @@ struct FPMigrations {
                 
                 t.rename(column: "name", to: "lname")
                 t.add(column: "fname", .text)
+                t.add(column: "mi", .text)
+                t.add(column: "title", .text)
+                t.add(column: "signature", .text)
+
+
+
                 t.add(column: "organization", .text)
-                t.add(column: "organizationDescription", .text)
+                t.add(column: "description", .text)
             }
         }
+        
+        // adding these to the database but not going to use them for the time being
+        // need some kind of system for all these unused agencies and jurisdictions
+        migrator.registerMigration("Add some standardization fields to jurisdictions") { db in
+            try db.alter(table: "jurisdiction") { t in
+                t.add(column: "iso", .text)
+                t.add(column: "usps", .text)
+                t.add(column: "fips", .text)
+            }
+            
+            try db.alter(table: "agency") { t in
+                t.add(column: "censusId", .text) // tbd later which one
+                t.add(column: "ori9", .text) // law enforcement see https://catalog.data.gov/dataset/law-enforcement-agency-identifiers-crosswalk-series-c2ecb
+                t.add(column: "foiaDotGov", .text) // tbd later which one
+            }
+        }
+
             
         // TODO: Add automatic timestamping at the table level
         
-        
+        // TODO: Add fixtures and restoring backup here
         
         
         try migrator.migrate(db)

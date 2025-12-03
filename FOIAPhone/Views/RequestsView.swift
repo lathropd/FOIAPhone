@@ -8,12 +8,12 @@ import SwiftUI
 
 
 struct RequestsView: View {
-        @Environment(\.db) var db: FPDatabase
+        @Environment(\.fp) var fp: FPAppData
         
         var body: some View {
             // inject environment database into the viewmodel
 
-            ContentView(viewModel: RequestsViewModel(db: db))
+            ContentView(viewModel: RequestsViewModel(fp: fp))
         }
         
        

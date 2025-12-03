@@ -11,7 +11,7 @@ class AgencyViewModel {
     // always going to make t private and expose via a read-only
     // property when necessary
     private var data: Agency?
-    var db: FPDatabase
+    var fp: FPAppData
     
     var stringg = ""
 
@@ -32,9 +32,9 @@ class AgencyViewModel {
         // CRUD LOGIC
     }
     
-    init(agency: Agency? = nil, db: FPDatabase) {
+    init(agency: Agency? = nil, fp: FPAppData) {
         self.data = agency
-        self.db = db
+        self.fp = fp
     }
 
     

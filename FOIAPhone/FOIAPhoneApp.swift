@@ -9,7 +9,7 @@ import SwiftUI
 
 @main
 struct FOIAPhoneApp: App {
-    @Environment(\.db) var db: FPDatabase
+    @Environment(\.fp) var fp: FPAppData
 
     var body: some Scene {
         WindowGroup {
@@ -27,7 +27,7 @@ struct FOIAPhoneApp: App {
         // migrate if necessary
         do {
             print("running databse migrations")
-            try db.migrate()
+            try fp.migrate()
         } catch {
             print("migrations failed: \(error)")
         }

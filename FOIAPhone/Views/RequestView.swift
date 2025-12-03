@@ -10,13 +10,13 @@ import SwiftUI
 
 
 struct RequestView: View {
-    @Environment(\.db) var db: FPDatabase
+    @Environment(\.fp) var fp: FPAppData
     var request: Request?
     
     var body: some View {
         // inject environment database into the viewmodel
 
-        ContentView(viewModel: RequestViewModel(request: request, db: db))
+        ContentView(viewModel: RequestViewModel(request: request, fp: fp))
     }
     
    
@@ -189,7 +189,10 @@ private struct ContentView: View {
             
             
             
-        }.navigationTitle(viewModel.navTitle)
+        }.onChange(of: viewModel.data) { newData in
+            
+        }
+        .navigationTitle(viewModel.navTitle)
             .navigationBarTitleDisplayMode(.large)
             .alert(isPresented: $viewModel.alertShows) {
                 Alert(

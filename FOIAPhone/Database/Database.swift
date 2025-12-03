@@ -9,7 +9,7 @@ import Foundation
 import GRDB
 import SwiftUI
 
-class FPDatabase {
+class FPAppData {
     let db: DatabaseQueue
     
     init(filename: String)  {
@@ -44,7 +44,7 @@ class FPDatabase {
 }
 
 extension EnvironmentValues {
-    @Entry var db: FPDatabase = FPDatabase(filename: "./foiaphone.db")
+    @Entry var fp: FPAppData = FPAppData(filename: "./foiaphone.db")
 }
 
 protocol FPRecord: Codable, FetchableRecord, MutablePersistableRecord, Identifiable {
