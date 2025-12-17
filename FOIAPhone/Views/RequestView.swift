@@ -35,34 +35,22 @@ private struct ContentView: View {
         Form{
             TextField("Title", text: $viewModel.data.title)
             DatePicker("Date", selection: $viewModel.data.sent, displayedComponents: .date)
-            
-            //            Picker("jurisdiction", selection: $viewModel.jurisdiction.id) {
-            //                Text("Choose Jurisdiction").tag("")
-            //            }
-            //            Picker("agency", selection: $viewModel.agency.id) {
-            //                Text("Choose Agency")
-            //            }
-            
-            
-            
             Section("Records") {
                 TextEditor(text: $viewModel.data.records)
 //            }
 //            
 //            Section("Agency") {
                 Picker("Jurisdiction", selection: $viewModel.jurisdictionId) {
-                    
+                    // Jurisdictions
                 }
                 Picker("Agency", selection: $viewModel.data.agencyId) {
-                    
+                    // Agencies
                 }
             }
             
             Section("Request Text") {
-                
                 ZStack {
                     VStack {
-                        
                         TextEditor(text: $viewModel.data.text)
                             .listRowSeparator(.hidden) // Hide separator for this row
                             .frame(minHeight: 50, maxHeight:200)
@@ -70,7 +58,6 @@ private struct ContentView: View {
                         
                         HStack {
                             Spacer()
-          
                             Button("generate", systemImage: "bolt.fill") {
                                 print("generate letter")
                                 Task {
@@ -80,14 +67,10 @@ private struct ContentView: View {
                                     print("generated letter")
                                     // cancel spinner
                                 }
-                                
                             }.labelStyle(.iconOnly)
                                 .buttonStyle(.automatic)
-
                         }
                     }
-                    
-                    
                     if (viewModel.letterIsLoading) {
                         ProgressView()
                             .progressViewStyle(.circular)
@@ -95,10 +78,7 @@ private struct ContentView: View {
                         //.tint(.blue)
                             .frame(maxWidth: .infinity, maxHeight: .infinity)
                     }
-                    
                 }
-                
-                
                 
                 Picker("status", selection: $viewModel.data.status) {
                     Text("draft").tag("draft")
@@ -108,9 +88,6 @@ private struct ContentView: View {
                     Text("fulfilled (partial)").tag("partiallyFulfilled")
                     Text("rejected").tag("rejected")
                     Text("on appeal").tag("onAppeal")
-
-
-
                 }
                 Picker("request method", selection: $viewModel.data.method) {
                     Text("email").tag("email")
@@ -120,8 +97,6 @@ private struct ContentView: View {
                     Text("fax").tag("fax")
                     Text("other").tag("other")
                 }
-                
-                
             }
             
             Section("Notes") {
@@ -143,16 +118,14 @@ private struct ContentView: View {
             Section {
                 HStack(alignment: .center) {
                     Button() {
-                        
                         viewModel.email()
                     }
                     label: {
                             Image(systemName:"envelope")
                             Text("Send")
                         }
-                        .buttonStyle(.borderless)
+                        .buttonStyle(.bordered)
                         .disabled(!viewModel.emailable)
-                    
                     
                     Spacer()
                     Button() {
@@ -161,9 +134,8 @@ private struct ContentView: View {
                         Image( systemName: "opticaldiscdrive")
                         Text("Save")
                     }
-                    .buttonStyle(.borderless)
+                    .buttonStyle(.bordered)
                     .disabled(!viewModel.saveable)
-                    
                     
                     Spacer()
                     // Something about the form makes the trash icon blue in a label or shortform button
@@ -176,22 +148,12 @@ private struct ContentView: View {
                     }
                     .disabled(!viewModel.deletable)
                     .tint(.red)
-                    .buttonStyle(.borderless)
-                    
-                    
-                    
+                    .buttonStyle(.bordered)
                 }
                 
-                
             }
-            
-            
-            
-            
-            
-        }.onChange(of: viewModel.data) { newData in
-            
         }
+        .onChange(of: viewModel.data) {}
         .onAppear() {}
         .navigationTitle(viewModel.navTitle)
             .navigationBarTitleDisplayMode(.large)

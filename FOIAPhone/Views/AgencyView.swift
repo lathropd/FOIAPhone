@@ -10,6 +10,7 @@ import SwiftUI
 
 struct AgencyView: View {
     @Environment(\.fp) private var fp: FPAppData
+    
     var agency: Agency?
     
     var body: some View {
@@ -56,6 +57,49 @@ private struct ContentView: View {
                 }.disabled(true)
                 
             }
+            
+          
+                HStack(alignment: .center) {
+                    //                    Button() {
+                    //
+                    //                        viewModel.email()
+                    //                    }
+                    //                    label: {
+                    //                            Image(systemName:"envelope")
+                    //                            Text("Send")
+                    //                        }
+                    //                        .buttonStyle(.borderless)
+                    //                        .disabled(!viewModel.emailable)
+                    //
+                    
+//                    Spacer()
+                    Button() {
+                        viewModel.save()
+                    } label: {
+                        Image( systemName: "opticaldiscdrive")
+                        Text("Save")
+                    }
+                    .buttonStyle(.bordered)
+                    //                    .disabled(!viewModel.saveable)
+                    
+                    
+                    Spacer()
+                    // Something about the form makes the trash icon blue in a label or shortform button
+                    Button( role:.destructive) {
+                        viewModel.delete()
+                        dismiss()
+                    } label: {
+                        Image( systemName: "trash")
+                        Text("Delete")
+                    }
+                    //                    .disabled(!viewModel.deletable)
+                    .tint(.red)
+                    .buttonStyle(.bordered)
+                    
+                    
+                    
+                }
+            
             
             Section("Requests") {
                 

@@ -19,16 +19,16 @@ class JurisdictionViewModel: Observable {
     
     func save() {
         Task {
-            try! fp.db.write { db in
-                try! self.data.upsert(db)
+            try fp.db.write { db in
+                try self.data.upsert(db)
             }
         }
     }
 
     func delete() {
         Task {
-            try! fp.db.write { db in
-                try! self.data.delete(db)
+            try fp.db.write { db in
+                try self.data.delete(db)
             }
         }
     }

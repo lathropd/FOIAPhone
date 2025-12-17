@@ -23,8 +23,8 @@ class AgencyViewModel {
     
     func save() {
         Task {
-            try! fp.db.write { db in
-                try! self.data.upsert(db)
+            try fp.db.write { db in
+                try self.data.upsert(db)
             }
         }
     }
@@ -32,8 +32,8 @@ class AgencyViewModel {
 
     func delete() {
         Task {
-            try! fp.db.write { db in
-                try! self.data.delete(db)
+            try fp.db.write { db in
+                try self.data.delete(db)
             }
         }
     }
