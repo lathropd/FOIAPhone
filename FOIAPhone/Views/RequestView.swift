@@ -33,8 +33,8 @@ private struct ContentView: View {
         
         
         Form{
-            TextField("Title", text: $viewModel.request.title)
-            DatePicker("Date", selection: $viewModel.request.sent, displayedComponents: .date)
+            TextField("Title", text: $viewModel.data.title)
+            DatePicker("Date", selection: $viewModel.data.sent, displayedComponents: .date)
             
             //            Picker("jurisdiction", selection: $viewModel.jurisdiction.id) {
             //                Text("Choose Jurisdiction").tag("")
@@ -46,14 +46,14 @@ private struct ContentView: View {
             
             
             Section("Records") {
-                TextEditor(text: $viewModel.request.records)
+                TextEditor(text: $viewModel.data.records)
 //            }
 //            
 //            Section("Agency") {
                 Picker("Jurisdiction", selection: $viewModel.jurisdictionId) {
                     
                 }
-                Picker("Agency", selection: $viewModel.request.agencyId) {
+                Picker("Agency", selection: $viewModel.data.agencyId) {
                     
                 }
             }
@@ -63,7 +63,7 @@ private struct ContentView: View {
                 ZStack {
                     VStack {
                         
-                        TextEditor(text: $viewModel.request.text)
+                        TextEditor(text: $viewModel.data.text)
                             .listRowSeparator(.hidden) // Hide separator for this row
                             .frame(minHeight: 50, maxHeight:200)
                             .disabled(viewModel.letterIsLoading)
@@ -100,7 +100,7 @@ private struct ContentView: View {
                 
                 
                 
-                Picker("status", selection: $viewModel.request.status) {
+                Picker("status", selection: $viewModel.data.status) {
                     Text("draft").tag("draft")
                     Text("sent").tag("sent")
                     Text("disclosure in progress").tag("inProgress")
@@ -112,7 +112,7 @@ private struct ContentView: View {
 
 
                 }
-                Picker("request method", selection: $viewModel.request.method) {
+                Picker("request method", selection: $viewModel.data.method) {
                     Text("email").tag("email")
                     Text("online submission").tag("online")
                     Text("muckrock").tag("muckrock")
@@ -125,7 +125,7 @@ private struct ContentView: View {
             }
             
             Section("Notes") {
-                TextEditor(text: $viewModel.request.notes)
+                TextEditor(text: $viewModel.data.notes)
             }
             
             Section("Agency Info") {

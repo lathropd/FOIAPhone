@@ -11,7 +11,7 @@ import Foundation
 /// The Jurisdiction struct.
 ///
 struct Jurisdiction: FPRecord  {
-    var id: Int32?
+    var id: Int64?
     var name: String
     var lawName: String
     var muckrockId: Int32?

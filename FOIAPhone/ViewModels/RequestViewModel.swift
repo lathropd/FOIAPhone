@@ -13,10 +13,9 @@ import Foundation
 class RequestViewModel {
     
     
-    var request: Request
     var fp: FPAppData
     
-    public var data: Request
+    var data: Request
     
     
     public var jurisdictionId: String = ""
@@ -44,16 +43,16 @@ class RequestViewModel {
     
     var saveable: Bool {
         switch true {
-        case self.request.title == "" : return false
-        case self.request.status == "": return false
-        case self.request.method == "": return false
-            //case self.request.agencyId == nil: return false
+        case self.data.title == "" : return false
+        case self.data.status == "": return false
+        case self.data.method == "": return false
+            //case self.data.agencyId == nil: return false
         default: return true
         }
     }
     
     var saved: Bool {
-        self.request.id != nil
+        self.data.id != nil
     }
     
     var deletable: Bool {
@@ -61,7 +60,7 @@ class RequestViewModel {
     }
     
     var emailable: Bool {
-        return (self.request.text != "")
+        return (self.data.text != "")
     }
     
     var navTitle: String {
@@ -81,33 +80,19 @@ class RequestViewModel {
     
     
     func save() {
-        if self.request.id == nil {
-            Task {
-                print("creating new")
-                do {
-                    print("retrieved new")
-                    print("new request created")
-                    
-                } catch {
-                    print("\(error)")
-                }
-                
-                
-            }
-        } else {
-            Task {
-                do {
-                    
-                } catch {
-                    print("\(error)")
-                }
+        Task {
+            try! fp.db.write { db in
+                try! self.data.upsert(db)
             }
         }
-        
     }
     
     func delete() {
-        print("delete")
+        Task {
+            try! fp.db.write { db in
+                try! self.data.delete(db)
+            }
+        }
     }
     
     func email() {
@@ -118,8 +103,8 @@ class RequestViewModel {
         do {
             let llm = try LLMService()
             self.letterIsLoading = true
-            let request = try await llm.generateResponseFromData(data: self.request.records, template: "string.template")
-            self.request.text = request.text
+            let request = try await llm.generateResponseFromData(data: self.data.records, template: "string.template")
+            self.data.text = request.text
             self.letterIsLoading = false
         } catch {
             print("\(error)")
@@ -140,9 +125,7 @@ class RequestViewModel {
     
     
     init(request: Request? = nil, agencyId: String? = nil, jurisdictionId: String? = nil, fp: FPAppData) {
-        if request == nil  {
-            // mask request parameter
-            let rq = Request(
+            self.data = request ?? Request(
                 id: nil,
                 title: "",
                 records: "",
@@ -156,12 +139,7 @@ class RequestViewModel {
                 created: Date(),
                 updated: Date()
             )
-            self.request = rq
-            self.data = rq
-        } else {
-            self.request = request!
-            self.data = request!
-        }
+           
 
     
     

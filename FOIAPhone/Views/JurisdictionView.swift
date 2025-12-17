@@ -28,11 +28,11 @@ private struct ContentView: View {
     
     var body: some View {
         Form {
-            TextField("Name", text: $viewModel.stringg )
-            TextField("Sunshine Law", text: $viewModel.stringg )
-            TextField("Business days to respond", text: $viewModel.stringg )
-            TextField("Calendar days to respond", text: $viewModel.stringg )
-            Toggle("Residency Requirement", isOn: $viewModel.booleann)
+            TextField("Name", text: $viewModel.data.name )
+            TextField("Sunshine Law", text: $viewModel.data.lawName )
+            TextField("Business days to respond", value: $viewModel.data.businessDays, format: .number)
+            TextField("Calendar days to respond", value: $viewModel.data.calendarDays, format: .number )
+            Toggle("Residency Requirement", isOn: $viewModel.data.residencyRequired)
             
             
             Section("Requests") {

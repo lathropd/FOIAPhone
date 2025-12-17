@@ -12,7 +12,7 @@ import GRDB
 /// The Agency struct.
 ///
 struct Agency: FPRecord {
-    var id: Int32?
+    var id: Int64?
     var name: String
     var foiaPortal: String
     var website: String

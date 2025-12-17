@@ -11,7 +11,7 @@ import GRDB
 // The Contact struct
 
 struct Contact: FPRecord  {
-    var id: Int32?
+    var id: Int64?
     var fname: String
     var lname: String
     var primary: Bool

@@ -11,7 +11,7 @@ import GRDB
  
 /// The Request struct.
 struct Request: FPRecord {
-    var id: Int32?
+    var id: Int64?
     var title: String
     var records: String
     var text: String

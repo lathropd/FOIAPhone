@@ -9,25 +9,37 @@ import Foundation
 class JurisdictionViewModel: Observable {
     // always going to make t private and expose via a read-only
     // property when necessary
-    private var data: Jurisdiction?
+    var data: Jurisdiction
         
     var fp: FPAppData
     
-    var jurisdiction: Jurisdiction? {
+    var jurisdiction: Jurisdiction {
         return self.data
     }
     
-    private func deleteJurisdiction(request: Jurisdiction) -> String {
-        return "Delete"
+    func save() {
+        Task {
+            try! fp.db.write { db in
+                try! self.data.upsert(db)
+            }
+        }
+    }
+
+    func delete() {
+        Task {
+            try! fp.db.write { db in
+                try! self.data.delete(db)
+            }
+        }
     }
     
-    func deleteJurisdiction(id: String) throws  -> String {
-        
-        return "Delete"
-    }
     
-    init(jurisdiction: Jurisdiction?, fp: FPAppData) {
-        self.data = jurisdiction
+    init(jurisdiction: Jurisdiction? = nil, fp: FPAppData) {
+        self.data = jurisdiction ?? Jurisdiction(id: nil,
+                                                 name: "",
+                                                 lawName: "",
+                                                 created: Date(),
+                                                 updated: Date())
         self.fp = fp
     }
 }

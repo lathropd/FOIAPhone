@@ -28,10 +28,10 @@ private struct ContentView: View {
     
     var body: some View {
         Form {
-            TextField("Name", text: $viewModel.stringg )
-            TextField("FOIA Portal", text: $viewModel.stringg)
-            TextField("Website", text: $viewModel.stringg)
-            TextField("Jurisdiction", text: $viewModel.stringg)
+            TextField("Name", text: $viewModel.data.name)
+            TextField("FOIA Portal", text: $viewModel.data.foiaPortal)
+            TextField("Website", text: $viewModel.data.website)
+            //TextField("Jurisdiction", text: $viewModel.data.jurisdictionId)
 
             Section("Contacts") {
                 ForEach(viewModel.contacts) { contact in
@@ -53,7 +53,7 @@ private struct ContentView: View {
                     // view
                 } label: {
                     Text("+ Add")
-                }
+                }.disabled(true)
                 
             }
             
