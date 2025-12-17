@@ -13,8 +13,6 @@ class AgencyViewModel {
     private var data: Agency?
     var fp: FPAppData
     
-    var stringg = ""
-
     var agency: Agency? {
         return self.data
     }

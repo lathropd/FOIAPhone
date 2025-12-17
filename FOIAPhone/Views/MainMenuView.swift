@@ -49,6 +49,7 @@ private struct ContentView: View {
                             .scaleEffect(0.8)
                             .foregroundStyle(.tint)
                     }
+                    .accessibilityIdentifier("ViewRequestsButton")
                     
                     NavigationLink(destination: AgenciesView()) {
                         
@@ -59,6 +60,7 @@ private struct ContentView: View {
                         
                             .foregroundStyle(.tint)
                     }
+                    .accessibilityIdentifier("AgenciesButton")
                     
                     
                 }
@@ -81,6 +83,7 @@ private struct ContentView: View {
                             .foregroundStyle(.tint)
 
                     }
+                    .accessibilityIdentifier("NewRequestButton")
                 }
                 .offset(y: CGFloat(-100))
                 
@@ -103,6 +106,7 @@ private struct ContentView: View {
                             .padding()
                             
                     }
+                    .accessibilityIdentifier("SettingsButton")
                     
 
                 }

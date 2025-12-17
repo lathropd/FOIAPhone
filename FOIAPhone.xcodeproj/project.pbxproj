@@ -8,11 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		8C07838A2ED72747009DD612 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 8C0783892ED72747009DD612 /* GRDB */; };
-		8C0783952ED82924009DD612 /* GRDBSQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 8C0783942ED82924009DD612 /* GRDBSQLite */; };
 		8C31EA452ED19E6A0069403F /* GoogleProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C31EA442ED19E6A0069403F /* GoogleProvider */; };
 		8C31EA472ED19E6A0069403F /* SwiftAISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8C31EA462ED19E6A0069403F /* SwiftAISDK */; };
 		8C7A4B882ECF2EC100AEF39E /* GoogleProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B872ECF2EC100AEF39E /* GoogleProvider */; };
 		8C7A4BA02ECF2EC100AEF39E /* SwiftAISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8C7A4B9F2ECF2EC100AEF39E /* SwiftAISDK */; };
+		8CFDBBAD2EE2B1FA006DFF13 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBAC2EE2B1FA006DFF13 /* GRDB */; };
+		8CFDBBAF2EE2B20C006DFF13 /* GRDB in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBAE2EE2B20C006DFF13 /* GRDB */; };
+		8CFDBBB12EE2B226006DFF13 /* GoogleProvider in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBB02EE2B226006DFF13 /* GoogleProvider */; };
+		8CFDBBB32EE2B23B006DFF13 /* SwiftAISDK in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBB22EE2B23B006DFF13 /* SwiftAISDK */; };
+		8CFDBBB72EE2B30F006DFF13 /* EventSourceParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBB62EE2B30F006DFF13 /* EventSourceParser */; };
+		8CFDBBB92EE2B323006DFF13 /* EventSourceParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBB82EE2B323006DFF13 /* EventSourceParser */; };
+		8CFDBBBB2EE2B32B006DFF13 /* EventSourceParser in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBBA2EE2B32B006DFF13 /* EventSourceParser */; };
+		8CFDBBBE2EE2B49C006DFF13 /* NIO in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBBD2EE2B49C006DFF13 /* NIO */; };
+		8CFDBBC02EE2B49C006DFF13 /* NIOConcurrencyHelpers in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBBF2EE2B49C006DFF13 /* NIOConcurrencyHelpers */; };
+		8CFDBBC22EE2B49C006DFF13 /* NIOCore in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBC12EE2B49C006DFF13 /* NIOCore */; };
+		8CFDBBC42EE2B49C006DFF13 /* NIOEmbedded in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBC32EE2B49C006DFF13 /* NIOEmbedded */; };
+		8CFDBBC62EE2B49C006DFF13 /* NIOFoundationCompat in Frameworks */ = {isa = PBXBuildFile; productRef = 8CFDBBC52EE2B49C006DFF13 /* NIOFoundationCompat */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -142,9 +153,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C07838A2ED72747009DD612 /* GRDB in Frameworks */,
+				8CFDBBC62EE2B49C006DFF13 /* NIOFoundationCompat in Frameworks */,
+				8CFDBBC22EE2B49C006DFF13 /* NIOCore in Frameworks */,
+				8CFDBBB72EE2B30F006DFF13 /* EventSourceParser in Frameworks */,
+				8CFDBBC42EE2B49C006DFF13 /* NIOEmbedded in Frameworks */,
 				8C7A4BA02ECF2EC100AEF39E /* SwiftAISDK in Frameworks */,
+				8CFDBBC02EE2B49C006DFF13 /* NIOConcurrencyHelpers in Frameworks */,
 				8C7A4B882ECF2EC100AEF39E /* GoogleProvider in Frameworks */,
-				8C0783952ED82924009DD612 /* GRDBSQLite in Frameworks */,
+				8CFDBBBE2EE2B49C006DFF13 /* NIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +168,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CFDBBB12EE2B226006DFF13 /* GoogleProvider in Frameworks */,
+				8CFDBBB92EE2B323006DFF13 /* EventSourceParser in Frameworks */,
+				8CFDBBAF2EE2B20C006DFF13 /* GRDB in Frameworks */,
+				8CFDBBB32EE2B23B006DFF13 /* SwiftAISDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,6 +179,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8CFDBBAD2EE2B1FA006DFF13 /* GRDB in Frameworks */,
+				8CFDBBBB2EE2B32B006DFF13 /* EventSourceParser in Frameworks */,
 				8C31EA452ED19E6A0069403F /* GoogleProvider in Frameworks */,
 				8C31EA472ED19E6A0069403F /* SwiftAISDK in Frameworks */,
 			);
@@ -219,7 +241,12 @@
 				8C7A4B872ECF2EC100AEF39E /* GoogleProvider */,
 				8C7A4B9F2ECF2EC100AEF39E /* SwiftAISDK */,
 				8C0783892ED72747009DD612 /* GRDB */,
-				8C0783942ED82924009DD612 /* GRDBSQLite */,
+				8CFDBBB62EE2B30F006DFF13 /* EventSourceParser */,
+				8CFDBBBD2EE2B49C006DFF13 /* NIO */,
+				8CFDBBBF2EE2B49C006DFF13 /* NIOConcurrencyHelpers */,
+				8CFDBBC12EE2B49C006DFF13 /* NIOCore */,
+				8CFDBBC32EE2B49C006DFF13 /* NIOEmbedded */,
+				8CFDBBC52EE2B49C006DFF13 /* NIOFoundationCompat */,
 			);
 			productName = FOIAPhone;
 			productReference = 8C1541B72EBB3164001E32EB /* FOIAPhone.app */;
@@ -243,6 +270,10 @@
 			);
 			name = FOIAPhoneTests;
 			packageProductDependencies = (
+				8CFDBBAE2EE2B20C006DFF13 /* GRDB */,
+				8CFDBBB02EE2B226006DFF13 /* GoogleProvider */,
+				8CFDBBB22EE2B23B006DFF13 /* SwiftAISDK */,
+				8CFDBBB82EE2B323006DFF13 /* EventSourceParser */,
 			);
 			productName = FOIAPhoneTests;
 			productReference = 8C1541C42EBB3166001E32EB /* FOIAPhoneTests.xctest */;
@@ -268,6 +299,8 @@
 			packageProductDependencies = (
 				8C31EA442ED19E6A0069403F /* GoogleProvider */,
 				8C31EA462ED19E6A0069403F /* SwiftAISDK */,
+				8CFDBBAC2EE2B1FA006DFF13 /* GRDB */,
+				8CFDBBBA2EE2B32B006DFF13 /* EventSourceParser */,
 			);
 			productName = FOIAPhoneUITests;
 			productReference = 8C1541CE2EBB3166001E32EB /* FOIAPhoneUITests.xctest */;
@@ -308,6 +341,7 @@
 			packageReferences = (
 				8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */,
 				8C0783882ED72747009DD612 /* XCRemoteSwiftPackageReference "GRDB.swift" */,
+				8CFDBBBC2EE2B49C006DFF13 /* XCRemoteSwiftPackageReference "swift-nio" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 8C1541B82EBB3164001E32EB /* Products */;
@@ -696,6 +730,14 @@
 				minimumVersion = 0.1.4;
 			};
 		};
+		8CFDBBBC2EE2B49C006DFF13 /* XCRemoteSwiftPackageReference "swift-nio" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-nio.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.91.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -703,11 +745,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C0783882ED72747009DD612 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
 			productName = GRDB;
-		};
-		8C0783942ED82924009DD612 /* GRDBSQLite */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 8C0783882ED72747009DD612 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
-			productName = GRDBSQLite;
 		};
 		8C31EA442ED19E6A0069403F /* GoogleProvider */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -728,6 +765,66 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
 			productName = SwiftAISDK;
+		};
+		8CFDBBAC2EE2B1FA006DFF13 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C0783882ED72747009DD612 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		8CFDBBAE2EE2B20C006DFF13 /* GRDB */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C0783882ED72747009DD612 /* XCRemoteSwiftPackageReference "GRDB.swift" */;
+			productName = GRDB;
+		};
+		8CFDBBB02EE2B226006DFF13 /* GoogleProvider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = GoogleProvider;
+		};
+		8CFDBBB22EE2B23B006DFF13 /* SwiftAISDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = SwiftAISDK;
+		};
+		8CFDBBB62EE2B30F006DFF13 /* EventSourceParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = EventSourceParser;
+		};
+		8CFDBBB82EE2B323006DFF13 /* EventSourceParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = EventSourceParser;
+		};
+		8CFDBBBA2EE2B32B006DFF13 /* EventSourceParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8C7A4B5E2ECF2EC100AEF39E /* XCRemoteSwiftPackageReference "swift-ai-sdk" */;
+			productName = EventSourceParser;
+		};
+		8CFDBBBD2EE2B49C006DFF13 /* NIO */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CFDBBBC2EE2B49C006DFF13 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIO;
+		};
+		8CFDBBBF2EE2B49C006DFF13 /* NIOConcurrencyHelpers */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CFDBBBC2EE2B49C006DFF13 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOConcurrencyHelpers;
+		};
+		8CFDBBC12EE2B49C006DFF13 /* NIOCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CFDBBBC2EE2B49C006DFF13 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOCore;
+		};
+		8CFDBBC32EE2B49C006DFF13 /* NIOEmbedded */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CFDBBBC2EE2B49C006DFF13 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOEmbedded;
+		};
+		8CFDBBC52EE2B49C006DFF13 /* NIOFoundationCompat */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 8CFDBBBC2EE2B49C006DFF13 /* XCRemoteSwiftPackageReference "swift-nio" */;
+			productName = NIOFoundationCompat;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

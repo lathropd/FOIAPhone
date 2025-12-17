@@ -10,10 +10,7 @@ class JurisdictionViewModel: Observable {
     // always going to make t private and expose via a read-only
     // property when necessary
     private var data: Jurisdiction?
-    
-    var stringg = ""
-    var booleann = false
-    
+        
     var fp: FPAppData
     
     var jurisdiction: Jurisdiction? {

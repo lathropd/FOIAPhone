@@ -6,6 +6,7 @@
 //
 
 import XCTest
+import GRDB
 
 final class FOIAPhoneUITestsLaunchTests: XCTestCase {
 

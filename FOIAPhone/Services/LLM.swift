@@ -27,6 +27,11 @@ class LLMService {
         
     }
     
+    // Added for testing injection
+    init(model: LanguageModelV3) {
+        self.model = model
+    }
+    
     func generateTextFromText(prompt:String) async throws -> String {
         let result = try await generateText(
           model: model,
@@ -61,7 +66,3 @@ class LLMService {
     }
     
 }
-
-
-
-

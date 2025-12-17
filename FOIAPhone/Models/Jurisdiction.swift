@@ -15,8 +15,8 @@ struct Jurisdiction: FPRecord  {
     var name: String
     var lawName: String
     var muckrockId: Int32?
-    var calendarDays: Int
-    var businessDays: Int
+    var calendarDays: Int?
+    var businessDays: Int?
     
     var residencyRequired: Bool = false
     var hidden: Bool = false

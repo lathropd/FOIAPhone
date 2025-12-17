@@ -66,13 +66,6 @@ class SettingsViewModel: Observable {
             try User.fetchOne(db, key: -1)
         } ?? newUser
         
-        
-        print("\n\n\n\n===========================\n\n\n\n")
-        print("load user")
-        user?.verified = true
-        
-        print(user)
-        print("\n\n\n\n===========================\n\n\n\n")
 
         
         self.fp = fp
