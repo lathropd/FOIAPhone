@@ -38,6 +38,9 @@ class JurisdictionViewModel: Observable {
         self.data = jurisdiction ?? Jurisdiction(id: nil,
                                                  name: "",
                                                  lawName: "",
+                                                 muckrockId: nil,
+                                                 calendarDays: nil,
+                                                 businessDays: nil,
                                                  created: Date(),
                                                  updated: Date())
         self.fp = fp

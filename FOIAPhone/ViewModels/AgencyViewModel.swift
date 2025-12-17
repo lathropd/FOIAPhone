@@ -45,6 +45,7 @@ class AgencyViewModel {
                                      foiaPortal: "",
                                      website: "",
                                      jurisdictionId: -1,
+                                     muckrockId: nil,
                                      created: Date(),
                                      updated: Date())
         

@@ -89,7 +89,7 @@ private struct ContentView: View {
                 
             }, content: {})
             
-        }.onChange(of: viewModel.data) { newData in
+        }.onChange(of: viewModel.data) {
             //
             viewModel.save()
 //            print("save")
@@ -107,3 +107,4 @@ private struct ContentView: View {
         SettingsView()
     }
 }
+

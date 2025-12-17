@@ -35,25 +35,9 @@ class LoginViewModel: Observable {
     }
     
     func login()  {
-        Task {
-            do {
-//                _ = try await self.pb.authWithPassword(email: self.email, password: self.password, userType: User.self)
-//                self.isAuthenticated = pb.isAuthenticated
-//                self.user = try? await pb.collection("Users").getOne(id: pb.currentUserId ?? "")
-                    
-
-            } catch {
-                print("\(error)")
-//                self.isAuthenticated = pb.isAuthenticated
-                self.errorState = .failedLogin
-            }
-        }
-
     }
     
     func logout() {
-//        self.pb.signOut()
-//        self.isAuthenticated = pb.isAuthenticated
     }
     
     

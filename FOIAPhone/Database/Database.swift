@@ -48,11 +48,11 @@ extension EnvironmentValues {
 }
 
 protocol FPRecord: Codable, FetchableRecord, MutablePersistableRecord, Identifiable, Equatable {
-    var id: Int64? { get set }
+//    var id: Int64? { get set }
 }
 
-extension FPRecord {
-    mutating func didInsert(with rowID: Int64, for column: String?) {
-            id = rowID
-        }
-}
+//extension FPRecord {
+//    mutating func didInsert(with rowID: Int64, for column: String?) {
+//            id = rowID
+//        }
+//}

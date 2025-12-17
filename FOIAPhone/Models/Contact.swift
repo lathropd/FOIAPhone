@@ -21,7 +21,7 @@ struct Contact: FPRecord  {
     var address: String
     var url: String
     var active: Bool
-    var agencyId: Int32?
+    var agencyId: Int64?
 
 
     
