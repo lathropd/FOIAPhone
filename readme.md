@@ -3,7 +3,7 @@
 FOIA Phone is an iPhone (eventually supporting other Apple devices) app
 for creating open records requests on the fly.
 
-Build using a Model-View-Acto pattern where the main App and
+Build using a Model-View-Actor pattern where the main App and
 a main NavigationStack act as the Coordinator and Services are
 extracted for "stateless" actions like database and cloud sync 
 operations.
